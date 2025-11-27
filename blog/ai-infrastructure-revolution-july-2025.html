@@ -27,7 +27,15 @@
     <link rel="stylesheet" href="globaldesign.css">
         <style>
         /* Blog Hero Section */
-        .blog-hero {`n            background: var(--primary-dark);`n            min-height: 40vh;`n            display: flex;`n            align-items: center;`n            justify-content: center;`n            text-align: center;`n            position: relative;`n            padding: 4rem 2rem;
+        .blog-hero {
+            background: var(--primary-dark);
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 4rem 2rem;
         }
         
         .blog-meta {
@@ -56,12 +64,14 @@
             font-weight: 500;
         }
         
-        $12.5rem, 6vw, 4rem);
+        .blog-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 800;
             color: white !important;
-            margin-bottom: 1rem;
+            margin: 0;
             line-height: 1.2;
             letter-spacing: -0.02em;
+            max-width: 1200px;
         }
         
         .blog-hero h1 {
