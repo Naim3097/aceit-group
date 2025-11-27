@@ -246,6 +246,9 @@
     .mobile-dropdown-menu .mobile-parent .arrow {
         transition: transform 0.3s ease;
         font-size: 0.7rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        margin: -0.5rem;
     }
     .mobile-dropdown-menu .mobile-parent.open .arrow {
         transform: rotate(180deg);
@@ -374,22 +377,3 @@
         <div class="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
     </div>
 </header>
-
-<script>
-function toggleMobileMenu() {
-    const nav = document.querySelector('.global-nav-mobile');
-    const overlay = document.querySelector('.mobile-menu-overlay');
-    nav.classList.toggle('open');
-    overlay.classList.toggle('active');
-}
-
-function closeMobileMenu() {
-    const nav = document.querySelector('.global-nav-mobile');
-    const overlay = document.querySelector('.mobile-menu-overlay');
-    nav.classList.remove('open');
-    overlay.classList.remove('active');
-    // Close all open submenus
-    document.querySelectorAll('.mobile-parent.open').forEach(parent => parent.classList.remove('open'));
-    document.querySelectorAll('.mobile-submenu.open').forEach(submenu => submenu.classList.remove('open'));
-}
-</script>

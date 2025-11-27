@@ -80,6 +80,32 @@ function initNavigation() {
     }
 }
 
+// Mobile menu functions for global header
+function toggleMobileMenu() {
+    const nav = document.querySelector('.global-nav-mobile');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    if (nav && overlay) {
+        nav.classList.toggle('open');
+        overlay.classList.toggle('active');
+    }
+}
+
+function closeMobileMenu() {
+    const nav = document.querySelector('.global-nav-mobile');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    if (nav && overlay) {
+        nav.classList.remove('open');
+        overlay.classList.remove('active');
+        // Close all open submenus
+        document.querySelectorAll('.mobile-parent.open').forEach(parent => parent.classList.remove('open'));
+        document.querySelectorAll('.mobile-submenu.open').forEach(submenu => submenu.classList.remove('open'));
+    }
+}
+
+// Make functions globally accessible
+window.toggleMobileMenu = toggleMobileMenu;
+window.closeMobileMenu = closeMobileMenu;
+
 // Load components when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     loadHeader();
