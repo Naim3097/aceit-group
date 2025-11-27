@@ -381,6 +381,23 @@
             }
         }
     </style>
+    <script>
+        function toggleMobileMenu() {
+            const nav = document.querySelector('.aceteam-nav-mobile');
+            const overlay = document.querySelector('.mobile-menu-overlay');
+            nav.classList.toggle('open');
+            overlay.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const nav = document.querySelector('.aceteam-nav-mobile');
+            const overlay = document.querySelector('.mobile-menu-overlay');
+            nav.classList.remove('open');
+            overlay.classList.remove('active');
+            document.querySelectorAll('.mobile-parent.open').forEach(parent => parent.classList.remove('open'));
+            document.querySelectorAll('.mobile-submenu.open').forEach(submenu => submenu.classList.remove('open'));
+        }
+    </script>
 </head>
 <body>
     <!-- Custom AceTeam Header -->
@@ -468,22 +485,6 @@
     </header>
     
     <script>
-        function toggleMobileMenu() {
-            const nav = document.querySelector('.aceteam-nav-mobile');
-            const overlay = document.querySelector('.mobile-menu-overlay');
-            nav.classList.toggle('open');
-            overlay.classList.toggle('active');
-        }
-
-        function closeMobileMenu() {
-            const nav = document.querySelector('.aceteam-nav-mobile');
-            const overlay = document.querySelector('.mobile-menu-overlay');
-            nav.classList.remove('open');
-            overlay.classList.remove('active');
-            document.querySelectorAll('.mobile-parent.open').forEach(parent => parent.classList.remove('open'));
-            document.querySelectorAll('.mobile-submenu.open').forEach(submenu => submenu.classList.remove('open'));
-        }
-        
         // Add scroll effect for header background
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.aceteam-header');
