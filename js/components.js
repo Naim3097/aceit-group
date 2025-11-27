@@ -111,3 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
     loadHeader();
     loadFooter();
 });
+
+// Close mobile menu when navigating back (browser back button)
+window.addEventListener('pageshow', (event) => {
+    // Close menu on both forward navigation and back/forward cache restoration
+    closeMobileMenu();
+});

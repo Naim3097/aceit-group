@@ -3492,6 +3492,41 @@ body {
   text-decoration: none;
 }
 
+/* Blog Section Header */
+.blog-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  gap: 1.5rem;
+}
+
+.blog-section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin: 0;
+}
+
+.blog-view-all-btn {
+  background: white;
+  border: 2px solid var(--primary-dark);
+  color: var(--primary-dark);
+  padding: 0.6rem 1.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.blog-view-all-btn:hover {
+  background: var(--primary-dark);
+  color: white;
+}
+
 /* Blog Cards - Improved Typography */
 .blog-card {
   background: white;
@@ -3658,8 +3693,40 @@ body {
     font-size: 0.85rem;
   }
   
+  /* Blog Section Mobile Optimization */
+  .blog-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    gap: 1rem;
+  }
+  
+  .blog-section-title {
+    font-size: 1.5rem;
+  }
+  
+  .blog-view-all-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .blog-card {
+    padding: 1.5rem;
+  }
+  
   .blog-title {
     font-size: 1.1rem !important;
+  }
+  
+  .blog-badge {
+    font-size: 0.65rem;
+    padding: 0.35rem 0.7rem;
+  }
+  
+  .blog-link {
+    font-size: 0.85rem;
   }
   
   .related-service-card h3 {
