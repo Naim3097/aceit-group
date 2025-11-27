@@ -1,197 +1,386 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Enfrasys</title>
+    <title>Contact Us - ACEiT Group</title>
     <link rel="stylesheet" href="globaldesign.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/main pages hero.jpg') center/cover;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+            position: relative;
+        }
+        .hero-title {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            text-transform: none !important;
+        }
+        .hero-description {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 850px;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .contact-section {
+            background: #f8f9fa;
+            padding: 5rem 0;
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-info-card h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info-card p {
+            color: #4a5568;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .contact-info-card a {
+            color: #e91e8c;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info-card a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form-container {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .form-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid #e5e5e5;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #e91e8c;
+            box-shadow: 0 0 0 3px rgba(233, 30, 140, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #1a2842 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(9, 11, 26, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 3rem 0;
+            }
+
+            .contact-form-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-<body>        <nav class="nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">Enfrasys</a>
-            <button class="nav-toggle" id="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>            <ul class="nav-menu" id="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="products.html" class="nav-link">Products</a></li>
-                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                <li><a href="blog.html" class="nav-link">Blog</a></li>
-            </ul>
-            <a href="contact.html" class="nav-cta">Contact</a>
-        </div>
-    </nav>    <main>        <section class="hero hero-gradient">
-            <div class="hero-overlay"></div>
-            <div class="container">
-                <h1 class="hero-title">Partner with Enfrasys</h1>
-                <p class="hero-subtitle">Your strategic technology partner for comprehensive digital transformation solutions</p>
+<body>
+    <div id="header-placeholder"></div>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="container" style="text-align: center;">
+                <h1 class="hero-title">Contact Us</h1>
+                <p class="hero-description" style="margin-left: auto; margin-right: auto;">Ready to transform your IT infrastructure? Our team of experts is here to help you build reliable networks, secure your operations, and drive digital innovation. Reach out to discuss your project today.</p>
             </div>
         </section>
-        
-        <section class="section fade-in">
+
+
+        <!-- Contact Information & Form Section -->
+        <section class="contact-section">
             <div class="container">
-                <div class="grid grid-2 gap-xl">
-                    <div>                        <div class="section-header">
-                            <h2 class="section-title">Get In Touch</h2>
-                            <p class="section-subtitle">Ready to discuss your digital transformation journey? Our experts are here to help.</p>
-                        </div>
-                          <div class="grid gap-lg mt-lg"></div>
-                            <div class="card card-premium fade-in">
-                                <div class="card-content">
-                                    <div class="flex items-center gap-md">
-                                        <span class="badge badge-primary">Phone</span>
-                                        <div>
-                                            <h4>Main Office</h4>
-                                            <p class="text-muted">+603 7498 1515</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="card card-premium fade-in">
-                                <div class="card-content">
-                                    <div class="flex items-center gap-md">
-                                        <span class="badge badge-secondary">Support</span>
-                                        <div>
-                                            <h4>Technical Support</h4>
-                                            <p class="text-muted">+6013 996 8417</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="card card-premium fade-in">
-                                <div class="card-content">
-                                    <div class="flex items-center gap-md">
-                                        <span class="badge badge-success">Sales</span>
-                                        <div>
-                                            <h4>Sales Inquiries</h4>
-                                            <p class="text-muted">sales@enfrasys.com</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="card card-premium fade-in">
-                                <div class="card-content">
-                                    <div class="flex items-center gap-md">
-                                        <span class="badge badge-accent">MyDigital</span>
-                                        <div>
-                                            <h4>MyDigital MSP</h4>
-                                            <p class="text-muted">mydigital.msp@enfrasys.com</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="card card-premium fade-in">
-                                <div class="card-content">
-                                    <div class="flex items-center gap-md">
-                                        <span class="badge badge-info">Address</span>
-                                        <div>
-                                            <h4>Head Office</h4>
-                                            <p class="text-muted">DF2-15-01 (Unit 3), Level 15<br>Persoft Tower, 6B Persiaran Tropicana<br>47410 Petaling Jaya, Malaysia</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Contact Info Cards -->
+                <div class="contact-info-grid">
+                    <div class="contact-info-card">
+                        <h3>Our Address</h3>
+                        <p>Suite 306, Level 3, Block C, Lift Lobby 3<br>Damansara Intan, No. 1, Jalan SS20/27<br>47400 Petaling Jaya, Selangor</p>
                     </div>
+
+                    <div class="contact-info-card">
+                        <h3>Our Mailbox</h3>
+                        <p><strong>Sales:</strong> <a href="mailto:sales@aceteamnetworks.com">sales@aceteamnetworks.com</a></p>
+                        <p><strong>Marketing:</strong> <a href="mailto:marketing@aceteamnetworks.com">marketing@aceteamnetworks.com</a></p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <h3>Our Phone</h3>
+                        <p><a href="tel:+60377277000">+603 7727 7000</a></p>
+                        <p style="margin-top: 1rem;"><strong>Business Registration:</strong><br>201201014751 (988268-T)</p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2 class="form-title">Send Us a Message</h2>
+                    <p style="color: #4a5568; margin-bottom: 2rem;">Fill out the form below and our team will get back to you within 24 hours.</p>
                     
-                    <div class="card card-premium fade-in">
-                        <div class="card-header">
-                            <h3>Send us a message</h3>
+                    <form class="contact-form">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="name" class="form-label">Full Name *</label>
+                                <input type="text" id="name" name="name" class="form-input" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" id="email" name="email" class="form-input" required placeholder="john@company.com">
+                            </div>
                         </div>
-                        <div class="card-content">
-                            <form class="form">
-                                <div class="form-group">
-                                    <label for="name" class="form-label">Name *</label>
-                                    <input type="text" id="name" name="name" class="form-input" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email" class="form-label">Email *</label>
-                                    <input type="email" id="email" name="email" class="form-input" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="company" class="form-label">Company</label>
-                                    <input type="text" id="company" name="company" class="form-input">
-                                </div>                                <div class="form-group">
-                                    <label for="subject" class="form-label">Subject *</label>
-                                    <select id="subject" name="subject" class="form-select" required>
-                                        <option value="">Select a service area</option>
-                                        <option value="modern-workplace">Modern Workplace Solutions</option>
-                                        <option value="cloud-transformation">Cloud Transformation</option>
-                                        <option value="data-ai">Data & AI Solutions</option>
-                                        <option value="security">Security & Compliance</option>
-                                        <option value="i-transform">i-Transform Digital Platform</option>
-                                        <option value="i-learning">i-Learning Management System</option>
-                                        <option value="container-vision">Container Vision AI</option>
-                                        <option value="enexcloud">eNEXCloud Infrastructure</option>
-                                        <option value="consulting">Strategic Consulting</option>
-                                        <option value="partnership">Partnership Opportunities</option>
-                                        <option value="support">Technical Support</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="message" class="form-label">Message *</label>
-                                    <textarea id="message" name="message" rows="5" class="form-textarea" required placeholder="Tell us about your project or question..."></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-lg w-full">Send Message</button>
-                            </form>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="company" class="form-label">Company Name</label>
+                                <input type="text" id="company" name="company" class="form-input" placeholder="Your Company">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" placeholder="+60 12 345 6789">
+                            </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Service Interest *</label>
+                            <select id="subject" name="subject" class="form-select" required>
+                                <option value="">Select a service area</option>
+                                <option value="network-infrastructure">Network Infrastructure (AceTeam Networks)</option>
+                                <option value="wired-wireless">Wired & Wireless Solutions</option>
+                                <option value="sd-wan">SD-WAN & Branch Connectivity</option>
+                                <option value="network-access-control">Network Access Control (ClearPass)</option>
+                                <option value="5g-enterprise">5G Enterprise Networks</option>
+                                <option value="cybersecurity">Cybersecurity Solutions (AceTeam Connect)</option>
+                                <option value="firewall">Next-Gen Firewalls</option>
+                                <option value="endpoint-security">Endpoint Security</option>
+                                <option value="managed-security">Managed Security Services</option>
+                                <option value="threat-intelligence">Cyber Threat Intelligence</option>
+                                <option value="unified-communications">Unified Communications (AceTeam Digital)</option>
+                                <option value="meeting-rooms">UC Meeting Rooms</option>
+                                <option value="collaboration">Collaboration Solutions</option>
+                                <option value="visitor-management">Visitor Management Systems</option>
+                                <option value="consultation">General Consultation</option>
+                                <option value="support">Technical Support</option>
+                                <option value="partnership">Partnership Opportunities</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea id="message" name="message" class="form-textarea" required placeholder="Tell us about your project requirements, current challenges, or questions..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Offices Section -->
+        <section style="background: var(--primary-dark); padding: 5rem 0;">
+            <div class="container">
+                <h2 style="font-size: 2rem; font-weight: 700; color: white; text-align: center; margin-bottom: 3rem;">Our Offices</h2>
+                
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <!-- HQ -->
+                    <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 2rem;">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 1rem;">HQ</h3>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.7;">Suite 306, Level 3, Block C, Lift Lobby 3<br>Damansara Intan, No. 1, Jalan SS20/27<br>47400 Petaling Jaya, Selangor</p>
+                    </div>
+
+                    <!-- Security Operation Center -->
+                    <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 2rem;">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 1rem;">Security Operation Center</h3>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.7;">Suite 106, Level 1, Block C, Lift Lobby 3<br>Damansara Intan, No. 1, Jalan SS20/27<br>47400 Petaling Jaya, Selangor</p>
+                    </div>
+
+                    <!-- Global Support Office -->
+                    <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 2rem;">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 1rem;">Global Support Office</h3>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.7;">G09, Block C, Jalan SS20/27<br>Damansara Intan, Petaling Jaya<br>47400 Selangor, Malaysia</p>
+                    </div>
+
+                    <!-- ACEiT Experience Center -->
+                    <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 2rem;">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 1rem;">ACEiT Experience Center</h3>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.7;">G07, Block C, Jalan SS20/27<br>Damansara Intan, Petaling Jaya<br>47400 Selangor, Malaysia</p>
+                    </div>
+
+                    <!-- Leadership Center -->
+                    <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 2rem;">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 1rem;">Leadership Center</h3>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.7;">A-1-7, Glomac Damansara<br>699, Jalan Damansara<br>60000 Kuala Lumpur, Malaysia</p>
+                    </div>
+
+                    <!-- Penang Branch -->
+                    <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 2rem;">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 1rem;">Penang Branch</h3>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.7;">Unit 1.01, Menara Boustead<br>39, Jalan Sultan Ahmad Shah<br>10050 George Town, Penang</p>
+                    </div>
+
+                    <!-- Johor Branch -->
+                    <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 2rem;">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 1rem;">Johor Branch</h3>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.7;">Suite 25.03A, Level 25, City Square<br>106�108, Jalan Wong Ah Fook<br>80000 Johor Bahru, Johor</p>
+                    </div>
+
+                    <!-- Terengganu Branch -->
+                    <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 2rem;">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 1rem;">Terengganu Branch</h3>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.7;">TD1303, Jalan Sultan Zainal Abidin<br>20000 Kuala Terengganu<br>Terengganu Darul Iman, Malaysia</p>
+                    </div>
+
+                    <!-- Sarawak Branch -->
+                    <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 2rem;">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 1rem;">Sarawak Branch</h3>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.7;">Level 4, 04-01, City Point<br>No. 98, Jalan Keppel<br>97000 Bintulu, Sarawak</p>
+                    </div>
+
+                    <!-- Sabah Branch -->
+                    <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 2rem;">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 1rem;">Sabah Branch</h3>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.7;">8-1, 8th Floor, Suria Sabah Mall<br>No. 1, Jalan Tun Fuad Stephens<br>88000 Kota Kinabalu, Sabah</p>
+                    </div>
+
+                    <!-- Singapore Branch -->
+                    <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 2rem;">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 1rem;">Singapore Branch</h3>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.7;">18 Cantonment Close<br>#06-59<br>Singapore 080018</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Archive Section -->
+        <section style="background: white; padding: 5rem 0;">
+            <div class="container">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2rem; font-weight: 700; color: var(--primary-dark);">Read Our Latest News</h2>
+                    <a href="blogs.html" style="background: white; border: 2px solid var(--primary-dark); color: var(--primary-dark); padding: 0.6rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 4px; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">ALL NEWS</a>
+                </div>
+
+                <div class="grid grid-4" style="gap: 2rem;">
+                    <!-- Blog Post 1 -->
+                    <div class="blog-card">
+                        <span class="blog-badge">NETWORKING</span>
+                        <h3 class="blog-title">Aruba WiFi 7: Next-Generation Enterprise Wireless Deployment</h3>
+                        <a href="../blog/aruba-wifi-7-enterprise-deployment-july-2025.html" class="blog-link">? LEARN MORE</a>
+                    </div>
+
+                    <!-- Blog Post 2 -->
+                    <div class="blog-card">
+                        <span class="blog-badge">CYBERSECURITY</span>
+                        <h3 class="blog-title">Cybersecurity Mega Breaches: Lessons from 2025</h3>
+                        <a href="../blog/cybersecurity-mega-breaches-july-2025.html" class="blog-link">? LEARN MORE</a>
+                    </div>
+
+                    <!-- Blog Post 3 -->
+                    <div class="blog-card">
+                        <span class="blog-badge">UNIFIED COMMS</span>
+                        <h3 class="blog-title">Poly: Transforming Enterprise Collaboration in the Hybrid Era</h3>
+                        <a href="../blog/poly-transforming-enterprise-collaboration-hybrid-era.html" class="blog-link">? LEARN MORE</a>
+                    </div>
+
+                    <!-- Blog Post 4 -->
+                    <div class="blog-card">
+                        <span class="blog-badge">COMPANY</span>
+                        <h3 class="blog-title">Why ACEiT Exists: Not Just a Brand, But a Reason</h3>
+                        <a href="../blog/why-ACEiT-exists-not-just-brand-but-reason.html" class="blog-link">? LEARN MORE</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-        <footer class="footer">
-        <div class="container">
-            <div class="grid grid-4">
-                <div>
-                    <h4>Enfrasys</h4>
-                    <p class="text-sm">Leading Malaysian technology partner specializing in digital transformation solutions powered by AI, cloud, modern workplace productivity, and security.</p>
-                </div>
-                <div>
-                    <h5>Solutions</h5>
-                    <ul class="footer-links">
-                        <li><a href="products.html">Digital Products</a></li>
-                        <li><a href="services.html">Professional Services</a></li>
-                        <li><a href="portfolio.html">Case Studies</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5>Company</h5>
-                    <ul class="footer-links">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="team.html">Our Team</a></li>
-                        <li><a href="careers.html">Careers</a></li>
-                        <li><a href="news.html">News</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5>Connect</h5>
-                    <ul class="footer-links">
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="events.html">Events</a></li>
-                        <li><a href="support.html">Support</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Enfrasys. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Navigation JavaScript -->
-    <script src="js/navigation.js"></script>
+    <div id="footer-placeholder"></div>
+    <script src="js/components.js"></script>
 </body>
 </html>
 

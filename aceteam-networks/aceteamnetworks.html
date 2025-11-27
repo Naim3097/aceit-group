@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <title>Aceteam Networks - Network Infrastructure Solutions</title>
+    <link rel="stylesheet" href="globaldesign.css">
+    <style>
+        /* Custom Transparent Header */
+        .aceteam-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.15);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        .aceteam-header.scrolled {
+            background: linear-gradient(135deg, #1a1508 0%, #2a1f08 50%, #3a2a18 100%);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 193, 7, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        .aceteam-header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .aceteam-brand {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .aceteam-brand img {
+            height: 32px;
+            width: auto;
+        }
+        
+        /* Desktop Navigation */
+        .aceteam-nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex: 1;
+            justify-content: center;
+        }
+        .aceteam-nav-desktop .nav-item {
+            position: relative;
+        }
+        .aceteam-nav-desktop .nav-link {
+            color: white;
+            text-decoration: none !important;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            border-bottom: none !important;
+        }
+        .aceteam-nav-desktop .nav-link:hover {
+            color: #ffc107;
+            text-decoration: none !important;
+            border-bottom: none !important;
+        }
+        .aceteam-nav-desktop .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .aceteam-nav-desktop .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+        }
+        .aceteam-nav-desktop .dropdown-menu a {
+            display: block;
+            padding: 0.7rem 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none !important;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            border-bottom: none !important;
+        }
+        .aceteam-nav-desktop .dropdown-menu a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            padding-left: 1.5rem;
+            text-decoration: none !important;
+            border-bottom: none !important;
+        }
+        .aceteam-nav-desktop .dropdown-menu .submenu-indent {
+            padding-left: 2rem;
+            font-size: 0.85rem;
+        }
+        .aceteam-nav-desktop .dropdown-menu .divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 0.5rem 0;
+        }
+        
+        .inquiry-btn {
+            background: #e91e8c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+        .inquiry-btn:hover {
+            background: #c71769;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(233, 30, 140, 0.3);
+        }
+        
+        /* Mobile Navigation */
+        .aceteam-nav-mobile {
+            display: none;
+        }
+        .mobile-menu-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 0.4rem 0.75rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .mobile-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+        }
+        .aceteam-nav-mobile.open .mobile-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .mobile-dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+        .mobile-dropdown-menu a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+        }
+        .mobile-dropdown-menu .submenu-indent {
+            padding-left: 2rem;
+            font-size: 0.85rem;
+        }
+        .mobile-dropdown-menu .divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 0.5rem 0;
+        }
+        
+        @media (max-width: 992px) {
+            .aceteam-nav-desktop {
+                display: none;
+            }
+            .aceteam-nav-mobile {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                position: relative;
+            }
+            .inquiry-btn {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .aceteam-header-container {
+                padding: 0 1rem;
+            }
+            .aceteam-brand img {
+                height: 28px;
+            }
+            .inquiry-btn {
+                padding: 0.35rem 0.85rem;
+                font-size: 0.75rem;
+            }
+        }
+        
+        .hero-animated {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1508 50%, #2a1f08 100%);
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 0;
+            padding-top: 5rem;
+        }
+        .neural-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.6;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: rgba(255,193,7,0.95);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid rgba(255,193,7,0.3);
+            border-radius: 50px;
+            background: rgba(255,193,7,0.05);
+            backdrop-filter: blur(10px);
+        }
+        .hero-title {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .hero-title .highlight {
+            color: #ffc107;
+            position: relative;
+            display: inline-block;
+        }
+        .hero-title .light {
+            color: #ffffff;
+            font-weight: 700;
+        }
+        .hero-description {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 850px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .aceteam-header .subsidiary-text .ace-highlight {
+            transition: color 0.2s ease;
+        }
+        .aceteam-header .subsidiary-text .ace-highlight.spaceship-near {
+            color: #ff69b4 !important;
+        }
+        
+        @media (max-width: 768px) {
+            .aceteam-header .subsidiary-text {
+                font-size: 0.65rem;
+                letter-spacing: 1.5px;
+            }
+            .hero-animated {
+                min-height: 60vh;
+                padding: 2.5rem 0;
+                padding-top: 5rem;
+            }
+            .hero-badge {
+                font-size: 0.75rem;
+                letter-spacing: 2px;
+                padding: 0.4rem 1rem;
+            }
+            .hero-description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom AceTeam Header -->
+    <header class="aceteam-header">
+        <div class="aceteam-header-container">
+            <a href="../index.html" class="aceteam-brand">
+                <img src="../assets/ACEiT GAMBAR/cropped-LOGO-ACEiT-A.png" alt="ACEiT Logo">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="aceteam-nav-desktop">
+                <div class="nav-item">
+                    <a href="#" class="nav-link">ACEiT Group</a>
+                    <div class="dropdown-menu">
+                        <a href="../aceteam-networks/aceteamnetworks.html" class="submenu-indent">Aceteam Networks</a>
+                        <a href="../aceteam-connect/aceteamconnect.html" class="submenu-indent">Aceteam Connect</a>
+                        <a href="../aceteam-digital/aceteamdigital.html" class="submenu-indent">Aceteam Digital</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="../about.html" class="nav-link">About Us</a>
+                </div>
+                <div class="nav-item">
+                    <a href="../partners/ourpartner.html" class="nav-link">Our Partners</a>
+                    <div class="dropdown-menu">
+                        <a href="../partners/ourpartner.html">All Partners</a>
+                        <div class="divider"></div>
+                        <a href="../partners/cybersecurity/" class="submenu-indent">Cybersecurity</a>
+                        <a href="../partners/datacentre/" class="submenu-indent">Data Centre</a>
+                        <a href="../partners/datanetworking/" class="submenu-indent">Data Networking</a>
+                        <a href="../partners/unifiedcommunication/" class="submenu-indent">Unified Communication</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="https://boards.briohr.com/aceteamnetworks-2atxdx8xbd" target="_blank" rel="noopener noreferrer" class="nav-link">Careers</a>
+                </div>
+                <div class="nav-item">
+                    <a href="../faq.html" class="nav-link">FAQs</a>
+                </div>
+                <div class="nav-item">
+                    <a href="../blogs.html" class="nav-link">Blogs</a>
+                </div>
+            </nav>
+            
+            <a href="../contact.html" class="inquiry-btn">Inquiry</a>
+            
+            <!-- Mobile Navigation -->
+            <nav class="aceteam-nav-mobile">
+                <button class="mobile-menu-btn" onclick="this.parentElement.classList.toggle('open')">☰</button>
+                <div class="mobile-dropdown-menu">
+                    <a href="../aceteam-networks/aceteamnetworks.html" class="submenu-indent">Aceteam Networks</a>
+                    <a href="../aceteam-connect/aceteamconnect.html" class="submenu-indent">Aceteam Connect</a>
+                    <a href="../aceteam-digital/aceteamdigital.html" class="submenu-indent">Aceteam Digital</a>
+                    <div class="divider"></div>
+                    <a href="../about.html">About Us</a>
+                    <a href="../partners/ourpartner.html">Our Partners</a>
+                    <a href="../partners/cybersecurity/" class="submenu-indent">Cybersecurity</a>
+                    <a href="../partners/datacentre/" class="submenu-indent">Data Centre</a>
+                    <a href="../partners/datanetworking/" class="submenu-indent">Data Networking</a>
+                    <a href="../partners/unifiedcommunication/" class="submenu-indent">Unified Communication</a>
+                    <div class="divider"></div>
+                    <a href="https://boards.briohr.com/aceteamnetworks-2atxdx8xbd" target="_blank" rel="noopener noreferrer">Careers</a>
+                    <a href="../faq.html">FAQs</a>
+                    <a href="../blogs.html">Blogs</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <script>
+        // Add scroll effect for header background
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.aceteam-header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero hero-animated">
+            <canvas class="neural-canvas" id="neuralCanvas"></canvas>
+            <div class="container hero-content" style="text-align: center;">
+                <div class="hero-badge" id="heroBadge">INFRASTRUCTURE · CONNECTIVITY · PERFORMANCE</div>
+                <h1 class="hero-title" id="heroTitle">
+                    <span class="highlight">Aceteam</span> <span class="light">Networks</span>
+                </h1>
+                <p class="hero-description" id="heroDescription">Building robust network infrastructure that powers seamless connectivity, scalable operations, and intelligent management for modern enterprises.</p>
+            </div>
+        </section>
+
+        <script>
+            (function() {
+                const canvas = document.getElementById('neuralCanvas');
+                if (!canvas) return;
+                
+                const ctx = canvas.getContext('2d');
+                let w = canvas.width = canvas.offsetWidth;
+                let h = canvas.height = canvas.offsetHeight;
+                
+                window.addEventListener('resize', () => {
+                    w = canvas.width = canvas.offsetWidth;
+                    h = canvas.height = canvas.offsetHeight;
+                    signalX = 0;
+                    signalY = h / 2;
+                    initNodes();
+                });
+
+                const nodes = [];
+                const isMobile = window.innerWidth < 768;
+                const nodeCount = isMobile ? 18 : 55;
+                const color = 'rgba(255, 193, 7, ';
+                let signalX = 0;
+                let signalY = h / 2;
+                let signalVX = isMobile ? 1 : 2.2;
+                let signalVY = isMobile ? 0.5 : 1.1;
+                const activationRadius = isMobile ? 130 : 270;
+                const activations = [];
+                
+                class Node {
+                    constructor(x, y) {
+                        // Add slight randomization to grid position for organic feel
+                        this.x = x + (Math.random() - 0.5) * 40;
+                        this.y = y + (Math.random() - 0.5) * 40;
+                        this.radius = 3;
+                        this.activation = 0;
+                        this.connectedNodes = [];
+                        this.directConnections = [];
+                        this.lastActivation = 0;
+                    }
+                    
+                    checkSignalProximity(sx, sy) {
+                        const dx = this.x - sx;
+                        const dy = this.y - sy;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (dist < activationRadius) {
+                            const currentTime = Date.now();
+                            // Only activate if enough time has passed (prevent rapid re-activation)
+                            if (currentTime - this.lastActivation > 500) {
+                                this.activation = 1.5;
+                                this.lastActivation = currentTime;
+                                
+                                // Create star/radial pattern from signal point
+                                const starCount = isMobile ? 3 : 5;
+                                this.directConnections = nodes
+                                    .filter(n => n !== this && n.activation > 0)
+                                    .sort((a, b) => {
+                                        const distA = Math.sqrt((sx - a.x)**2 + (sy - a.y)**2);
+                                        const distB = Math.sqrt((sx - b.x)**2 + (sy - b.y)**2);
+                                        return distA - distB;
+                                    })
+                                    .slice(0, starCount);
+                            }
+                            
+                            // Web connections between nearby nodes
+                            const meshDist = isMobile ? 100 : 150;
+                            const activationThreshold = isMobile ? 0.5 : 0.5;
+                            this.connectedNodes = nodes.filter(n => {
+                                if (n === this) return false;
+                                const ndx = this.x - n.x;
+                                const ndy = this.y - n.y;
+                                const ndist = Math.sqrt(ndx * ndx + ndy * ndy);
+                                return ndist < meshDist && n.activation > activationThreshold;
+                            });
+                        } else {
+                            // Clear connections when signal is far away
+                            if (this.activation < 0.1) {
+                                this.connectedNodes = [];
+                                this.directConnections = [];
+                            }
+                        }
+                    }
+                    
+                    update() {
+                        // Quick decay from flash, then slow fade
+                        if (this.activation > 1) {
+                            this.activation -= 0.08;
+                        } else {
+                            this.activation *= 0.96;
+                        }
+                        
+                        if (this.activation < 0.01) {
+                            this.activation = 0;
+                            this.connectedNodes = [];
+                            this.directConnections = [];
+                        }
+                    }
+                    
+                    draw() {
+                        if (this.activation > 0) {
+                            // Flash white when first activated, then fade to yellow
+                            const flashAmount = Math.max(0, this.activation - 1);
+                            const yellowAmount = Math.min(1, this.activation);
+                            
+                            // Bright white flash glow
+                            if (flashAmount > 0) {
+                                const whiteGlow = 35 * flashAmount;
+                                const whiteGrad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, whiteGlow);
+                                whiteGrad.addColorStop(0, 'rgba(255, 255, 255, ' + (flashAmount * 0.9) + ')');
+                                whiteGrad.addColorStop(0.4, 'rgba(255, 255, 255, ' + (flashAmount * 0.5) + ')');
+                                whiteGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                                ctx.fillStyle = whiteGrad;
+                                ctx.fillRect(this.x - whiteGlow, this.y - whiteGlow, whiteGlow * 2, whiteGlow * 2);
+                            }
+                            
+                            // Yellow glow
+                            const glowSize = 25 * yellowAmount;
+                            const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, glowSize);
+                            gradient.addColorStop(0, color + (yellowAmount * 0.9) + ')');
+                            gradient.addColorStop(0.5, color + (yellowAmount * 0.4) + ')');
+                            gradient.addColorStop(1, color + '0)');
+                            ctx.fillStyle = gradient;
+                            ctx.fillRect(this.x - glowSize, this.y - glowSize, glowSize * 2, glowSize * 2);
+                        }
+                        
+                        // Core node with color transition
+                        const baseOpacity = 0.3;
+                        const flashAmount = Math.max(0, this.activation - 1);
+                        const yellowAmount = Math.min(1, this.activation);
+                        
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.radius + (flashAmount * 2), 0, Math.PI * 2);
+                        
+                        // White flash, then yellow
+                        if (flashAmount > 0.3) {
+                            ctx.fillStyle = 'rgba(255, 255, 255, ' + Math.min(1, flashAmount) + ')';
+                        } else {
+                            ctx.fillStyle = color + (baseOpacity + yellowAmount * 0.7) + ')';
+                        }
+                        ctx.fill();
+                        
+                        // Draw direct radial connections (star pattern)
+                        if (this.activation > 1 && this.directConnections.length > 0) {
+                            const flashAmt = Math.max(0, this.activation - 1);
+                            this.directConnections.forEach((node, index) => {
+                                ctx.beginPath();
+                                ctx.moveTo(this.x, this.y);
+                                ctx.lineTo(node.x, node.y);
+                                ctx.strokeStyle = 'rgba(255, 255, 255, ' + (flashAmt * 0.9) + ')';
+                                ctx.lineWidth = 3.5 * flashAmt;
+                                ctx.stroke();
+                                
+                                // Bright point at end of each ray
+                                ctx.beginPath();
+                                ctx.arc(node.x, node.y, 4 * flashAmt, 0, Math.PI * 2);
+                                ctx.fillStyle = 'rgba(255, 255, 255, ' + (flashAmt * 0.8) + ')';
+                                ctx.fill();
+                            });
+                        }
+                        
+                        // Draw mesh connections between nearby nodes
+                        this.connectedNodes.forEach(node => {
+                            const avgActivation = (this.activation + node.activation) / 2;
+                            const avgFlash = Math.max(0, avgActivation - 1);
+                            
+                            ctx.beginPath();
+                            ctx.moveTo(this.x, this.y);
+                            ctx.lineTo(node.x, node.y);
+                            
+                            // Flash white on connection, then fade to yellow
+                            if (avgFlash > 0.2) {
+                                ctx.strokeStyle = 'rgba(255, 255, 255, ' + Math.min(avgFlash * 0.7, 0.8) + ')';
+                                ctx.lineWidth = 2.5 * avgFlash;
+                            } else {
+                                const lineOpacity = Math.min(1, avgActivation);
+                                ctx.strokeStyle = color + (lineOpacity * 0.6) + ')';
+                                ctx.lineWidth = 2 * lineOpacity;
+                            }
+                            ctx.stroke();
+                            
+                            // Bright pulse at midpoint during flash
+                            if (avgFlash > 0.3) {
+                                const midX = (this.x + node.x) / 2;
+                                const midY = (this.y + node.y) / 2;
+                                const pulseSize = 10 * avgFlash;
+                                
+                                const pulseGrad = ctx.createRadialGradient(midX, midY, 0, midX, midY, pulseSize);
+                                pulseGrad.addColorStop(0, 'rgba(255, 255, 255, ' + (avgFlash * 0.9) + ')');
+                                pulseGrad.addColorStop(0.6, color + (avgFlash * 0.5) + ')');
+                                pulseGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                                ctx.fillStyle = pulseGrad;
+                                ctx.fillRect(midX - pulseSize, midY - pulseSize, pulseSize * 2, pulseSize * 2);
+                            }
+                        });
+                    }
+                }
+                
+                function initNodes() {
+                    nodes.length = 0;
+                    // Create hexagonal grid pattern
+                    const spacing = isMobile ? 120 : 150;
+                    const cols = Math.ceil(w / spacing) + 1;
+                    const rows = Math.ceil(h / spacing) + 1;
+                    
+                    for (let row = 0; row < rows; row++) {
+                        for (let col = 0; col < cols; col++) {
+                            // Hexagonal offset for alternating rows
+                            const xOffset = (row % 2) * (spacing / 2);
+                            const x = col * spacing + xOffset;
+                            const y = row * spacing;
+                            
+                            if (x >= -50 && x <= w + 50 && y >= -50 && y <= h + 50) {
+                                nodes.push(new Node(x, y));
+                            }
+                        }
+                    }
+                }
+                
+                function drawSignal() {
+                    // Calculate direction angle for spaceship orientation
+                    const angle = Math.atan2(signalVY, signalVX);
+                    
+                    // Draw glow trail behind spaceship
+                    const pulseSize = 25;
+                    const gradient = ctx.createRadialGradient(signalX, signalY, 0, signalX, signalY, pulseSize);
+                    gradient.addColorStop(0, color + '0.8)');
+                    gradient.addColorStop(0.5, color + '0.3)');
+                    gradient.addColorStop(1, color + '0)');
+                    ctx.fillStyle = gradient;
+                    ctx.fillRect(signalX - pulseSize, signalY - pulseSize, pulseSize * 2, pulseSize * 2);
+                    
+                    // Draw spaceship icon
+                    ctx.save();
+                    ctx.translate(signalX, signalY);
+                    ctx.rotate(angle);
+                    
+                    // Main body (sleek triangle)
+                    ctx.beginPath();
+                    ctx.moveTo(12, 0);  // Nose
+                    ctx.lineTo(-8, -6); // Top wing
+                    ctx.lineTo(-4, 0);  // Center back
+                    ctx.lineTo(-8, 6);  // Bottom wing
+                    ctx.closePath();
+                    
+                    // Gradient fill for depth
+                    const shipGrad = ctx.createLinearGradient(-8, 0, 12, 0);
+                    shipGrad.addColorStop(0, color + '0.6)');
+                    shipGrad.addColorStop(0.5, 'rgba(255, 255, 255, 0.9)');
+                    shipGrad.addColorStop(1, 'rgba(255, 255, 255, 1)');
+                    ctx.fillStyle = shipGrad;
+                    ctx.fill();
+                    
+                    // Bright outline
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+                    ctx.lineWidth = 1.5;
+                    ctx.stroke();
+                    
+                    // Cockpit glow
+                    ctx.beginPath();
+                    ctx.arc(4, 0, 2, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(100, 200, 255, 0.9)';
+                    ctx.fill();
+                    
+                    // Engine trail lines
+                    ctx.beginPath();
+                    ctx.moveTo(-4, -2);
+                    ctx.lineTo(-12, -3);
+                    ctx.moveTo(-4, 2);
+                    ctx.lineTo(-12, 3);
+                    ctx.strokeStyle = color + '0.6)';
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                    
+                    ctx.restore();
+                    
+                    // Activation ring (subtle)
+                    ctx.beginPath();
+                    ctx.arc(signalX, signalY, activationRadius, 0, Math.PI * 2);
+                    ctx.strokeStyle = color + '0.06)';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+                
+
+
+                function updateSignal() {
+                    signalX += signalVX;
+                    signalY += signalVY;
+                    
+                    // Bounce off edges with smooth direction change
+                    if (signalX <= 0 || signalX >= w) {
+                        signalVX *= -1;
+                        signalX = Math.max(0, Math.min(w, signalX));
+                    }
+                    if (signalY <= 0 || signalY >= h) {
+                        signalVY *= -1;
+                        signalY = Math.max(0, Math.min(h, signalY));
+                    }
+                }
+                
+                function animate() {
+                    ctx.clearRect(0, 0, w, h);
+                    
+                    updateSignal();
+                    drawSignal();
+                    
+                    nodes.forEach(node => {
+                        node.checkSignalProximity(signalX, signalY);
+                        node.update();
+                        node.draw();
+                    });
+                    
+                    requestAnimationFrame(animate);
+                }
+                
+                initNodes();
+                animate();
+            })();
+        </script>
+
+        <!-- Our Services Section -->
+        <section class="section" style="background: white; padding: 5rem 0;">
+            <div class="container">
+                <h2 class="section-title" style="color: var(--primary-dark); text-align: center; margin-bottom: 4rem;">Our Network Solutions</h2>
+                <div class="grid grid-3" style="gap: 2rem;">
+                    <!-- Wired and Wireless Card -->
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="6"></circle>
+                                <circle cx="12" cy="12" r="2"></circle>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">Wired and Wireless Solutions</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">High-speed, secure, and scalable network infrastructure for seamless operations.</p>
+                        <a href="aceteam-networks/service-wired-wireless.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+
+                    <!-- Branch and WAN Card -->
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">Branch and WAN Solutions</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Connect remote locations with reliable, scalable SD-WAN infrastructure.</p>
+                        <a href="aceteam-networks/service-branch-wan-solutions.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+
+                    <!-- UEBA Card -->
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">User Entity Behavioral Analytics</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Detect hidden threats through advanced behavioral analysis and AI.</p>
+                        <a href="aceteam-networks/service-user-entity-behavioral-analytics.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+
+                    <!-- Centralized Management Card -->
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">Centralized Network Management</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Unified monitoring and control for your entire network infrastructure.</p>
+                        <a href="aceteam-networks/service-centralized-network-management.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+
+                    <!-- Network Access Control Card -->
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">Network Access Control & Cabling</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Secure access policies with professional structured cabling systems.</p>
+                        <a href="aceteam-networks/service-network-access-control.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Section -->
+        <section class="section" style="background: white; padding: 5rem 0;">
+            <div class="container">
+                <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+                    <h2 class="section-title" style="font-size: 2.5rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 1rem;">Why Choose Aceteam Networks</h2>
+                    <p class="section-subtitle" style="font-size: 1.125rem; color: #6b7280; max-width: 800px; margin: 0 auto;">Enterprise-grade network solutions designed for performance, security, and scalability.</p>
+                </div>
+                
+                <div class="service-group" style="background: #f8f9fa; border: 1px solid #e5e5e5; border-radius: 12px; padding: 2.5rem; margin-bottom: 2rem;">
+                    <div class="service-category-header" style="display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 2rem;">
+                        <div class="service-icon-large" style="width: 60px; height: 60px; background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2">
+                                <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                                <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                                <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                            </svg>
+                        </div>
+                        <div class="service-category-title" style="flex: 1;">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.5rem;">Future-Ready Infrastructure</h3>
+                            <p class="service-category-description" style="color: #6b7280; font-size: 1rem; line-height: 1.6;">Latest networking technologies and standards for optimal performance and longevity.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Next-Gen Standards</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Wi-Fi 6/6E, 5G integration, and SD-WAN capabilities ensure your network stays ahead of technological curves.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Scalable Architecture</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Easily expand your network infrastructure as your business grows without major overhauls.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">High Performance</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Optimized for low latency, high throughput, and reliable connectivity across all endpoints.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-group" style="background: #f8f9fa; border: 1px solid #e5e5e5; border-radius: 12px; padding: 2.5rem; margin-bottom: 2rem;">
+                    <div class="service-category-header" style="display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 2rem;">
+                        <div class="service-icon-large" style="width: 60px; height: 60px; background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <div class="service-category-title" style="flex: 1;">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.5rem;">Enterprise Security</h3>
+                            <p class="service-category-description" style="color: #6b7280; font-size: 1rem; line-height: 1.6;">Advanced security protocols and access controls to protect your network perimeter.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Zero Trust Architecture</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Implement security policies that verify every access request regardless of location.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Network Segmentation</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Isolate critical systems and contain potential breaches with intelligent VLAN configurations.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Access Control</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">NAC solutions ensure only authorized devices and users gain network access.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-group" style="background: #f8f9fa; border: 1px solid #e5e5e5; border-radius: 12px; padding: 2.5rem;">
+                    <div class="service-category-header" style="display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 2rem;">
+                        <div class="service-icon-large" style="width: 60px; height: 60px; background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div class="service-category-title" style="flex: 1;">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.5rem;">24/7 Support & Monitoring</h3>
+                            <p class="service-category-description" style="color: #6b7280; font-size: 1rem; line-height: 1.6;">Round-the-clock network monitoring and expert support for uninterrupted operations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Proactive Monitoring</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">AI-powered monitoring detects and resolves issues before they impact your business.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Expert Team</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Certified network engineers available around the clock to address any concerns.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Rapid Response</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Guaranteed response times and SLA-backed support for critical network incidents.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Industries Section -->
+        <section class="section" style="background: #f8f9fa; padding: 5rem 0;">
+            <div class="container">
+                <h2 style="font-size: 2rem; font-weight: 700; color: var(--primary-dark); text-align: center; margin-bottom: 1rem;">Industries We Serve</h2>
+                <p style="text-align: center; color: #4a5568; margin-bottom: 4rem; max-width: 700px; margin-left: auto; margin-right: auto;">Delivering network solutions across diverse sectors with specialized expertise and proven results.</p>
+                
+                <div class="grid grid-4" style="gap: 2rem;">
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2rem; text-align: center; border-top: 3px solid #ffc107;">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">Enterprise</h4>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Large-scale network infrastructure for corporate environments</p>
+                    </div>
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2rem; text-align: center; border-top: 3px solid #ffc107;">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">Education</h4>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Secure, scalable networks for schools and universities</p>
+                    </div>
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2rem; text-align: center; border-top: 3px solid #ffc107;">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">Healthcare</h4>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Reliable network infrastructure for medical facilities</p>
+                    </div>
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2rem; text-align: center; border-top: 3px solid #ffc107;">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">Government</h4>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Compliant network solutions for public sector organizations</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section" style="background: linear-gradient(135deg, #2d2308 0%, #1a1508 100%); padding: 4rem 0;">
+            <div class="container">
+                <div style="position: relative; background: rgba(255,193,7,0.05); border: 1px solid rgba(255,193,7,0.2); border-radius: 12px; overflow: hidden; min-height: 300px; padding: 3rem; display: flex; align-items: center;">
+                    <div style="position: relative; z-index: 2; max-width: 700px; margin: 0 auto; text-align: center;">
+                        <h2 style="font-size: 2.5rem; font-weight: 800; color: white; margin-bottom: 1.5rem; line-height: 1.1;">Ready to Build Your Network Infrastructure?</h2>
+                        <p style="font-size: 1.05rem; color: rgba(255,255,255,0.85); margin-bottom: 2rem; line-height: 1.7;">Let's design a network solution tailored to your business needs and growth ambitions.</p>
+                        <a href="../contact.html" style="display: inline-block; background: #ffc107; border: 2px solid #ffc107; color: #1a1508; padding: 0.8rem 2.5rem; text-decoration: none; font-weight: 700; border-radius: 4px; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif;">GET STARTED</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest News/Blog Section -->
+        <section class="section" style="background: white; padding: 5rem 0;">
+            <div class="container">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2rem; font-weight: 700; color: var(--primary-dark);">Latest Network Insights</h2>
+                    <a href="../blog.html" style="background: white; border: 2px solid var(--primary-dark); color: var(--primary-dark); padding: 0.6rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 4px; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">ALL NEWS</a>
+                </div>
+
+                <div class="grid grid-4" style="gap: 2rem;">
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';" onmouseout="this.style.boxShadow='none';">
+                        <span style="display: inline-block; padding: 0.3rem 0.8rem; background: #1a1a1a; color: white; font-size: 0.75rem; font-weight: 600; border-radius: 4px; margin-bottom: 1rem;">NETWORKS</span>
+                        <h3 style="font-size: 1.05rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.4;">SD-WAN: Transforming Enterprise Connectivity</h3>
+                        <a href="blog-post-1.html" style="color: #1a1a1a; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.color='#555';" onmouseout="this.style.color='#1a1a1a';">→ LEARN MORE</a>
+                    </div>
+
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';" onmouseout="this.style.boxShadow='none';">
+                        <span style="display: inline-block; padding: 0.3rem 0.8rem; background: #1a1a1a; color: white; font-size: 0.75rem; font-weight: 600; border-radius: 4px; margin-bottom: 1rem;">INFRASTRUCTURE</span>
+                        <h3 style="font-size: 1.05rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.4;">The Future of Network Management: AI-Driven Solutions</h3>
+                        <a href="blog-post-2.html" style="color: #1a1a1a; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.color='#555';" onmouseout="this.style.color='#1a1a1a';">→ LEARN MORE</a>
+                    </div>
+
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';" onmouseout="this.style.boxShadow='none';">
+                        <span style="display: inline-block; padding: 0.3rem 0.8rem; background: #1a1a1a; color: white; font-size: 0.75rem; font-weight: 600; border-radius: 4px; margin-bottom: 1rem;">SECURITY</span>
+                        <h3 style="font-size: 1.05rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.4;">Zero Trust Network Architecture: A Modern Approach</h3>
+                        <a href="blog-post-3.html" style="color: #1a1a1a; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.color='#555';" onmouseout="this.style.color='#1a1a1a';">→ LEARN MORE</a>
+                    </div>
+
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';" onmouseout="this.style.boxShadow='none';">
+                        <span style="display: inline-block; padding: 0.3rem 0.8rem; background: #1a1a1a; color: white; font-size: 0.75rem; font-weight: 600; border-radius: 4px; margin-bottom: 1rem;">TECHNOLOGY</span>
+                        <h3 style="font-size: 1.05rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.4;">5G and Wi-Fi 6: The Next Generation of Connectivity</h3>
+                        <a href="blog-post-4.html" style="color: #1a1a1a; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.color='#555';" onmouseout="this.style.color='#1a1a1a';">→ LEARN MORE</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/components.js"></script>
+</body>
+</html>

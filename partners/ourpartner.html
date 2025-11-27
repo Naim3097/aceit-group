@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <title>Our IT Partners - ACEiT Group</title>
+    <link rel="stylesheet" href="globaldesign.css">
+    <style>
+        .partners-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../assets/main pages hero.jpg') center/cover;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+            position: relative;
+        }
+        
+        .partners-hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            text-transform: none !important;
+        }
+        
+        .partners-hero p {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 850px;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        /* Partner Categories Section */
+        .categories-section {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .category-card {
+            position: relative;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .category-card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .category-card:hover .category-card-bg {
+            transform: scale(1.05);
+        }
+        
+        .category-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.75) 0%, rgba(26, 40, 66, 0.65) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 3rem;
+        }
+        
+        .category-card h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .category-card p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .category-btn {
+            display: inline-block;
+            background: white;
+            color: #0a1628;
+            padding: 0.75rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            align-self: flex-start;
+        }
+        
+        .category-btn:hover {
+            background: #e91e8c;
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        @media (max-width: 768px) {
+            .partners-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-card {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="partners-hero">
+            <div class="container" style="text-align: center;">
+                <h1>Our Technology Partners</h1>
+                <p style="margin-left: auto; margin-right: auto;">
+                    ACEiT Group collaborates with world-leading technology vendors to deliver comprehensive enterprise solutions. From network infrastructure and cybersecurity to unified communications and digital transformation, we partner with industry leaders to bring you cutting-edge products and services that drive business success.
+                </p>
+            </div>
+        </section>
+
+        <!-- Partner Categories Section -->
+        <section class="categories-section">
+            <div class="container">
+                <div class="categories-grid">
+                    <!-- Cybersecurity Card -->
+                    <div class="category-card">
+                        <div class="category-card-bg" style="background-image: url('assets/partner page cards.jpg');"></div>
+                        <div class="category-card-overlay">
+                            <h3>Cybersecurity</h3>
+                            <p>
+                                Your trusted cybersecurity ally in Malaysia. They deliver world-class protection through global technology partnerships, 
+                                keeping your data and infrastructure secure.
+                            </p>
+                            <a href="partners/cybersecurity/cybersecurity.html" class="category-btn">View Partners</a>
+                        </div>
+                    </div>
+
+                    <!-- Unified Communications Card -->
+                    <div class="category-card">
+                        <div class="category-card-bg" style="background-image: url('assets/partner page cards.jpg');"></div>
+                        <div class="category-card-overlay">
+                            <h3>Unified Communications</h3>
+                            <p>
+                                Your trusted networking expert in Malaysia. They work with top global vendors to deliver fast, reliable, and future-ready 
+                                network solutions that power your digital growth.
+                            </p>
+                            <a href="partners/unifiedcommunication/unifiedcommunication.html" class="category-btn">View Partners</a>
+                        </div>
+                    </div>
+
+                    <!-- Data Centre and Cloud Card -->
+                    <div class="category-card">
+                        <div class="category-card-bg" style="background-image: url('assets/partner page cards.jpg');"></div>
+                        <div class="category-card-overlay">
+                            <h3>Data Centre and Cloud</h3>
+                            <p>
+                                Your trusted IT partner in Malaysia. They provide next-generation data center solutions that strengthen infrastructure, 
+                                boost security, and accelerate digital transformation.
+                            </p>
+                            <a href="partners/datacentre/datacentre.html" class="category-btn">View Partners</a>
+                        </div>
+                    </div>
+
+                    <!-- Data Networking Card -->
+                    <div class="category-card">
+                        <div class="category-card-bg" style="background-image: url('assets/partner page cards.jpg');"></div>
+                        <div class="category-card-overlay">
+                            <h3>Data Networking</h3>
+                            <p>
+                                Your trusted unified communications partner in Malaysia. They deliver innovative UC solutions that simplify collaboration, 
+                                boost productivity, and connect teams seamlessly.
+                            </p>
+                            <a href="partners/datanetworking/datanetworking.html" class="category-btn">View Partners</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest News/Blog Section -->
+        <section class="section" style="background: white; padding: 5rem 0;">
+            <div class="container">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2rem; font-weight: 700; color: var(--primary-dark);">Read Our Latest News</h2>
+                    <a href="blogs.html" style="background: white; border: 2px solid var(--primary-dark); color: var(--primary-dark); padding: 0.6rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 4px; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">ALL NEWS</a>
+                </div>
+
+                <div class="grid grid-4" style="gap: 2rem;">
+                    <!-- Blog Post 1 -->
+                    <div class="blog-card">
+                        <span class="blog-badge">NETWORKING</span>
+                        <h3 class="blog-title">Future of AI-Native Networking with Juniper</h3>
+                        <a href="../blog/future-of-ai-native-networking-juniper.html" class="blog-link">→ LEARN MORE</a>
+                    </div>
+
+                    <!-- Blog Post 2 -->
+                    <div class="blog-card">
+                        <span class="blog-badge">CYBERSECURITY</span>
+                        <h3 class="blog-title">Rethinking SOC: How AI is Redefining Cybersecurity</h3>
+                        <a href="../blog/rethinking-soc-ai-redefining-cybersecurity.html" class="blog-link">→ LEARN MORE</a>
+                    </div>
+
+                    <!-- Blog Post 3 -->
+                    <div class="blog-card">
+                        <span class="blog-badge">NETWORKING</span>
+                        <h3 class="blog-title">Aruba Central: Cloud Management Revolution</h3>
+                        <a href="../blog/aruba-central-cloud-management-revolution-july-2025.html" class="blog-link">→ LEARN MORE</a>
+                    </div>
+
+                    <!-- Blog Post 4 -->
+                    <div class="blog-card">
+                        <span class="blog-badge">COMPANY</span>
+                        <h3 class="blog-title">First Malaysian Achieves Aruba Certified Professional</h3>
+                        <a href="../blog/first-malaysian-achieves-aruba-certified-professional.html" class="blog-link">→ LEARN MORE</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <div id="footer-placeholder"></div>
+    <script src="js/components.js"></script>
+</body>
+</html>

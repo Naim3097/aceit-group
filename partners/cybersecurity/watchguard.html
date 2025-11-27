@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../../">
+    <title>WatchGuard - Cybersecurity Partner | ACEiT Group</title>
+    <link rel="stylesheet" href="globaldesign.css">
+    <style>
+        .partner-hero {
+            background: linear-gradient(135deg, #0a1628 0%, #1a2842 100%);
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: clamp(2rem, 5vh, 4rem) 0;
+        }
+        .partner-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(233, 30, 140, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(9, 11, 26, 0.3) 0%, transparent 50%);
+        }
+        .partner-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        .partner-logo-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .partner-logo {
+            max-width: 300px;
+            height: auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
+        }
+        .partner-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #e91e8c 0%, #b01567 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 1.5rem;
+            text-transform: uppercase;
+        }
+        .partner-intro {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .partner-intro h1 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .partner-intro p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+        }
+        .content-section {
+            padding: 5rem 0;
+        }
+        .content-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0a1628;
+            margin-bottom: 1rem;
+        }
+        .section-header p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0a1628;
+            margin-bottom: 1rem;
+        }
+        .feature-card p {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .benefit-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #e91e8c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+        .benefit-icon svg {
+            width: 14px;
+            height: 14px;
+            stroke: white;
+            stroke-width: 3;
+        }
+        .benefit-content h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #0a1628;
+            margin-bottom: 0.5rem;
+        }
+        .benefit-content p {
+            font-size: 0.95rem;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+        .products-section {
+            background: #0a1628;
+            color: white;
+            padding: 5rem 0;
+        }
+        .product-category {
+            margin-bottom: 3rem;
+        }
+        .product-category h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #e91e8c;
+            margin-bottom: 1.5rem;
+        }
+        .product-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        .product-item h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+        .product-item p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+        .info-section {
+            padding: 5rem 0;
+            background: white;
+        }
+        .info-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .info-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0a1628;
+            margin-bottom: 1.5rem;
+        }
+        .info-content p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .info-highlight {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-top: 2.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .info-highlight h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0a1628;
+            margin-bottom: 1rem;
+        }
+        .info-highlight p {
+            color: #4b5563;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #0a1628 0%, #1a2842 100%);
+            padding: 5rem 0;
+            text-align: center;
+            color: white;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        .cta-section p {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #e91e8c 0%, #b01567 100%);
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(233, 30, 140, 0.4);
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 30, 140, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .partner-logo {
+                max-width: 200px;
+                padding: 1.5rem;
+            }
+            .partner-badge {
+                padding: 0.4rem 1rem;
+                font-size: 0.75rem;
+                margin-top: 1rem;
+            }
+            .partner-logo-section {
+                margin-bottom: 2rem;
+            }
+            .partner-intro p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <!-- Partner Hero Section -->
+    <section class="partner-hero">
+        <div class="container">
+            <div class="partner-logo-section">
+                <img src="assets/partner logo/cc6.jpg" alt="WatchGuard" class="partner-logo">
+                <div class="partner-badge">Authorized Partner</div>
+            </div>
+            <div class="partner-intro">
+                <h1>WatchGuard</h1>
+                <p>Cutting-Edge Cybersecurity for Over 25 Years. Founded in 1996, WatchGuard specializes in network security, endpoint security, secure Wi-Fi, and multi-factor authentication, serving over 250,000 small and medium enterprises globally.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why ACEiT Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Partner with ACEiT Group</h2>
+                <p>We are one of the fastest growing IT solution providers in Malaysia, specialising in comprehensive cybersecurity solutions with Malaysia Digital (MD) status from MDEC.</p>
+            </div>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Professional Services</h4>
+                        <p>Highly qualified engineers available around-the-clock for support and consultation</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>IT Solutioning & Consultation</h4>
+                        <p>Expert consultation that best suits your business's IT infrastructure needs</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Data Security</h4>
+                        <p>Comprehensive security for sensitive business-related data and information</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About WatchGuard -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About WatchGuard</h2>
+                <p>Award-winning unified security solutions for SMBs and enterprises</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Over 25 Years of Excellence</h3>
+                    <p>Founded in 1996, WatchGuard has been a pioneer in cutting-edge cybersecurity, receiving numerous awards including VPN Champion at PUR 2021, Top Award in Endpoint Protection, and 5-Star Rating in CRN's Partner Program Guide.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Unified Security Platform</h3>
+                    <p>Delivers unified security solutions specifically designed for small and medium-sized businesses, providing enterprise-level protection without the complexity. Trusted by MSPs and businesses worldwide.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Global Trust</h3>
+                    <p>Serves over 250,000 small and medium enterprises across the globe with reliable performance, comprehensive feature sets, and exceptional partner support programs that drive business growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: white;">WatchGuard Core Security Solutions</h2>
+                <p style="color: rgba(255, 255, 255, 0.8);">Comprehensive protection for your business infrastructure</p>
+            </div>
+
+            <div class="product-category">
+                <h3>Network & Endpoint Security</h3>
+                <div class="product-item">
+                    <h4>Network Security (Firebox)</h4>
+                    <p>Advanced network firewalls with unified threat management (UTM) capabilities including intrusion prevention, antivirus, web filtering, and application control for comprehensive perimeter protection.</p>
+                </div>
+                <div class="product-item">
+                    <h4>Endpoint Security (EPDR)</h4>
+                    <p>Award-winning endpoint protection, detection, and response solution that combines traditional antivirus with advanced behavioral analysis and zero-day threat protection.</p>
+                </div>
+            </div>
+
+            <div class="product-category">
+                <h3>Wireless & Authentication</h3>
+                <div class="product-item">
+                    <h4>Secure Wi-Fi (Wi-Fi Cloud)</h4>
+                    <p>Enterprise-grade wireless security solutions with cloud-based management, guest access controls, and advanced threat protection specifically designed for wireless networks.</p>
+                </div>
+                <div class="product-item">
+                    <h4>Multi-Factor Authentication (AuthPoint)</h4>
+                    <p>Cloud-based multi-factor authentication service that provides strong user identity verification with mobile app integration, push notifications, and biometric authentication options.</p>
+                </div>
+            </div>
+
+            <div class="product-category">
+                <h3>Advanced Security Management</h3>
+                <div class="product-item">
+                    <h4>WatchGuard Cloud</h4>
+                    <p>Unified cloud-based management platform that provides centralized visibility and control across all WatchGuard security services with real-time monitoring and reporting capabilities.</p>
+                </div>
+                <div class="product-item">
+                    <h4>Threat Detection & Response (TDR)</h4>
+                    <p>Advanced threat detection and response capabilities that combine network and endpoint visibility to identify, investigate, and respond to sophisticated cyber attacks.</p>
+                </div>
+                <div class="product-item">
+                    <h4>Security Services</h4>
+                    <p>Comprehensive suite of subscription-based security services including threat intelligence, sandboxing, reputation-based filtering, and advanced persistent threat (APT) protection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-content">
+                <h2>Why Choose ACEiT Group as Your WatchGuard Partner</h2>
+                <p>ACEiT Group provides comprehensive WatchGuard implementation and managed services, including security assessment, solution design, deployment support, and ongoing monitoring to ensure optimal protection and performance.</p>
+                <p>Our WatchGuard certified professionals work with your team to design and implement unified security solutions that scale with your business growth while maintaining strong security postures across all locations.</p>
+                <div class="info-highlight">
+                    <h3>Unified Security Excellence</h3>
+                    <p>From security infrastructure assessment to full platform deployment, our team ensures your WatchGuard solutions provide comprehensive protection while supporting your operational requirements and business objectives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Protect Your Business with WatchGuard</h2>
+            <p>Contact ACEiT Group today to evaluate your cybersecurity needs and determine which WatchGuard solutions best suit your business requirements and budget.</p>
+            <a href="contact.html" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section" style="background: white; padding: 5rem 0;">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2rem; font-weight: 700; color: var(--primary-dark);">Read Our Latest News</h2>
+                <a href="blog.html" style="background: white; border: 2px solid var(--primary-dark); color: var(--primary-dark); padding: 0.6rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">ALL NEWS</a>
+            </div>
+
+            <div class="grid grid-4" style="gap: 2rem;">
+                <div class="blog-card">
+                    <span class="blog-badge">TECHNOLOGY</span>
+                    <h3 class="blog-title">Zoom: Powering Agile Business Communication with ACEiT Asia</h3>
+                    <a href="blog-post-1.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+                <div class="blog-card">
+                    <span class="blog-badge">TECHNOLOGY</span>
+                    <h3 class="blog-title">Logitech: Elevating Workplace Collaboration with ACEiT Asia</h3>
+                    <a href="blog-post-2.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+                <div class="blog-card">
+                    <span class="blog-badge">TECHNOLOGY</span>
+                    <h3 class="blog-title">Jabra: Empowering Flexible Work Culture with ACEiT Asia</h3>
+                    <a href="blog-post-3.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+                <div class="blog-card">
+                    <span class="blog-badge">TECHNOLOGY</span>
+                    <h3 class="blog-title">Poly: Transforming Enterprise Collaboration in the Hybrid Era</h3>
+                    <a href="blog-post-4.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/components.js"></script>
+</body>
+</html>

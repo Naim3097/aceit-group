@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <title>Aruba Switching Solutions: Enterprise Network Foundation and Performance Optimization | Tech Today Global | ACEiT Group</title>
+    <meta name="description" content="Discover how Aruba enterprise switches deliver intelligent network automation, built-in security, and high-performance connectivity for modern business environments.">
+    <meta name="keywords" content="Aruba switches, enterprise switching, network automation, intelligent switching, Aruba CX series, network infrastructure, enterprise networking, ACEiT Group">
+    <meta name="author" content="ACEiT Group">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Aruba Switching Solutions: Enterprise Network Foundation and Performance Optimization | Tech Today Global">
+    <meta property="og:description" content="Discover how Aruba enterprise switches deliver intelligent network automation, built-in security, and high-performance connectivity for modern business environments.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ACEiT.asia/blog/aruba-switching-solutions-enterprise-network-foundation.html">
+    <meta property="og:image" content="https://ACEiT.asia/assets/blog/aruba-switching-solutions-enterprise-network-foundation.jpg">
+    <meta property="article:published_time" content="2025-08-05">
+    <meta property="article:section" content="Network Infrastructure">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aruba Switching Solutions: Enterprise Network Foundation and Performance Optimization | Tech Today Global">
+    <meta name="twitter:description" content="Discover how Aruba enterprise switches deliver intelligent network automation, built-in security, and high-performance connectivity for modern business environments.">
+    <meta name="twitter:image" content="https://ACEiT.asia/assets/blog/aruba-switching-solutions-enterprise-network-foundation.jpg">
+    
+    <link rel="stylesheet" href="globaldesign.css">
+        <style>
+        /* Blog Hero Section */
+        .blog-hero {
+            background: var(--primary-dark);
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 4rem 0;
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .blog-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        
+        .blog-date {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .blog-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: white !important;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        .blog-hero h1 {
+            color: white !important;
+        }
+        
+        .blog-excerpt {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            max-width: 900px;
+            font-weight: 400;
+        }
+        
+        /* Blog Content */
+        .blog-content {
+            background: white;
+            padding: 5rem 0;
+        }
+        
+        .blog-article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .blog-article h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+        
+        .blog-article h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        
+        .blog-article h2:first-child,
+        .blog-article h3:first-child {
+            margin-top: 0;
+        }
+        
+        .blog-article p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+        
+        .blog-article ul,
+        .blog-article ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .blog-article li {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 0.75rem;
+        }
+        
+        .blog-article a {
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--primary-dark);
+            transition: all 0.2s ease;
+        }
+        
+        .blog-article a:hover {
+            color: #000;
+            border-bottom-color: #000;
+        }
+        
+        /* Call-to-Action Box */
+        .blog-cta {
+            background: #f8f9fa;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+        }
+        
+        .blog-cta h3 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 0 0 1rem 0;
+        }
+        
+        .blog-cta p {
+            font-size: 1rem;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .blog-cta-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .blog-cta-links a {
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--primary-dark);
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+        
+        .blog-cta-links a:hover {
+            color: #000;
+            border-bottom-color: #000;
+        }
+        
+        /* Latest News Section - Override any inherited styles */
+        .section .blog-card {
+            background: white;
+            color: var(--primary-dark);
+        }
+        
+        .section .blog-card .blog-badge {
+            background: var(--primary-dark);
+            color: white;
+        }
+        
+        .section .blog-card .blog-title {
+            color: var(--primary-dark) !important;
+        }
+        
+        .section .blog-card .blog-link {
+            color: var(--primary-dark);
+        }
+        
+        /* Responsive Design - Enhanced */
+        @media (max-width: 1024px) {
+            .blog-content {
+                padding: 4rem 0;
+            }
+            
+            .blog-article {
+                padding: 0 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .blog-hero {
+                min-height: 35vh;
+                padding: 2.5rem 0;
+            }
+            
+            .blog-meta {
+                gap: 0.75rem;
+            }
+            
+            .blog-badge {
+                font-size: 0.7rem;
+                padding: 0.35rem 0.85rem;
+            }
+            
+            .blog-date {
+                font-size: 0.85rem;
+            }
+            
+            .blog-title {
+                font-size: 1.65rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .blog-excerpt {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            
+            .blog-content {
+                padding: 2.5rem 0;
+            }
+            
+            .blog-article {
+                padding: 0 1.25rem;
+            }
+            
+            .blog-article h2 {
+                font-size: 1.5rem;
+                margin-top: 2rem;
+                margin-bottom: 0.85rem;
+            }
+            
+            .blog-article h3 {
+                font-size: 1.25rem;
+                margin-top: 1.75rem;
+            }
+            
+            .blog-article p,
+            .blog-article li {
+                font-size: 1rem;
+                line-height: 1.7;
+                margin-bottom: 1.25rem;
+            }
+            
+            .blog-cta {
+                padding: 1.75rem 1.5rem;
+                margin: 2rem 0;
+            }
+            
+            .blog-cta h3 {
+                font-size: 1.25rem;
+            }
+            
+            .blog-cta p {
+                font-size: 0.95rem;
+            }
+            
+            /* Latest News Section */
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .section .container {
+                padding: 0 1.25rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .blog-hero {
+                min-height: 30vh;
+                padding: 2rem 0;
+            }
+            
+            .blog-badge {
+                font-size: 0.65rem;
+                padding: 0.3rem 0.75rem;
+            }
+            
+            .blog-date {
+                font-size: 0.8rem;
+            }
+            
+            .blog-title {
+                font-size: 1.5rem;
+                line-height: 1.25;
+            }
+            
+            .blog-excerpt {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+            
+            .blog-content {
+                padding: 2rem 0;
+            }
+            
+            .blog-article {
+                padding: 0 1rem;
+            }
+            
+            .blog-article h2 {
+                font-size: 1.35rem;
+                margin-top: 1.75rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .blog-article h3 {
+                font-size: 1.15rem;
+                margin-top: 1.5rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .blog-article p,
+            .blog-article li {
+                font-size: 0.95rem;
+                line-height: 1.65;
+                margin-bottom: 1rem;
+            }
+            
+            .blog-article ul,
+            .blog-article ol {
+                padding-left: 1.25rem;
+                margin: 1.25rem 0;
+            }
+            
+            .blog-cta {
+                padding: 1.5rem 1.25rem;
+                margin: 1.75rem 0;
+            }
+            
+            .blog-cta h3 {
+                font-size: 1.15rem;
+                margin-bottom: 0.85rem;
+            }
+            
+            .blog-cta p {
+                font-size: 0.9rem;
+                margin-bottom: 1.25rem;
+            }
+            
+            .blog-cta-links {
+                gap: 0.6rem;
+            }
+            
+            /* Latest News Section */
+            .section {
+                padding: 2.5rem 0;
+            }
+            
+            .section .container {
+                padding: 0 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+                margin-bottom: 2rem;
+            }
+            
+            .blog-grid {
+                gap: 1.75rem;
+            }
+            
+            .blog-card-image {
+                height: 180px;
+            }
+            
+            .blog-card-content {
+                padding: 1.25rem;
+            }
+            
+            .blog-card-title {
+                font-size: 1rem;
+            }
+            
+            .blog-card-excerpt {
+                font-size: 0.875rem;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .blog-hero {
+                padding: 1.75rem 0;
+            }
+            
+            .blog-title {
+                font-size: 1.35rem;
+            }
+            
+            .blog-excerpt {
+                font-size: 0.9rem;
+            }
+            
+            .blog-article {
+                padding: 0 0.85rem;
+            }
+            
+            .blog-article h2 {
+                font-size: 1.25rem;
+            }
+            
+            .blog-article h3 {
+                font-size: 1.1rem;
+            }
+            
+            .blog-article p,
+            .blog-article li {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Aruba Switching Solutions: Enterprise Network Foundation and Performance Optimization | Tech Today Global",
+        "description": "Discover how Aruba enterprise switches deliver intelligent network automation, built-in security, and high-performance connectivity for modern business environments.",
+        "image": "https://ACEiT.asia/assets/blog/aruba-switching-solutions-enterprise-network-foundation.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "ACEiT Group"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "ACEiT Group",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://ACEiT.asia/assets/logo.png"
+            }
+        },
+        "datePublished": "2025-08-05",
+        "dateModified": "2025-08-05",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://ACEiT.asia/blog/aruba-switching-solutions-enterprise-network-foundation.html"
+        },
+        "keywords": "Aruba switches, enterprise switching, network automation, intelligent switching, Aruba CX series, network infrastructure, enterprise networking"
+    }
+    </script>
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+
+    
+    <!-- Blog Hero Section --><!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="blog-meta">
+                <span class="blog-badge">Network Infrastructure</span>
+                <span class="blog-date">August 5, 2025 • 11 min read</span>
+            </div>
+            <h1 class="blog-title">Aruba Switching Solutions: Enterprise Network Foundation and Performance Optimization</h1>
+            <p class="blog-excerpt">Enterprise networking demands have evolved far beyond basic connectivity, requiring intelligent switching infrastructure that adapts to dynamic business needs while maintaining security and performance standards. Aruba's comprehensive switching portfolio delivers intelligent automation, built-in security features, and high-performance connectivity that forms the foundation of modern enterprise networks, enabling organizations to support complex applications and diverse device ecosystems with confidence and efficiency.</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content">
+        <div class="container">
+            <article class="blog-article">
+
+        <p class="lead text-xl text-gray-700 mb-8">
+          Enterprise networking demands have evolved far beyond basic connectivity, requiring intelligent switching infrastructure that adapts to dynamic business needs while maintaining security and performance standards. Aruba's comprehensive switching portfolio delivers intelligent automation, built-in security features, and high-performance connectivity that forms the foundation of modern enterprise networks, enabling organizations to support complex applications and diverse device ecosystems with confidence and efficiency.
+        </p>
+
+        <h2>Intelligent Switching Architecture</h2>
+        
+        <p>
+          Aruba's CX Series switches represent the evolution of enterprise switching from static hardware to intelligent, software-driven network infrastructure. The ArubaOS-CX operating system provides advanced automation capabilities, real-time analytics, and built-in security features that transform traditional switching into dynamic network intelligence.
+        </p>
+
+        <p>
+          The platform's microservices architecture enables continuous feature development and deployment without hardware replacement, ensuring that switching investments remain current with emerging networking requirements and security threats throughout their operational lifecycle.
+        </p>
+
+        <p>
+          Organizations implementing comprehensive switching modernization require expert guidance from <a href="../partners/datanetworking/aruba.html" target="_blank" rel="noopener">certified Aruba platinum partners</a> who understand intelligent switching architecture and can design solutions that optimize both performance and operational efficiency across enterprise environments. As an <a href="../partners/datanetworking/aruba.html" target="_blank" rel="noopener">authorized Aruba Networks reseller</a>, ACEiT delivers complete switching modernization services.
+        </p>
+
+        <h2>Built-in Security Framework</h2>
+
+        <p>
+          Aruba switches integrate comprehensive security features directly into the switching fabric, eliminating the need for separate security appliances while providing protection against internal threats and lateral movement attacks. Dynamic segmentation capabilities isolate devices and applications based on identity and policy requirements.
+        </p>
+
+        <p>
+          The platform's integration with Aruba ClearPass enables identity-based access control at the switch level, ensuring that security policies apply consistently across wired connections regardless of user location or device type.
+        </p>
+
+        <p>
+          Advanced threat detection capabilities analyze network traffic patterns to identify potential security risks including device spoofing, unauthorized access attempts, and suspicious data transfers before they compromise network security.
+        </p>
+
+        <h2>Network Automation and Orchestration</h2>
+
+        <p>
+          Aruba NetEdit provides comprehensive network automation capabilities that reduce configuration errors, accelerate deployment times, and ensure consistent policy implementation across distributed switching infrastructure. Template-based configurations enable standardized deployments while maintaining flexibility for specific requirements.
+        </p>
+
+        <p>
+          Zero-touch provisioning capabilities enable rapid deployment of new switches without manual configuration, automatically applying appropriate policies and security settings based on device role and location within the network hierarchy.
+        </p>
+
+        <h2>High-Performance Connectivity</h2>
+
+        <p>
+          Aruba's switching portfolio delivers wire-speed performance across all ports with support for 1GbE, 10GbE, 25GbE, 40GbE, and 100GbE connectivity options. Advanced buffering and queue management ensure consistent performance for latency-sensitive applications including voice, video, and real-time collaboration tools.
+        </p>
+
+        <p>
+          The platform's support for Power over Ethernet Plus (PoE+) and Universal Power over Ethernet (UPOE) enables comprehensive device powering including high-power wireless access points, IP phones, security cameras, and IoT devices through network cables.
+        </p>
+
+        <p>
+          Professional switching deployment services from <a href="../partners/datanetworking/aruba.html" target="_blank" rel="noopener">experienced Aruba engineers ensure optimal performance configuration</a> and seamless integration with existing network infrastructure while maintaining business continuity during upgrade processes.
+        </p>
+
+        <h2>Advanced Analytics and Monitoring</h2>
+
+        <p>
+          Real-time network analytics provide comprehensive visibility into switching performance, traffic patterns, and utilization trends across all connected devices. Machine learning algorithms identify optimization opportunities and predict potential performance bottlenecks before they impact operations.
+        </p>
+
+        <p>
+          Integration with Aruba Central enables centralized monitoring and management of distributed switching infrastructure, providing unified visibility and control across multiple locations through cloud-based management platforms. <a href="../blog/aruba-makes-connecting-easy-remote-work.html" target="_blank" rel="noopener">Aruba's simplified connectivity approach</a> ensures consistent deployment and management across complex enterprise environments.
+        </p>
+
+        <h2>Data Center and Campus Integration</h2>
+
+        <p>
+          Aruba's switching solutions seamlessly integrate campus and data center networking through consistent management interfaces, security policies, and automation frameworks. This unified approach simplifies network operations while ensuring consistent user experience across all environments.
+        </p>
+
+        <p>
+          The platform's support for software-defined networking (SDN) principles enables dynamic network configuration and policy adjustment based on application requirements and business priorities without manual reconfiguration.
+        </p>
+
+        <h2>Scalability and Modularity</h2>
+
+        <p>
+          Modular switching architecture supports business growth through stackable configurations and chassis-based systems that scale from small branch offices to large enterprise data centers. Hot-swappable modules enable capacity expansion without network disruption.
+        </p>
+
+        <p>
+          Virtual Switching Framework (VSF) technology enables multiple physical switches to operate as a single logical device, simplifying management while providing redundancy and load balancing capabilities across switching infrastructure.
+        </p>
+
+        <h2>Energy Efficiency and Sustainability</h2>
+
+        <p>
+          Advanced power management features optimize energy consumption based on port utilization, device requirements, and time-of-day policies. The platform's energy-efficient design reduces operational costs while supporting corporate sustainability initiatives.
+        </p>
+
+        <p>
+          Intelligent power allocation ensures that PoE devices receive appropriate power levels without over-provisioning, maximizing the number of powered devices supported by each switch while minimizing energy waste.
+        </p>
+
+        <h2>Quality of Service and Traffic Management</h2>
+
+        <p>
+          Sophisticated quality of service (QoS) capabilities ensure that business-critical applications receive priority treatment during network congestion. Dynamic bandwidth allocation adapts to changing traffic patterns while maintaining performance guarantees for essential services.
+        </p>
+
+        <p>
+          Advanced traffic shaping and policing features prevent bandwidth abuse while ensuring fair resource allocation across all connected devices and applications based on business policy requirements. ACEiT's <a href="../blog/first-malaysian-achieves-aruba-certified-professional.html" target="_blank" rel="noopener">industry certifications and proven expertise</a> ensure optimal QoS implementation for maximum business value.
+        </p>
+
+        <h2>Network Segmentation and VLANs</h2>
+
+        <p>
+          Dynamic VLAN assignment based on device identity, location, and policy requirements enables automatic network segmentation without manual configuration. This intelligent segmentation improves security while simplifying network management across complex enterprise environments.
+        </p>
+
+        <p>
+          Integration with network access control systems ensures that VLAN assignments align with security policies and compliance requirements while maintaining user mobility and device flexibility.
+        </p>
+
+        <h2>Disaster Recovery and Redundancy</h2>
+
+        <p>
+          Built-in redundancy features including link aggregation, spanning tree protocols, and virtual router redundancy protocol (VRRP) ensure network availability during component failures or maintenance activities.
+        </p>
+
+        <p>
+          Rapid recovery capabilities minimize service disruption through fast convergence protocols and automatic failover mechanisms that maintain network connectivity during infrastructure outages or planned maintenance windows.
+        </p>
+
+        <div class="bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200 rounded-lg p-6 my-8">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Modernize Your Network Foundation</h3>
+          <p class="text-gray-700 mb-4">
+            Build a robust enterprise network with Aruba intelligent switching solutions. Our certified professionals provide comprehensive design, implementation, and ongoing management services for optimal performance and security.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="../partners/datanetworking/aruba.html" target="_blank" rel="noopener">
+              Aruba Switching Solutions
+            </a>
+            <a href="../aceteam-networks/" target="_blank" rel="noopener">
+              Network Infrastructure
+            </a>
+            <a href="../contacts/" target="_blank" rel="noopener">
+              Free Consultation
+            </a>
+          </div>
+        </div>
+      
+            </article>
+        </div>
+    </section>
+
+    
+    <!-- Latest News Section -->
+    <section class="section" style="background: white; padding: 5rem 0; border-top: 1px solid #e5e5e5;">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2rem; font-weight: 700; color: var(--primary-dark);">Read Our Latest News</h2>
+                <a href="../blog.html" style="background: white; border: 2px solid var(--primary-dark); color: var(--primary-dark); padding: 0.6rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 4px; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">ALL NEWS</a>
+            </div>
+
+            <div class="grid grid-4" style="gap: 2rem;">
+                <!-- Blog Post 1 -->
+                <div class="blog-card">
+                    <span class="blog-badge">CYBERSECURITY</span>
+                    <h3 class="blog-title">Rethinking the SOC: Why AI is Redefining Cybersecurity</h3>
+                    <a href="../blog/rethinking-soc-ai-redefining-cybersecurity.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="blog-card">
+                    <span class="blog-badge">AI & SECURITY</span>
+                    <h3 class="blog-title">Gemini 2.5 and the Evolving Cybersecurity Landscape</h3>
+                    <a href="../blog/gemini-2-5-evolving-cybersecurity-landscape.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="blog-card">
+                    <span class="blog-badge">NETWORKING</span>
+                    <h3 class="blog-title">The Future of AI-Native Networking with Juniper</h3>
+                    <a href="../blog/future-of-ai-native-networking-juniper.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+
+                <!-- Blog Post 4 -->
+                <div class="blog-card">
+                    <span class="blog-badge">COMPANY NEWS</span>
+                    <h3 class="blog-title">2 Days to Launch: ACEiT is Coming</h3>
+                    <a href="../blog/2-days-to-launch-ACEiT-is-coming.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+
+    <script src="js/components.js"></script>
+</body>
+</html>

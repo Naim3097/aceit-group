@@ -1,6 +1,6 @@
 /**
  * Mobile Navigation Toggle Script
- * Handles the hamburger menu functionality for mobile devices
+ * Handles the hamburger menu functionality for mobile devices and dropdown menus
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking on a navigation link
-        const navLinks = document.querySelectorAll('.nav-link');
+        // Close mobile menu when clicking on a navigation link (not dropdown parents)
+        const navLinks = document.querySelectorAll('.nav-link:not(.has-dropdown .nav-link)');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navToggle.classList.remove('active');
@@ -40,6 +40,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 navToggle.classList.remove('active');
                 navMenu.classList.remove('active');
             }
+        });
+    }
+
+    // Mobile Dropdown Toggle
+    if (window.innerWidth <= 768) {
+        const dropdownParents = document.querySelectorAll('.has-dropdown > .nav-link');
+        dropdownParents.forEach(parent => {
+            parent.addEventListener('click', function(e) {
+                e.preventDefault();
+                const dropdown = this.nextElementSibling;
+                if (dropdown && dropdown.classList.contains('dropdown-menu')) {
+                    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                }
+            });
         });
     }
 });

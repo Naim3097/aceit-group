@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <title>The Future of AI-Native Networking with Juniper Networks | ACEiT Group</title>
+    <meta name="description" content="Experience AI-native networking live at the Juniper Networks event hosted by AceTeam Networks. Networks that learn, adapt, and recover without human input.">
+    <meta name="keywords" content="AI-native networking, Juniper Networks, network automation, AI infrastructure, intelligent networks, network management, ACEiT Group">
+    <meta name="author" content="ACEiT Group">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="The Future of AI-Native Networking with Juniper Networks">
+    <meta property="og:description" content="Experience AI-native networking live at the Juniper Networks event hosted by AceTeam Networks. Networks that learn, adapt, and recover without human input.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ACEiT.asia/blog/future-of-ai-native-networking-juniper.html">
+    <meta property="og:image" content="https://ACEiT.asia/assets/blog/future-of-ai-native-networking-juniper.jpg">
+    <meta property="article:published_time" content="2024-09-18">
+    <meta property="article:section" content="Network Innovation">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Future of AI-Native Networking with Juniper Networks">
+    <meta name="twitter:description" content="Experience AI-native networking live at the Juniper Networks event hosted by AceTeam Networks. Networks that learn, adapt, and recover without human input.">
+    <meta name="twitter:image" content="https://ACEiT.asia/assets/blog/future-of-ai-native-networking-juniper.jpg">
+    
+    <link rel="stylesheet" href="globaldesign.css">
+        <style>
+        /* Blog Hero Section */
+        .blog-hero {
+            background: var(--primary-dark);
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 4rem 0;
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .blog-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        
+        .blog-date {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .blog-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: white !important;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        .blog-hero h1 {
+            color: white !important;
+        }
+        
+        .blog-excerpt {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            max-width: 900px;
+            font-weight: 400;
+        }
+        
+        /* Blog Content */
+        .blog-content {
+            background: white;
+            padding: 5rem 0;
+        }
+        
+        .blog-article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .blog-article h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+        
+        .blog-article h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        
+        .blog-article h2:first-child,
+        .blog-article h3:first-child {
+            margin-top: 0;
+        }
+        
+        .blog-article p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+        
+        .blog-article ul,
+        .blog-article ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .blog-article li {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 0.75rem;
+        }
+        
+        .blog-article a {
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--primary-dark);
+            transition: all 0.2s ease;
+        }
+        
+        .blog-article a:hover {
+            color: #000;
+            border-bottom-color: #000;
+        }
+        
+        /* Call-to-Action Box */
+        .blog-cta {
+            background: #f8f9fa;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+        }
+        
+        .blog-cta h3 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 0 0 1rem 0;
+        }
+        
+        .blog-cta p {
+            font-size: 1rem;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .blog-cta-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .blog-cta-links a {
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--primary-dark);
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+        
+        .blog-cta-links a:hover {
+            color: #000;
+            border-bottom-color: #000;
+        }
+        
+        /* Latest News Section - Override any inherited styles */
+        .section .blog-card {
+            background: white;
+            color: var(--primary-dark);
+        }
+        
+        .section .blog-card .blog-badge {
+            background: var(--primary-dark);
+            color: white;
+        }
+        
+        .section .blog-card .blog-title {
+            color: var(--primary-dark) !important;
+        }
+        
+        .section .blog-card .blog-link {
+            color: var(--primary-dark);
+        }
+        
+        /* Responsive Design - Enhanced */
+        @media (max-width: 1024px) {
+            .blog-content {
+                padding: 4rem 0;
+            }
+            
+            .blog-article {
+                padding: 0 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .blog-hero {
+                min-height: 35vh;
+                padding: 2.5rem 0;
+            }
+            
+            .blog-meta {
+                gap: 0.75rem;
+            }
+            
+            .blog-badge {
+                font-size: 0.7rem;
+                padding: 0.35rem 0.85rem;
+            }
+            
+            .blog-date {
+                font-size: 0.85rem;
+            }
+            
+            .blog-title {
+                font-size: 1.65rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .blog-excerpt {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            
+            .blog-content {
+                padding: 2.5rem 0;
+            }
+            
+            .blog-article {
+                padding: 0 1.25rem;
+            }
+            
+            .blog-article h2 {
+                font-size: 1.5rem;
+                margin-top: 2rem;
+                margin-bottom: 0.85rem;
+            }
+            
+            .blog-article h3 {
+                font-size: 1.25rem;
+                margin-top: 1.75rem;
+            }
+            
+            .blog-article p,
+            .blog-article li {
+                font-size: 1rem;
+                line-height: 1.7;
+                margin-bottom: 1.25rem;
+            }
+            
+            .blog-cta {
+                padding: 1.75rem 1.5rem;
+                margin: 2rem 0;
+            }
+            
+            .blog-cta h3 {
+                font-size: 1.25rem;
+            }
+            
+            .blog-cta p {
+                font-size: 0.95rem;
+            }
+            
+            /* Latest News Section */
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .section .container {
+                padding: 0 1.25rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .blog-hero {
+                min-height: 30vh;
+                padding: 2rem 0;
+            }
+            
+            .blog-badge {
+                font-size: 0.65rem;
+                padding: 0.3rem 0.75rem;
+            }
+            
+            .blog-date {
+                font-size: 0.8rem;
+            }
+            
+            .blog-title {
+                font-size: 1.5rem;
+                line-height: 1.25;
+            }
+            
+            .blog-excerpt {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+            
+            .blog-content {
+                padding: 2rem 0;
+            }
+            
+            .blog-article {
+                padding: 0 1rem;
+            }
+            
+            .blog-article h2 {
+                font-size: 1.35rem;
+                margin-top: 1.75rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .blog-article h3 {
+                font-size: 1.15rem;
+                margin-top: 1.5rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .blog-article p,
+            .blog-article li {
+                font-size: 0.95rem;
+                line-height: 1.65;
+                margin-bottom: 1rem;
+            }
+            
+            .blog-article ul,
+            .blog-article ol {
+                padding-left: 1.25rem;
+                margin: 1.25rem 0;
+            }
+            
+            .blog-cta {
+                padding: 1.5rem 1.25rem;
+                margin: 1.75rem 0;
+            }
+            
+            .blog-cta h3 {
+                font-size: 1.15rem;
+                margin-bottom: 0.85rem;
+            }
+            
+            .blog-cta p {
+                font-size: 0.9rem;
+                margin-bottom: 1.25rem;
+            }
+            
+            .blog-cta-links {
+                gap: 0.6rem;
+            }
+            
+            /* Latest News Section */
+            .section {
+                padding: 2.5rem 0;
+            }
+            
+            .section .container {
+                padding: 0 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+                margin-bottom: 2rem;
+            }
+            
+            .blog-grid {
+                gap: 1.75rem;
+            }
+            
+            .blog-card-image {
+                height: 180px;
+            }
+            
+            .blog-card-content {
+                padding: 1.25rem;
+            }
+            
+            .blog-card-title {
+                font-size: 1rem;
+            }
+            
+            .blog-card-excerpt {
+                font-size: 0.875rem;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .blog-hero {
+                padding: 1.75rem 0;
+            }
+            
+            .blog-title {
+                font-size: 1.35rem;
+            }
+            
+            .blog-excerpt {
+                font-size: 0.9rem;
+            }
+            
+            .blog-article {
+                padding: 0 0.85rem;
+            }
+            
+            .blog-article h2 {
+                font-size: 1.25rem;
+            }
+            
+            .blog-article h3 {
+                font-size: 1.1rem;
+            }
+            
+            .blog-article p,
+            .blog-article li {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "The Future of AI-Native Networking with Juniper Networks",
+        "description": "Experience AI-native networking live at the Juniper Networks event hosted by AceTeam Networks. Networks that learn, adapt, and recover without human input.",
+        "image": "https://ACEiT.asia/assets/blog/future-of-ai-native-networking-juniper.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "ACEiT Group"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "ACEiT Group",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://ACEiT.asia/assets/logo.png"
+            }
+        },
+        "datePublished": "2024-09-18",
+        "dateModified": "2024-09-18",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://ACEiT.asia/blog/future-of-ai-native-networking-juniper.html"
+        },
+        "keywords": "AI-native networking, Juniper Networks, network automation, AI infrastructure, intelligent networks, network management"
+    }
+    </script>
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+
+    
+    <!-- Blog Hero Section --><!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="blog-meta">
+                <span class="blog-badge">Network Innovation</span>
+                <span class="blog-date">September 18, 2024 • 7 min read</span>
+            </div>
+            <h1 class="blog-title">The Future of AI-Native Networking</h1>
+            <p class="blog-excerpt">Networks that learn, adapt, and recover — all without waiting for human input. This is AI-native networking, and it is already here.</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content">
+        <div class="container">
+            <article class="blog-article">
+                <p class="lead">Networks that learn, adapt, and recover — all without waiting for human input. This is AI-native networking, and it is already here.</p>
+                
+<p>We’ve got important news to share. And no, it’s not just another certification announcement.</p>
+                <p>Cybersecurity has become a shared responsibility. It’s no longer confined to IT teams or tech departments. Every file you upload, every email you open, every system your business relies on is connected to a much larger, invisible battlefield.</p>
+                <p>That’s exactly why AceTeam Networks has taken a decisive step forward. We are now a Registered Partner of CyberSecurity Malaysia and officially NACSA Certified under the Cybersecurity Act 2022.</p>
+                <p>This milestone isn’t about titles. It’s about trust. And what it means for the businesses we protect every day.</p>
+                <p>Why This Matters</p>
+                <p>We understand that cybersecurity certifications may not spark excitement in the same way a new product launch might. But in today’s environment, they’re critical.</p>
+                <p>Every online transaction, internal document, and communication thread carries risk. Behind the scenes, threat actors are using more advanced methods to exploit vulnerabilities that often go unnoticed.</p>
+                <p>Our new certifications allow us to deliver:</p>
+                <p>Penetration Testing, where ethical hackers simulate real-world attacks to expose weak points before someone else does</p>
+                <p>Managed Security Operations Centre (SOC) Monitoring, where your infrastructure is monitored 24/7 by experts trained to detect and respond to emerging threats in real time</p>
+                <p>With these capabilities, we help organisations move forward with greater confidence, knowing their operations are actively protected.</p>
+                <p>Cybersecurity is a Necessity, Not a Nice-to-Have</p>
+                <p>In 2023, global cybercrime caused more than $8 trillion in damage. That number isn’t theoretical. It reflects real losses in productivity, revenue, data, and reputation.</p>
+                <p>Some companies never recovered. Others barely held on. The difference was simple: preparation.</p>
+                <p>Waiting to react is no longer an option. Today’s businesses need to be equipped, resilient, and surrounded by experts who understand how threats evolve.</p>
+                <p>This Is Just the Beginning</p>
+                <p>Our certifications are not a finish line. They’re part of a larger journey to make cybersecurity smarter, faster, and more aligned with the real-world challenges organizations face.</p>
+                <p>At AceTeam Networks, we are constantly upgrading how we detect, protect, and respond to threats. Our teams are trained not just in technology, but in strategy. We understand that your business depends on uptime, continuity, and trust.</p>
+                <p>And we’re here to defend that.</p>
+                <p>Let’s Move Forward, Securely</p>
+                <p>If you’re still treating cybersecurity as an afterthought, now is the time to change that.</p>
+                <p>We’re ready to guide your organization toward a more secure, future-proof approach. Whether you need a penetration test, SOC monitoring, or simply want to understand your risk posture, we’re here to help.</p>
+                <p>To see how we’re making cybersecurity stronger across industries, join the conversation on our LinkedIn page. You’ll find real-world insights, updates from our team, and a growing community that puts security at the core of innovation.</p>
+                <p>Because real protection doesn’t wait. And neither should you.</p>
+
+                <!-- CTA Section -->
+                <div class="blog-cta">
+                    <h3>Transform Your Network Infrastructure</h3>
+                    <p>Discover how ACEiT can help your organization with comprehensive IT infrastructure, digital solutions, and cybersecurity services.</p>
+                    <div class="blog-cta-links">
+                        <a href="../aceteam-networks/aceteamnetworks.html">Explore Network Solutions →</a>
+                        <a href="../aceteam-connect/aceteamconnect.html">View Security Services →</a>
+                        <a href="../contact.html">Schedule a Free Consultation →</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    
+    <!-- Latest News Section -->
+    <section class="section" style="background: white; padding: 5rem 0; border-top: 1px solid #e5e5e5;">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2rem; font-weight: 700; color: var(--primary-dark);">Read Our Latest News</h2>
+                <a href="../blog.html" style="background: white; border: 2px solid var(--primary-dark); color: var(--primary-dark); padding: 0.6rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 4px; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">ALL NEWS</a>
+            </div>
+
+            <div class="grid grid-4" style="gap: 2rem;">
+                <!-- Blog Post 1 -->
+                <div class="blog-card">
+                    <span class="blog-badge">CYBERSECURITY</span>
+                    <h3 class="blog-title">Rethinking the SOC: Why AI is Redefining Cybersecurity</h3>
+                    <a href="../blog/rethinking-soc-ai-redefining-cybersecurity.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="blog-card">
+                    <span class="blog-badge">AI & SECURITY</span>
+                    <h3 class="blog-title">Gemini 2.5 and the Evolving Cybersecurity Landscape</h3>
+                    <a href="../blog/gemini-2-5-evolving-cybersecurity-landscape.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="blog-card">
+                    <span class="blog-badge">NETWORKING</span>
+                    <h3 class="blog-title">The Future of AI-Native Networking with Juniper</h3>
+                    <a href="../blog/future-of-ai-native-networking-juniper.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+
+                <!-- Blog Post 4 -->
+                <div class="blog-card">
+                    <span class="blog-badge">COMPANY NEWS</span>
+                    <h3 class="blog-title">2 Days to Launch: ACEiT is Coming</h3>
+                    <a href="../blog/2-days-to-launch-ACEiT-is-coming.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+
+    <script src="js/components.js"></script>
+</body>
+</html>

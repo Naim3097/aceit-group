@@ -1,297 +1,616 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Transformation FAQ - Enfrasys</title>
+    <title>Frequently Asked Questions - ACEiT Group</title>
     <link rel="stylesheet" href="globaldesign.css">
-</head>
-<body>        <nav class="nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">Enfrasys</a>
-            <button class="nav-toggle" id="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link active">About</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="products.html" class="nav-link">Products</a></li>
-                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                <li><a href="news.html" class="nav-link">News</a></li>
-                <li><a href="events.html" class="nav-link">Events</a></li>
-                <li><a href="contact.html" class="nav-link nav-cta">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <style>
+        .page-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/main pages hero.jpg') center/cover;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+            position: relative;
+        }
+        .hero-title {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            text-transform: none !important;
+        }
+        .hero-description {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 850px;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .faq-section {
+            background: #f8f9fa;
+            padding: 5rem 0;
+        }
 
-    <main>        <section class="hero hero-secondary">
-            <div class="container">
+        .faq-category {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .faq-category-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--primary-dark);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e5e5e5;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: #e91e8c;
+        }
+
+        .faq-question h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 0;
+            flex: 1;
+            transition: color 0.3s ease;
+        }
+
+        .faq-question:hover h3 {
+            color: #e91e8c;
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #e91e8c;
+            transition: transform 0.3s ease;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 0 0 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+            padding: 0 0 1.5rem 0;
+        }
+
+        .faq-answer p {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-answer ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 1rem 0;
+        }
+
+        .faq-answer ul li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.75rem;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        .faq-answer ul li::before {
+            content: "�";
+            position: absolute;
+            left: 0;
+            color: #e91e8c;
+            font-weight: bold;
+        }
+
+        .faq-answer strong {
+            color: var(--primary-dark);
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #1a2842 100%);
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-box h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary-dark);
+            padding: 1rem 2.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            background: #e91e8c;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 30, 140, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .faq-section {
+                padding: 3rem 0;
+            }
+
+            .faq-category {
+                padding: 1.5rem;
+            }
+
+            .faq-category-title {
+                font-size: 1.5rem;
+            }
+
+            .faq-question h3 {
+                font-size: 1rem;
+            }
+
+            .cta-box {
+                padding: 2rem 1.5rem;
+            }
+
+            .cta-box h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="container" style="text-align: center;">
                 <h1 class="hero-title">Frequently Asked Questions</h1>
-                <p class="hero-subtitle">Find answers to common questions about digital transformation, Microsoft solutions, and our services</p>
+                <p class="hero-description" style="margin-left: auto; margin-right: auto;">Find answers to common questions about ACEiT Groups network infrastructure solutions, cybersecurity services, unified communications, and how we can help transform your IT operations.</p>
             </div>
         </section>
-        
-        <section class="section fade-in">
-            <div class="container">                <div class="section-header">
-                    <h2 class="section-title">Digital Transformation Questions</h2>
-                    <p class="section-subtitle">Common questions about Microsoft technologies and digital transformation</p>
-                </div>
+
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
                 
-                <div class="grid grid-1">
-                    <div class="card card-premium fade-in">
-                        <div class="card-header">
-                            <h3>What Microsoft technologies does Enfrasys specialize in?</h3>
+                <!-- General Questions -->
+                <div class="faq-category">
+                    <h2 class="faq-category-title">General Questions</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What is ACEiT Group?</h3>
+                            <span class="faq-icon">+</span>
                         </div>
-                        <div class="card-content">
-                            <p>As a Microsoft Gold Partner, Enfrasys specializes in a comprehensive range of Microsoft technologies:</p>
-                            <ul class="list-styled mt-md">
-                                <li><strong>Microsoft Azure:</strong> Cloud infrastructure, migration, and optimization</li>
-                                <li><strong>Microsoft 365:</strong> Modern workplace productivity and collaboration</li>
-                                <li><strong>Power Platform:</strong> Custom business applications and automation</li>
-                                <li><strong>Microsoft Security:</strong> Advanced threat protection and compliance</li>
-                                <li><strong>Data & AI:</strong> Azure AI, Machine Learning, and analytics solutions</li>
+                        <div class="faq-answer">
+                            <p>ACEiT Group is a leading IT infrastructure and technology solutions provider in Malaysia. We deliver comprehensive end-to-end network solutions through our three specialized subsidiaries:</p>
+                            <ul>
+                                <li><strong>AceTeam Networks:</strong> Enterprise network infrastructure, wired and wireless solutions</li>
+                                <li><strong>AceTeam Connect:</strong> Cybersecurity, threat protection, and network security management</li>
+                                <li><strong>AceTeam Digital:</strong> Unified communications, collaboration tools, and digital workplace solutions</li>
                             </ul>
+                            <p>We serve businesses across Malaysia, Singapore, and the region with offices in Kuala Lumpur, Selangor, Penang, Johor, Terengganu, Sabah, Sarawak, and Singapore.</p>
                         </div>
                     </div>
-                    
-                    <div class="card card-premium fade-in">
-                        <div class="card-header">
-                            <h3>How long does a typical digital transformation project take?</h3>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What industries does ACEiT Group serve?</h3>
+                            <span class="faq-icon">+</span>
                         </div>
-                        <div class="card-content">
-                            <p>Project timelines vary based on scope and complexity:</p>
-                            <ul class="list-styled mt-md">
-                                <li><strong>Microsoft 365 Implementation:</strong> 4-12 weeks</li>
-                                <li><strong>Azure Cloud Migration:</strong> 3-9 months</li>
-                                <li><strong>Comprehensive Digital Transformation:</strong> 6-18 months</li>
-                                <li><strong>Custom Solution Development:</strong> 3-12 months</li>
-                            </ul>
-                            <p class="mt-md">We provide detailed project timelines during our initial consultation phase.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card card-premium fade-in">
-                        <div class="card-header">
-                            <h3>What industries does Enfrasys serve?</h3>
-                        </div>
-                        <div class="card-content">
+                        <div class="faq-answer">
                             <p>We serve organizations across multiple industries with specialized expertise in:</p>
-                            <ul class="list-styled mt-md">
-                                <li><strong>Healthcare:</strong> Compliance, security, and patient data management</li>
-                                <li><strong>Education:</strong> Learning management systems and digital collaboration</li>
-                                <li><strong>Manufacturing:</strong> Process optimization and data analytics</li>
-                                <li><strong>Financial Services:</strong> Security, compliance, and digital banking</li>
-                                <li><strong>Government:</strong> Public sector digital transformation</li>
-                                <li><strong>Telecommunications:</strong> Infrastructure and connectivity solutions</li>
+                            <ul>
+                                <li><strong>Healthcare:</strong> Secure network infrastructure and compliance-focused solutions</li>
+                                <li><strong>Education:</strong> Campus-wide connectivity and learning management systems</li>
+                                <li><strong>Manufacturing:</strong> Industrial IoT, network infrastructure, and automation</li>
+                                <li><strong>Financial Services:</strong> High-security networks and compliance management</li>
+                                <li><strong>Government:</strong> Public sector IT infrastructure and security</li>
+                                <li><strong>Telecommunications:</strong> Carrier-grade networking and infrastructure</li>
+                                <li><strong>Retail:</strong> Point-of-sale systems and customer connectivity</li>
                             </ul>
                         </div>
                     </div>
-                    
-                    <div class="card card-premium fade-in">
-                        <div class="card-header">
-                            <h3>What is the difference between i-Transform and i-Learning?</h3>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What are your service areas?</h3>
+                            <span class="faq-icon">+</span>
                         </div>
-                        <div class="card-content">
-                            <p>Both are signature products from Enfrasys designed for different organizational needs:</p>
-                            <div class="grid grid-2 gap-md mt-md">
-                                <div>
-                                    <h5>i-Transform</h5>
-                                    <ul class="list-styled text-sm">
-                                        <li>Comprehensive digital transformation platform</li>
-                                        <li>Enterprise-wide modernization</li>
-                                        <li>Cloud migration and AI integration</li>
-                                        <li>Cybersecurity and compliance</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h5>i-Learning</h5>
-                                    <ul class="list-styled text-sm">
-                                        <li>Learning management system</li>
-                                        <li>Educational technology platform</li>
-                                        <li>Interactive content delivery</li>
-                                        <li>Analytics and progress tracking</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                            <p class="mt-md">We provide detailed project timelines during our initial consultation phase.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card card-premium fade-in">
-                        <div class="card-header">
-                            <h3>What data do I need for an AI project?</h3>
-                        </div>
-                        <div class="card-content">
-                            <p>Data requirements depend on your specific AI application:</p>
-                            <ul class="list-styled mt-md">
-                                <li><strong>Structured Data:</strong> Databases, spreadsheets, transaction records</li>
-                                <li><strong>Unstructured Data:</strong> Images, text, audio, video files</li>
-                                <li><strong>Volume:</strong> Typically 1,000+ samples for basic models</li>
-                                <li><strong>Quality:</strong> Clean, labeled, and relevant to your business goals</li>
+                        <div class="faq-answer">
+                            <p>ACEiT Group provides services throughout Malaysia and Singapore, with physical offices and support centers in:</p>
+                            <ul>
+                                <li>Selangor (HQ) - Damansara Intan, Petaling Jaya</li>
+                                <li>Kuala Lumpur - Glomac Damansara Leadership Center</li>
+                                <li>Penang - George Town</li>
+                                <li>Johor - Johor Bahru City Square</li>
+                                <li>Terengganu - Kuala Terengganu</li>
+                                <li>Sabah - Kota Kinabalu</li>
+                                <li>Sarawak - Bintulu</li>
+                                <li>Singapore - Cantonment Close</li>
                             </ul>
-                            <p class="mt-md">Our team can help assess your data readiness and suggest collection strategies.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="mt-xl">
-                    <div class="section-header">
-                        <h2 class="section-title">Technical Implementation</h2>
-                        <p class="section-subtitle">Questions about AI development and deployment</p>
-                    </div>
+                <!-- Network Infrastructure -->
+                <div class="faq-category">
+                    <h2 class="faq-category-title">Network Infrastructure (AceTeam Networks)</h2>
                     
-                    <div class="grid grid-1">
-                        <div class="card card-premium fade-in">
-                            <div class="card-header">
-                                <h3>Can AI integrate with our existing systems?</h3>
-                            </div>
-                            <div class="card-content">
-                                <p>Yes, our AI solutions are designed for seamless integration:</p>
-                                <ul class="list-styled mt-md">
-                                    <li><strong>API Integration:</strong> Connect with CRM, ERP, and database systems</li>
-                                    <li><strong>Cloud Compatibility:</strong> Works with AWS, Azure, Google Cloud</li>
-                                    <li><strong>On-Premise Options:</strong> Deploy within your existing infrastructure</li>
-                                    <li><strong>Legacy System Support:</strong> Bridge older systems with modern AI</li>
-                                </ul>
-                            </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What network infrastructure solutions do you provide?</h3>
+                            <span class="faq-icon">+</span>
                         </div>
-                        
-                        <div class="card card-premium fade-in">
-                            <div class="card-header">
-                                <h3>How do you ensure AI model accuracy and reliability?</h3>
-                            </div>
-                            <div class="card-content">
-                                <p>We implement comprehensive quality assurance processes:</p>
-                                <ul class="list-styled mt-md">
-                                    <li><strong>Data Validation:</strong> Rigorous testing and cleaning of training data</li>
-                                    <li><strong>Cross-Validation:</strong> Multiple testing scenarios and validation sets</li>
-                                    <li><strong>Continuous Monitoring:</strong> Real-time performance tracking</li>
-                                    <li><strong>Model Retraining:</strong> Regular updates based on new data</li>
-                                    <li><strong>Human Oversight:</strong> Expert review and quality control</li>
-                                </ul>
-                            </div>
+                        <div class="faq-answer">
+                            <p>AceTeam Networks delivers comprehensive enterprise networking solutions including:</p>
+                            <ul>
+                                <li><strong>Wired & Wireless Networks:</strong> Campus-wide connectivity, Wi-Fi 6/6E deployment</li>
+                                <li><strong>Branch WAN Solutions:</strong> SD-WAN, MPLS, and hybrid connectivity</li>
+                                <li><strong>Network Access Control:</strong> ClearPass, 802.1X authentication, policy enforcement</li>
+                                <li><strong>Centralized Network Management:</strong> Cloud-managed infrastructure with AI insights</li>
+                                <li><strong>5G Enterprise Networks:</strong> Private 5G deployment and integration</li>
+                                <li><strong>Data Centre Networking:</strong> Core switches, leaf-spine architecture</li>
+                            </ul>
                         </div>
-                        
-                        <div class="card card-premium fade-in">
-                            <div class="card-header">
-                                <h3>What ongoing support do you provide after deployment?</h3>
-                            </div>
-                            <div class="card-content">
-                                <p>We offer comprehensive post-deployment support:</p>
-                                <ul class="list-styled mt-md">
-                                    <li><strong>24/7 Monitoring:</strong> Continuous system health checks</li>
-                                    <li><strong>Performance Optimization:</strong> Regular model tuning and improvements</li>
-                                    <li><strong>Technical Support:</strong> Expert assistance and troubleshooting</li>
-                                    <li><strong>Updates & Maintenance:</strong> Security patches and feature upgrades</li>
-                                    <li><strong>Training:</strong> User education and best practices guidance</li>
-                                </ul>
-                            </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you work with specific network vendors?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we are authorized partners with leading network infrastructure vendors:</p>
+                            <ul>
+                                <li><strong>Aruba Networks (HPE):</strong> Enterprise wireless, switching, and SD-WAN</li>
+                                <li><strong>Cisco:</strong> Routing, switching, and data center solutions</li>
+                                <li><strong>Ruckus Networks:</strong> High-density wireless and SmartZone controllers</li>
+                                <li><strong>Extreme Networks:</strong> Campus and data center networking</li>
+                            </ul>
+                            <p>Our partnerships ensure you receive certified solutions, warranty support, and access to the latest technologies.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How long does a typical network deployment take?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Project timelines vary based on scope and complexity:</p>
+                            <ul>
+                                <li><strong>Small Office Network:</strong> 1-2 weeks</li>
+                                <li><strong>Enterprise Campus Network:</strong> 4-12 weeks</li>
+                                <li><strong>Multi-Site WAN Deployment:</strong> 8-16 weeks</li>
+                                <li><strong>Data Centre Network:</strong> 6-20 weeks</li>
+                            </ul>
+                            <p>We provide detailed project plans with milestones during the consultation phase.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="mt-xl">
-                    <div class="section-header">
-                        <h2 class="section-title">Pricing & Business</h2>
-                        <p class="section-subtitle">Questions about costs, ROI, and business considerations</p>
-                    </div>
+                <!-- Cybersecurity -->
+                <div class="faq-category">
+                    <h2 class="faq-category-title">Cybersecurity (AceTeam Connect)</h2>
                     
-                    <div class="grid grid-1">
-                        <div class="card card-premium fade-in">
-                            <div class="card-header">
-                                <h3>How much does an AI solution typically cost?</h3>
-                            </div>
-                            <div class="card-content">
-                                <p>AI project costs vary based on complexity and scope:</p>
-                                <ul class="list-styled mt-md">
-                                    <li><strong>Basic AI Tools:</strong> $5,000 - $25,000 (chatbots, automation)</li>
-                                    <li><strong>Custom ML Solutions:</strong> $50,000 - $250,000 (predictive analytics)</li>
-                                    <li><strong>Enterprise AI Platforms:</strong> $250,000+ (comprehensive AI transformation)</li>
-                                </ul>
-                                <p class="mt-md">We provide detailed cost estimates based on your specific requirements during consultation.</p>
-                            </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What cybersecurity services does ACEiT Group offer?</h3>
+                            <span class="faq-icon">+</span>
                         </div>
-                        
-                        <div class="card card-premium fade-in">
-                            <div class="card-header">
-                                <h3>What ROI can I expect from AI implementation?</h3>
-                            </div>
-                            <div class="card-content">
-                                <p>Our clients typically see significant returns within 12-18 months:</p>
-                                <ul class="list-styled mt-md">
-                                    <li><strong>Cost Savings:</strong> 20-40% reduction in operational costs</li>
-                                    <li><strong>Revenue Growth:</strong> 15-30% increase through optimization</li>
-                                    <li><strong>Efficiency Gains:</strong> 50-80% improvement in task completion</li>
-                                    <li><strong>Customer Satisfaction:</strong> 25-45% improvement in experience metrics</li>
-                                </ul>
-                            </div>
+                        <div class="faq-answer">
+                            <p>AceTeam Connect provides comprehensive cybersecurity solutions:</p>
+                            <ul>
+                                <li><strong>Next-Gen Firewalls:</strong> Advanced threat protection and application control</li>
+                                <li><strong>Network Security Management:</strong> 24/7 monitoring and threat response</li>
+                                <li><strong>Endpoint Security:</strong> Anti-malware, EDR, and device protection</li>
+                                <li><strong>Cloud Access Security:</strong> CASB, DLP, and cloud security posture management</li>
+                                <li><strong>Cyber Threat Intelligence:</strong> Proactive threat hunting and analysis</li>
+                                <li><strong>Security Subscription Services:</strong> Managed security operations</li>
+                                <li><strong>Advanced Cyber Consultation:</strong> Risk assessment and security planning</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you provide managed security services?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, our Cybersecurity Managed Services include:</p>
+                            <ul>
+                                <li>24/7 Security Operations Center (SOC) monitoring</li>
+                                <li>Incident response and threat remediation</li>
+                                <li>Vulnerability scanning and patch management</li>
+                                <li>Security information and event management (SIEM)</li>
+                                <li>Compliance reporting and audit support</li>
+                                <li>Regular security assessments and penetration testing</li>
+                            </ul>
+                            <p>Our managed services let you focus on business operations while we protect your infrastructure.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do you help with compliance requirements?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We assist organizations in meeting regulatory compliance standards including:</p>
+                            <ul>
+                                <li><strong>ISO 27001:</strong> Information security management systems</li>
+                                <li><strong>PDPA (Malaysia):</strong> Personal data protection compliance</li>
+                                <li><strong>PCI-DSS:</strong> Payment card industry data security</li>
+                                <li><strong>HIPAA:</strong> Healthcare information protection (for healthcare clients)</li>
+                                <li><strong>BNM RMiT:</strong> Bank Negara Malaysia risk management guidelines</li>
+                            </ul>
+                            <p>Our security solutions include compliance reporting, audit trails, and policy enforcement capabilities.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="mt-xl">
-                    <div class="card card-premium fade-in">
-                        <div class="card-content text-center">
-                            <h3>Still Have Questions?</h3>
-                            <p class="text-lg mb-lg">Our AI experts are here to help answer any additional questions about implementation, costs, or technical details</p>
-                            <div class="flex justify-center gap-md">
-                                <a href="contact.html" class="btn btn-primary">Contact Our Experts</a>
-                                <a href="support.html" class="btn btn-secondary">Visit Support Center</a>
-                            </div>
+                <!-- Unified Communications -->
+                <div class="faq-category">
+                    <h2 class="faq-category-title">Unified Communications (AceTeam Digital)</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What unified communications solutions do you offer?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>AceTeam Digital specializes in modern workplace communication solutions:</p>
+                            <ul>
+                                <li><strong>UC Meeting Rooms:</strong> Video conferencing systems and collaboration spaces</li>
+                                <li><strong>Business Audio Solutions:</strong> Conference room audio and sound systems</li>
+                                <li><strong>Display Solutions:</strong> Interactive displays and digital signage</li>
+                                <li><strong>Visitor Management:</strong> Digital reception and access control</li>
+                                <li><strong>AI Software Distribution:</strong> Intelligent communication tools</li>
+                            </ul>
                         </div>
                     </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Which UC platforms do you support?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We work with leading unified communications platforms:</p>
+                            <ul>
+                                <li><strong>Microsoft Teams:</strong> Rooms systems and devices certification</li>
+                                <li><strong>Zoom:</strong> Zoom Rooms and video conferencing</li>
+                                <li><strong>Cisco Webex:</strong> Collaboration devices and room systems</li>
+                                <li><strong>Poly:</strong> Audio and video devices</li>
+                                <li><strong>Logitech:</strong> Meeting room equipment</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Can you design and build custom meeting rooms?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we provide end-to-end meeting room design and deployment services:</p>
+                            <ul>
+                                <li>Space assessment and acoustic planning</li>
+                                <li>AV equipment selection and integration</li>
+                                <li>Camera, microphone, and speaker installation</li>
+                                <li>Display and control system setup</li>
+                                <li>User training and ongoing support</li>
+                            </ul>
+                            <p>From huddle rooms to executive boardrooms, we design spaces optimized for hybrid collaboration.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Support -->
+                <div class="faq-category">
+                    <h2 class="faq-category-title">Support & Services</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What support services do you provide?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer comprehensive post-deployment support:</p>
+                            <ul>
+                                <li><strong>Technical Support:</strong> Phone, email, and remote assistance</li>
+                                <li><strong>On-Site Support:</strong> Engineers available across all office locations</li>
+                                <li><strong>Maintenance Contracts:</strong> Preventive maintenance and health checks</li>
+                                <li><strong>Warranty Management:</strong> Vendor warranty coordination</li>
+                                <li><strong>Software Updates:</strong> Firmware and software lifecycle management</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you offer training for our IT staff?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we provide comprehensive training programs:</p>
+                            <ul>
+                                <li>On-site administrator training for deployed solutions</li>
+                                <li>Vendor certification training (Aruba, Cisco, etc.)</li>
+                                <li>User training for unified communications systems</li>
+                                <li>Security awareness training programs</li>
+                                <li>Custom workshops tailored to your environment</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How can I get a quote or consultation?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Getting started is easy:</p>
+                            <ul>
+                                <li><strong>Contact Us:</strong> Visit our contact page or call +6 03 7727 7000</li>
+                                <li><strong>Initial Consultation:</strong> Free consultation to understand your requirements</li>
+                                <li><strong>Site Survey:</strong> Technical assessment of your environment (if needed)</li>
+                                <li><strong>Proposal:</strong> Detailed solution design and quotation</li>
+                                <li><strong>Deployment:</strong> Project kickoff and implementation</li>
+                            </ul>
+                            <p>Contact us today to discuss your IT infrastructure needs!</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Blog Archive Section -->
+        <section style="background: white; padding: 5rem 0;">
+            <div class="container">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2rem; font-weight: 700; color: var(--primary-dark);">Read Our Latest News</h2>
+                    <a href="blogs.html" style="background: white; border: 2px solid var(--primary-dark); color: var(--primary-dark); padding: 0.6rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 4px; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">ALL NEWS</a>
+                </div>
+
+                <div class="grid grid-4" style="gap: 2rem;">
+                    <!-- Blog Post 1 -->
+                    <div class="blog-card">
+                        <span class="blog-badge">NETWORKING</span>
+                        <h3 class="blog-title">5G Enterprise Networks: The Future of Business Connectivity</h3>
+                        <a href="../blog/5g-enterprise-networks-june-2025.html" class="blog-link">? LEARN MORE</a>
+                    </div>
+
+                    <!-- Blog Post 2 -->
+                    <div class="blog-card">
+                        <span class="blog-badge">CYBERSECURITY</span>
+                        <h3 class="blog-title">Quantum Computing Threat: Post-Quantum Cryptography Solutions</h3>
+                        <a href="../blog/quantum-computing-threat-post-quantum-cryptography-july-2025.html" class="blog-link">? LEARN MORE</a>
+                    </div>
+
+                    <!-- Blog Post 3 -->
+                    <div class="blog-card">
+                        <span class="blog-badge">NETWORKING</span>
+                        <h3 class="blog-title">Aruba ClearPass: Identity-Based Network Access Management</h3>
+                        <a href="../blog/aruba-clearpass-access-management-identity-network-security.html" class="blog-link">? LEARN MORE</a>
+                    </div>
+
+                    <!-- Blog Post 4 -->
+                    <div class="blog-card">
+                        <span class="blog-badge">COMPANY</span>
+                        <h3 class="blog-title">AceTeam Networks 2025: Vision, Growth & Innovation</h3>
+                        <a href="../blog/aceteam-networks-2025-vision-growth-innovation.html" class="blog-link">? LEARN MORE</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section style="background: #f8f9fa; padding: 5rem 0;">
+            <div class="container">
+                <div class="cta-box">
+                    <h2>Still Have Questions?</h2>
+                    <p>Our team of IT infrastructure experts is ready to help. Contact us today for a free consultation and discover how ACEiT Group can transform your network, security, and communications.</p>
+                    <a href="contact.html" class="cta-button">Contact Us Today</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="grid grid-4">
-                <div>
-                    <h4>Enfrasys</h4>
-                    <p class="text-sm">Leading AI solutions and intelligent software development for enterprise innovation.</p>
-                </div>
-                <div>
-                    <h5>Solutions</h5>
-                    <ul class="footer-links">
-                        <li><a href="products.html">AI Products</a></li>
-                        <li><a href="services.html">Consulting</a></li>
-                        <li><a href="portfolio.html">Case Studies</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5>Company</h5>
-                    <ul class="footer-links">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="team.html">Our Team</a></li>
-                        <li><a href="careers.html">Careers</a></li>
-                        <li><a href="news.html">News</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5>Connect</h5>
-                    <ul class="footer-links">
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="events.html">Events</a></li>
-                        <li><a href="support.html">Support</a></li>
-                    </ul>
-                </div>
-            </div>            <div class="footer-bottom">
-                <p>&copy; 2025 Enfrasys. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-        <!-- Navigation JavaScript -->
-    <script src="js/navigation.js"></script>
+    <div id="footer-placeholder"></div>
+    
+    <script src="js/components.js"></script>
+    <script>
+        // FAQ Accordion Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close other items (optional - remove if you want multiple items open)
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                    });
+                    
+                    // Toggle current item
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
 

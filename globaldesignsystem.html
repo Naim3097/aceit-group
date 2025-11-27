@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Design System - ACEiT</title>
+    <link rel="stylesheet" href="globaldesign.css">
+    <style>
+        .design-section {
+            margin: 4rem 0;
+            padding: 2rem;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        .design-section h2 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e91e8c;
+        }
+        .design-section h3 {
+            color: #333;
+            margin: 2rem 0 1rem;
+        }
+        .component-demo {
+            background: white;
+            padding: 2rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+        }
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .icon-item {
+            text-align: center;
+            padding: 1rem;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            background: white;
+        }
+        .icon-item svg {
+            margin-bottom: 0.5rem;
+        }
+        .icon-label {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+        }
+        code {
+            background: #f3f4f6;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 2rem;">
+        <header style="text-align: center; margin: 3rem 0;">
+            <h1 style="font-size: 3rem; font-weight: 800; color: #1a1a1a;">ACEiT Global Design System</h1>
+            <p style="color: #6b7280; font-size: 1.125rem;">Comprehensive component library and design patterns</p>
+        </header>
+
+        <!-- ========================================
+             SECTION 1: NAVIGATION & HEADER
+        ======================================== -->
+        <div class="design-section">
+            <h2>1. Navigation & Header Components</h2>
+            
+            <h3>Standard Navigation (Desktop & Mobile)</h3>
+            <div class="component-demo">
+                <nav class="nav">
+                    <div class="nav-container">
+                        <a href="index.html" class="nav-brand">
+                            <img src="assets/ACEiT Logo.png" alt="ACEiT Logo" class="nav-logo">
+                        </a>
+                        <button class="nav-toggle" id="nav-toggle">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                        <ul class="nav-menu" id="nav-menu">
+                            <li><a href="index.html" class="nav-link active">HOME</a></li>
+                            <li><a href="about.html" class="nav-link">ABOUT</a></li>
+                            <li><a href="services.html" class="nav-link">SERVICES</a></li>
+                            <li><a href="products.html" class="nav-link">PRODUCTS</a></li>
+                            <li><a href="portfolio.html" class="nav-link">PORTFOLIO</a></li>
+                            <li><a href="blog.html" class="nav-link">BLOG</a></li>
+                        </ul>
+                        <button class="nav-search" aria-label="Search">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </nav>
+            </div>
+            <p><strong>Usage:</strong> <code>&lt;nav class="nav"&gt;...&lt;/nav&gt;</code></p>
+        </div>
+
+        <!-- ========================================
+             SECTION 2: FOOTER
+        ======================================== -->
+        <div class="design-section">
+            <h2>2. Footer Component</h2>
+            
+            <div class="component-demo">
+                <footer class="footer">
+                    <div class="container">
+                        <div class="grid grid-4">
+                            <div>
+                                <img src="assets/ACEiT Logo.png" alt="ACEiT" class="footer-logo">
+                                <ul class="footer-links" style="margin-top: 1rem;">
+                                    <li><a href="aceteam-networks/aceteamnetworks.html">AceTeam Networks</a></li>
+                                    <li><a href="aceteam-connect/aceteamconnect.html">AceTeam Connect</a></li>
+                                    <li><a href="aceteam-digital/aceteamdigital.html">AceTeam Digital</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5>Our Services</h5>
+                                <ul class="footer-links">
+                                    <li><a href="services.html#cybersecurity">Cybersecurity</a></li>
+                                    <li><a href="services.html#security-operation-centre">Security Operation Centre</a></li>
+                                    <li><a href="services.html#data-centre-cloud">Data Centre and Cloud</a></li>
+                                    <li><a href="services.html#unified-communication">Unified Communication</a></li>
+                                    <li><a href="services.html#data-networking">Data Networking</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5>Company</h5>
+                                <ul class="footer-links">
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="blog.html">Blogs and News</a></li>
+                                    <li><a href="faq.html">Frequently Asked Questions</a></li>
+                                    <li><a href="careers.html">Career</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5>Social Media</h5>
+                                <p class="text-sm" style="margin-bottom: 1rem;">Find us on social media</p>
+                                <div class="social-links" style="display: flex; gap: 1rem;">
+                                    <a href="https://www.facebook.com/ACEiTasia" target="_blank" aria-label="Facebook" style="color: #6b7280; transition: color 0.3s;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                        </svg>
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/ACEiTasia" target="_blank" aria-label="LinkedIn" style="color: #6b7280; transition: color 0.3s;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                        </svg>
+                                    </a>
+                                    <a href="https://www.instagram.com/ACEiTasia" target="_blank" aria-label="Instagram" style="color: #6b7280; transition: color 0.3s;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-bottom">
+                            <p>&copy; 2025 ACEiT. All rights reserved.</p>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <p><strong>Usage:</strong> <code>&lt;footer class="footer"&gt;...&lt;/footer&gt;</code></p>
+        </div>
+
+        <!-- ========================================
+             SECTION 3: ICONS LIBRARY
+        ======================================== -->
+        <div class="design-section">
+            <h2>3. Icons Library</h2>
+            <p>All SVG icons used across the website</p>
+
+            <h3>Service & Feature Icons</h3>
+            <div class="icon-grid">
+                <!-- Network Icons -->
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <circle cx="12" cy="12" r="6"></circle>
+                        <circle cx="12" cy="12" r="2"></circle>
+                    </svg>
+                    <div class="icon-label">Wireless Network</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                    <div class="icon-label">WAN Solutions</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <div class="icon-label">User Analytics</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                        <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                        <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                        <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                    </svg>
+                    <div class="icon-label">Server Management</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <div class="icon-label">Access Control</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2">
+                        <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                        <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                        <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                    </svg>
+                    <div class="icon-label">WiFi Connectivity</div>
+                </div>
+
+                <!-- Security Icons -->
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <div class="icon-label">Security Shield</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 6v6l4 2"></path>
+                    </svg>
+                    <div class="icon-label">Monitoring</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    <div class="icon-label">Threat Intelligence</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="3" y1="9" x2="21" y2="9"></line>
+                        <line x1="9" y1="21" x2="9" y2="9"></line>
+                    </svg>
+                    <div class="icon-label">Firewall</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="2">
+                        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                    </svg>
+                    <div class="icon-label">Cloud Security</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                    <div class="icon-label">Compliance</div>
+                </div>
+
+                <!-- Digital Workplace Icons -->
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="2">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                        <line x1="12" y1="19" x2="12" y2="23"></line>
+                        <line x1="8" y1="23" x2="16" y2="23"></line>
+                    </svg>
+                    <div class="icon-label">Audio Solutions</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+                        <polyline points="17 2 12 7 7 2"></polyline>
+                    </svg>
+                    <div class="icon-label">Meeting Rooms</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    <div class="icon-label">Display Solutions</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="2">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="8.5" cy="7" r="4"></circle>
+                        <polyline points="17 11 19 13 23 9"></polyline>
+                    </svg>
+                    <div class="icon-label">Visitor Management</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <div class="icon-label">AI Solutions</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                    <div class="icon-label">AI Intelligence</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                    <div class="icon-label">Integration</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <div class="icon-label">Collaboration</div>
+                </div>
+
+                <!-- General Icons -->
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <div class="icon-label">Search</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <div class="icon-label">Check/Success</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                    <div class="icon-label">Close/Cancel</div>
+                </div>
+
+                <div class="icon-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                    <div class="icon-label">Arrow Right</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================
+             SECTION 4: CARD DESIGNS
+        ======================================== -->
+        <div class="design-section">
+            <h2>4. Card Designs</h2>
+
+            <h3>4.1 Service Card (Clean White Style)</h3>
+            <div class="component-demo">
+                <div style="max-width: 350px;">
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="6"></circle>
+                                <circle cx="12" cy="12" r="2"></circle>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">Service Title</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Description of the service explaining key features and benefits.</p>
+                        <a href="#" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem;">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <p><strong>Features:</strong> Clean white background, black icon container with accent color icon, hover lift effect</p>
+
+            <h3>4.2 Blog/News Card (Clean White Style)</h3>
+            <div class="component-demo">
+                <div style="max-width: 350px;">
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 1.5rem;">
+                        <span style="display: inline-block; padding: 0.3rem 0.8rem; background: #1a1a1a; color: white; font-size: 0.75rem; font-weight: 600; border-radius: 4px; margin-bottom: 1rem;">CATEGORY</span>
+                        <h3 style="font-size: 1.05rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.4;">Article Title Goes Here</h3>
+                        <a href="#" style="color: #1a1a1a; text-decoration: none; font-weight: 600; font-size: 0.9rem;">→ LEARN MORE</a>
+                    </div>
+                </div>
+            </div>
+            <p><strong>Features:</strong> Black badge, clean typography, simple arrow link</p>
+
+            <h3>4.3 Service Group Card (services.html Style)</h3>
+            <div class="component-demo">
+                <div class="service-group" style="background: #f8f9fa; border: 1px solid #e5e5e5; border-radius: 12px; padding: 2.5rem;">
+                    <div class="service-category-header" style="display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 2rem;">
+                        <div class="service-icon-large" style="width: 60px; height: 60px; background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <div class="service-category-title" style="flex: 1;">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.5rem;">Category Title</h3>
+                            <p class="service-category-description" style="color: #6b7280; font-size: 1rem; line-height: 1.6;">Description of this service category and what it offers.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Feature Name</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Detailed description of this specific feature and its benefits.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Feature Name</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Detailed description of this specific feature and its benefits.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Feature Name</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Detailed description of this specific feature and its benefits.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p><strong>Usage:</strong> Used in "Why Choose" sections and detailed service offerings</p>
+
+            <h3>4.4 Image Overlay Service Card (Legacy - Index Page)</h3>
+            <div class="component-demo">
+                <div style="max-width: 350px;">
+                    <div class="service-image-card">
+                        <div class="service-image-bg" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('placeholder.jpg') center/cover; min-height: 300px; border-radius: 8px; display: flex; align-items: flex-end;">
+                            <div class="service-content" style="padding: 2rem; color: white;">
+                                <h3 class="service-title" style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;">Service Name</h3>
+                                <p class="service-description" style="margin-bottom: 1.25rem; opacity: 0.9;">Brief description of the service offering.</p>
+                                <a href="#" class="service-btn" style="display: inline-block; padding: 0.6rem 1.5rem; background: rgba(255,255,255,0.2); border: 2px solid white; color: white; text-decoration: none; border-radius: 4px; font-weight: 600;">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p><strong>Note:</strong> This style is used on index.html main service cards</p>
+
+            <h3>4.5 Service Page Hero with Badge</h3>
+            <div class="component-demo">
+                <section class="hero bg-primary" style="min-height: 50vh; display: flex; align-items: center; background: #0a1628; padding: 4rem 2rem;">
+                    <div style="max-width: 1200px; margin: 0 auto; width: 100%;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="display: inline-block; background: rgba(255,255,255,0.2); color: white; padding: 0.4rem 1rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; border-radius: 20px;">ACETEAM NETWORKS</span>
+                        </div>
+                        <h1 style="font-size: 3.5rem; font-weight: 800; color: white; margin-bottom: 1.5rem; line-height: 1.1;">Service Page Title</h1>
+                        <p style="font-size: 1.125rem; color: rgba(255,255,255,0.85); max-width: 900px; line-height: 1.7;">Hero description text that explains the service offering and its key benefits for customers.</p>
+                    </div>
+                </section>
+            </div>
+            <p><strong>Usage:</strong> Used on individual service pages with subsidiary badge (Networks/Connect/Digital)</p>
+
+            <h3>4.6 Large Feature Card with Icon (60px)</h3>
+            <div class="component-demo">
+                <div style="max-width: 500px;">
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 12px; padding: 2.5rem;">
+                        <div style="width: 60px; height: 60px; background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 6v6l4 2"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">Feature Title</h3>
+                        <p style="color: #4a5568; line-height: 1.8;">Detailed description of the feature and how it benefits the customer with comprehensive information.</p>
+                    </div>
+                </div>
+            </div>
+            <p><strong>Usage:</strong> Used in service pages for main features grid (2x2 or 2x3 layout)</p>
+
+            <h3>4.7 Dark Overlay Feature Box</h3>
+            <div class="component-demo">
+                <div style="background: #0a1628; padding: 3rem 2rem;">
+                    <div style="max-width: 400px;">
+                        <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 2rem;">
+                            <h4 style="font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 1rem;">Feature Highlight</h4>
+                            <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.7;">Description of feature benefit on dark background for "Why Choose" sections.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p><strong>Usage:</strong> Used in dark "Why Choose" sections on service pages (3-column grid)</p>
+
+            <h3>4.8 Related Services Card (Small)</h3>
+            <div class="component-demo">
+                <div style="max-width: 300px;">
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease;">
+                        <div style="width: 40px; height: 40px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Related Service</h4>
+                        <p style="color: #6b7280; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem;">Brief service description.</p>
+                        <a href="#" style="color: #1a1a1a; text-decoration: none; font-weight: 600; font-size: 0.85rem;">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+            <p><strong>Usage:</strong> Used at bottom of service pages to cross-promote related services</p>
+        </div>
+
+        <!-- ========================================
+             SECTION 5: HERO PATTERNS
+        ======================================== -->
+        <div class="design-section">
+            <h2>5. Hero Section Patterns</h2>
+
+            <h3>5.1 Main Homepage Hero (Dark with Gradient)</h3>
+            <div class="component-demo">
+                <section style="background: #0a1628; min-height: 60vh; display: flex; align-items: center; padding: 4rem 2rem;">
+                    <div style="max-width: 1200px; margin: 0 auto; width: 100%; text-align: center;">
+                        <p style="font-size: 1rem; font-weight: 600; letter-spacing: 3px; color: rgba(255,255,255,0.8); margin-bottom: 1.5rem; text-transform: uppercase;">INNOVATE · INTEGRATE · INSPIRE</p>
+                        <h1 style="font-size: 4.5rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.1;">
+                            <span style="color: #e91e8c;">ACE</span><span style="color: white;">iT GROUP</span>
+                        </h1>
+                        <p style="font-size: 1.125rem; color: rgba(255,255,255,0.85); max-width: 900px; margin: 0 auto; line-height: 1.7;">Your reliable partner for businesses ready to scale, from infrastructure to cybersecurity.</p>
+                    </div>
+                </section>
+            </div>
+            <p><strong>Usage:</strong> Main homepage hero with brand colors and tagline</p>
+
+            <h3>5.2 Service Page Hero (With Badge)</h3>
+            <div class="component-demo">
+                <section style="background: linear-gradient(135deg, #1a1508 0%, #3d2f0a 50%, #2d2308 100%); min-height: 50vh; display: flex; align-items: center; padding: 4rem 2rem;">
+                    <div style="max-width: 1200px; margin: 0 auto; width: 100%;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="display: inline-block; background: rgba(255,193,7,0.2); color: #ffc107; padding: 0.4rem 1rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; border-radius: 20px; border: 1px solid rgba(255,193,7,0.3);">ACETEAM NETWORKS</span>
+                        </div>
+                        <h1 style="font-size: 3.5rem; font-weight: 800; color: white; margin-bottom: 1.5rem; line-height: 1.1;">Service Title Here</h1>
+                        <p style="font-size: 1.125rem; color: rgba(255,255,255,0.85); max-width: 900px; line-height: 1.7;">Service description explaining the value proposition and key benefits.</p>
+                    </div>
+                </section>
+            </div>
+            <p><strong>Variants:</strong> Networks (Yellow/Gold), Connect (Blue), Digital (Purple) - each with matching gradient</p>
+
+            <h3>5.3 Subsidiary Hub Hero (Full Height)</h3>
+            <div class="component-demo">
+                <section style="background: linear-gradient(135deg, #0c2340 0%, #1e4976 100%); min-height: 70vh; display: flex; align-items: center; padding: 4rem 2rem;">
+                    <div style="max-width: 1200px; margin: 0 auto; width: 100%; text-align: center;">
+                        <p style="font-size: 1rem; font-weight: 600; letter-spacing: 3px; color: rgba(255,255,255,0.8); margin-bottom: 1.5rem; text-transform: uppercase;">PROTECT · DETECT · RESPOND</p>
+                        <h1 style="font-size: 4.5rem; font-weight: 800; color: white; margin-bottom: 1.5rem; line-height: 1.1;">
+                            Aceteam <span style="color: #42a5f5;">Connect</span>
+                        </h1>
+                        <p style="font-size: 1.25rem; color: rgba(255,255,255,0.85); max-width: 900px; margin: 0 auto 3rem; line-height: 1.7;">Enterprise Cybersecurity & Network Security Solutions</p>
+                        <a href="#" style="display: inline-block; padding: 1rem 2.5rem; background: #42a5f5; color: white; text-decoration: none; border-radius: 4px; font-weight: 700; font-size: 1rem;">Explore Services</a>
+                    </div>
+                </section>
+            </div>
+            <p><strong>Usage:</strong> Used on subsidiary hub pages (aceteamnetworks.html, aceteamconnect.html, aceteamdigital.html)</p>
+        </div>
+
+        <!-- ========================================
+             SECTION 6: BUTTONS & CTAs
+        ======================================== -->
+        <div class="design-section">
+            <h2>6. Buttons & Call-to-Actions</h2>
+            
+            <h3>Button Variants</h3>
+            <div class="component-demo" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <button style="padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; border: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; cursor: pointer;">Primary Button</button>
+                
+                <button style="padding: 0.6rem 1.5rem; background: white; color: #1a1a1a; border: 2px solid #1a1a1a; border-radius: 4px; font-weight: 600; font-size: 0.9rem; cursor: pointer;">Secondary Button</button>
+                
+                <button style="padding: 0.6rem 1.5rem; background: #e91e8c; color: white; border: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; cursor: pointer;">Accent Button</button>
+                
+                <button style="padding: 0.6rem 1.5rem; background: transparent; color: #1a1a1a; border: none; font-weight: 600; font-size: 0.9rem; cursor: pointer; text-decoration: underline;">Text Link Button</button>
+            </div>
+
+            <h3>Arrow Link Style</h3>
+            <div class="component-demo">
+                <a href="#" style="color: #1a1a1a; text-decoration: none; font-weight: 600; font-size: 0.9rem;">→ LEARN MORE</a>
+            </div>
+        </div>
+
+        <!-- ========================================
+             SECTION 7: COLOR PALETTE
+        ======================================== -->
+        <div class="design-section">
+            <h2>7. Color Palette</h2>
+            
+            <h3>Brand Colors</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+                <div style="background: #e91e8c; height: 100px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">#e91e8c<br/>Primary Pink</div>
+                <div style="background: #1a1a1a; height: 100px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">#1a1a1a<br/>Primary Dark</div>
+                <div style="background: #0a1628; height: 100px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">#0a1628<br/>Hero Dark</div>
+            </div>
+
+            <h3>Subsidiary Brand Colors</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+                <div style="background: #ffc107; height: 100px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #1a1508; font-weight: 600;">#ffc107<br/>Networks Yellow</div>
+                <div style="background: #42a5f5; height: 100px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">#42a5f5<br/>Connect Blue</div>
+                <div style="background: #ce93d8; height: 100px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">#ce93d8<br/>Digital Purple</div>
+            </div>
+
+            <h3>Neutral Colors</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+                <div style="background: #f8f9fa; height: 100px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #1a1a1a; font-weight: 600; border: 1px solid #e5e5e5;">#f8f9fa<br/>Background Gray</div>
+                <div style="background: #6b7280; height: 100px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">#6b7280<br/>Text Gray</div>
+                <div style="background: #e5e5e5; height: 100px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #1a1a1a; font-weight: 600;">#e5e5e5<br/>Border Gray</div>
+            </div>
+        </div>
+
+        <!-- ========================================
+             SECTION 8: TYPOGRAPHY
+        ======================================== -->
+        <div class="design-section">
+            <h2>8. Typography System</h2>
+            
+            <div class="component-demo">
+                <h1 style="font-size: 4.5rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.1;">Hero Title (4.5rem/800)</h1>
+                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Section Title (2.5rem/700)</h2>
+                <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Subsection Title (1.5rem/700)</h3>
+                <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem;">Card Title (1.25rem/700)</h4>
+                <h5 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem;">Feature Title (1.1rem/700)</h5>
+                <p style="font-size: 1.125rem; line-height: 1.7; margin-bottom: 1rem;">Body Large (1.125rem) - Used for hero subtitles and important descriptions.</p>
+                <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;">Body Regular (1rem) - Standard body text for most content.</p>
+                <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem; color: #6b7280;">Body Small (0.95rem) - Used for feature descriptions and secondary text.</p>
+                <p style="font-size: 0.85rem; line-height: 1.5; color: #6b7280;">Caption (0.85rem) - Used for labels and small notes.</p>
+            </div>
+            
+            <p><strong>Font Family:</strong> <code>Montserrat</code> (weights: 300, 400, 500, 600, 700, 800)</p>
+        </div>
+
+        <!-- ========================================
+             SECTION 9: GRID & LAYOUT
+        ======================================== -->
+        <div class="design-section">
+            <h2>9. Grid & Layout System</h2>
+            
+            <h3>Container</h3>
+            <p><code>.container</code> - Max-width: 1200px, centered with auto margins</p>
+
+            <h3>Grid Classes</h3>
+            <div class="component-demo">
+                <p><code>.grid-2</code> - 2 column grid</p>
+                <div class="grid grid-2" style="gap: 1rem; margin: 1rem 0;">
+                    <div style="background: #f3f4f6; padding: 2rem; border-radius: 4px; text-align: center;">Column 1</div>
+                    <div style="background: #f3f4f6; padding: 2rem; border-radius: 4px; text-align: center;">Column 2</div>
+                </div>
+
+                <p><code>.grid-3</code> - 3 column grid</p>
+                <div class="grid grid-3" style="gap: 1rem; margin: 1rem 0;">
+                    <div style="background: #f3f4f6; padding: 2rem; border-radius: 4px; text-align: center;">Column 1</div>
+                    <div style="background: #f3f4f6; padding: 2rem; border-radius: 4px; text-align: center;">Column 2</div>
+                    <div style="background: #f3f4f6; padding: 2rem; border-radius: 4px; text-align: center;">Column 3</div>
+                </div>
+
+                <p><code>.grid-4</code> - 4 column grid</p>
+                <div class="grid grid-4" style="gap: 1rem; margin: 1rem 0;">
+                    <div style="background: #f3f4f6; padding: 1.5rem; border-radius: 4px; text-align: center;">Col 1</div>
+                    <div style="background: #f3f4f6; padding: 1.5rem; border-radius: 4px; text-align: center;">Col 2</div>
+                    <div style="background: #f3f4f6; padding: 1.5rem; border-radius: 4px; text-align: center;">Col 3</div>
+                    <div style="background: #f3f4f6; padding: 1.5rem; border-radius: 4px; text-align: center;">Col 4</div>
+                </div>
+            </div>
+
+            <p><strong>Note:</strong> All grids are responsive and collapse to single column on mobile</p>
+        </div>
+
+        <!-- ========================================
+             SECTION 10: SPACING SYSTEM
+        ======================================== -->
+        <div class="design-section">
+            <h2>10. Spacing System</h2>
+            
+            <div class="component-demo">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background: #f3f4f6;">
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #e5e5e5;">Token</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #e5e5e5;">Value</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #e5e5e5;">Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #e5e5e5;"><code>0.5rem</code></td>
+                            <td style="padding: 0.75rem; border: 1px solid #e5e5e5;">8px</td>
+                            <td style="padding: 0.75rem; border: 1px solid #e5e5e5;">Tiny spacing</td>
+                        </tr>
+                        <tr style="background: #f9fafb;">
+                            <td style="padding: 0.75rem; border: 1px solid #e5e5e5;"><code>1rem</code></td>
+                            <td style="padding: 0.75rem; border: 1px solid #e5e5e5;">16px</td>
+                            <td style="padding: 0.75rem; border: 1px solid #e5e5e5;">Small spacing, margins between elements</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #e5e5e5;"><code>1.5rem</code></td>
+                            <td style="padding: 0.75rem; border: 1px solid #e5e5e5;">24px</td>
+                            <td style="padding: 0.75rem; border: 1px solid #e5e5e5;">Medium spacing, card padding</td>
+                        </tr>
+                        <tr style="background: #f9fafb;">
+                            <td style="padding: 0.75rem; border: 1px solid #e5e5e5;"><code>2rem</code></td>
+                            <td style="padding: 0.75rem; border: 1px solid #e5e5e5;">32px</td>
+                            <td style="padding: 0.75rem; border: 1px solid #e5e5e5;">Large spacing, gaps</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #e5e5e5;"><code>2.5rem</code></td>
+                            <td style="padding: 0.75rem; border: 1px solid #e5e5e5;">40px</td>
+                            <td style="padding: 0.75rem; border: 1px solid #e5e5e5;">Service card padding</td>
+                        </tr>
+                        <tr style="background: #f9fafb;">
+                            <td style="padding: 0.75rem; border: 1px solid #e5e5e5;"><code>5rem</code></td>
+                            <td style="padding: 0.75rem; border: 1px solid #e5e5e5;">80px</td>
+                            <td style="padding: 0.75rem; border: 1px solid #e5e5e5;">Section padding (vertical)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer style="text-align: center; margin: 4rem 0 2rem; padding-top: 2rem; border-top: 2px solid #e5e5e5;">
+            <p style="color: #6b7280;">ACEiT Global Design System v1.0 - Last updated: November 2025</p>
+        </footer>
+    </div>
+
+    <script src="js/navigation.js"></script>
+</body>
+</html>

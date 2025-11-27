@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../../">
+    <title>Aruba Partner - ACEiT Group</title>
+    <link rel="stylesheet" href="globaldesign.css">
+    <style>
+        .partner-hero {
+            background: linear-gradient(135deg, #0a1628 0%, #1a2842 100%);
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: clamp(2rem, 5vh, 4rem) 0;
+        }
+        .partner-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(233, 30, 140, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(9, 11, 26, 0.3) 0%, transparent 50%);
+        }
+        .partner-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        .partner-logo-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .partner-logo {
+            max-width: 300px;
+            height: auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
+        }
+        .partner-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #e91e8c 0%, #b01567 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 1.5rem;
+            text-transform: uppercase;
+        }
+        .partner-intro {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .partner-intro h1 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .partner-intro p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Certifications Section */
+        .certifications-section {
+            padding: 5rem 0;
+            background: white;
+        }
+        .content-section {
+            padding: 5rem 0;
+        }
+        .content-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0a1628;
+            margin-bottom: 1rem;
+        }
+        .section-header p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .cert-badge {
+            width: 60px;
+            height: 60px;
+            background: #e91e8c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .cert-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0a1628;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-subtitle {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 0.75rem;
+        }
+
+        .cert-description {
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        /* CTA Sections */
+        .cta-section {
+            background: linear-gradient(135deg, #0a1628 0%, #1a2842 100%);
+            padding: 5rem 0;
+            text-align: center;
+            color: white;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        .cta-section p {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #e91e8c 0%, #b01567 100%);
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(233, 30, 140, 0.4);
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 30, 140, 0.6);
+        }
+
+        /* Solutions Section */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .solution-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .solution-icon {
+            width: 50px;
+            height: 50px;
+            background: #e91e8c;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0a1628;
+            margin-bottom: 1rem;
+        }
+
+        .solution-card p {
+            color: #6b7280;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .solution-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0 0 0;
+        }
+
+        .solution-features li {
+            padding: 0.5rem 0;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .solution-features li::before {
+            content: "•";
+            color: #e91e8c;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* Steps Section */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #0a1628;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .step-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0a1628;
+            margin-bottom: 0.75rem;
+        }
+
+        .step-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Products Section */
+        .products-section {
+            background: #0a1628;
+            color: white;
+            padding: 5rem 0;
+        }
+        .product-category {
+            margin-bottom: 3rem;
+        }
+        .product-category h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #e91e8c;
+            margin-bottom: 1.5rem;
+        }
+        .product-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        .product-item h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+        .product-item p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+        .product-item strong {
+            color: #e91e8c;
+            display: block;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0a1628;
+            margin-bottom: 1rem;
+        }
+        .feature-card p {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        /* Features List for dark sections */
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 2rem auto 0;
+        }
+
+        .features-list div {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .features-list div::before {
+            content: "•";
+            font-size: 1.5rem;
+            color: #e91e8c;
+            font-weight: 700;
+        }
+
+        /* Resources Cards */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .resource-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0a1628;
+            margin-bottom: 1rem;
+        }
+
+        .resource-card p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .resource-link {
+            display: inline-block;
+            color: #e91e8c;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .resource-link:hover {
+            color: #b01567;
+        }
+
+        /* Contact Form Section */
+        .contact-form-section {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #0a1628;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #e91e8c;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: start;
+            gap: 0.5rem;
+        }
+
+        .form-checkbox input {
+            width: auto;
+            margin-top: 0.25rem;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #e91e8c 0%, #b01567 100%);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(233, 30, 140, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 30, 140, 0.6);
+        }
+
+        /* Info Section */
+        .info-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .info-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .info-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0a1628;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-content p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .info-highlight {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-top: 2.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-highlight h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0a1628;
+            margin-bottom: 1rem;
+        }
+
+        .info-highlight p {
+            color: #4b5563;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .benefit-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #e91e8c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .benefit-icon svg {
+            width: 14px;
+            height: 14px;
+            stroke: white;
+            stroke-width: 3;
+        }
+
+        @media (max-width: 768px) {
+            .partner-intro h1 {
+                font-size: 2rem;
+            }
+
+            .certifications-grid,
+            .solutions-grid,
+            .steps-grid,
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .partner-logo {
+                max-width: 200px;
+                padding: 1.5rem;
+            }
+            .partner-badge {
+                padding: 0.4rem 1rem;
+                font-size: 0.75rem;
+                margin-top: 1rem;
+            }
+            .partner-logo-section {
+                margin-bottom: 2rem;
+            }
+            .partner-intro p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="partner-hero">
+            <div class="container">
+                <div class="partner-logo-section">
+                    <img src="assets/partner logo/n1.jpg" alt="Aruba Networks" class="partner-logo">
+                    <div class="partner-badge">Authorized Partner</div>
+                </div>
+                <div class="partner-intro">
+                    <h1>Aruba Networks</h1>
+                    <p>Authorised Reseller for Aruba Networks - Delivering simple, secure, and comprehensive networking solutions for modern business challenges</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="content-section" style="background: white;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Aruba Achievements</h2>
+                    <p>Our team holds industry-leading Aruba certifications, ensuring expert-level service delivery</p>
+                </div>
+
+                <div class="certifications-grid">
+                    <div class="cert-card">
+                        <div class="cert-badge">ACEA</div>
+                        <h3 class="cert-title">ACEA Certification</h3>
+                        <p class="cert-subtitle">Aruba Certified Edge Associate</p>
+                        <p class="cert-description">Edge Computing Fundamentals</p>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-badge">ACCA</div>
+                        <h3 class="cert-title">ACCA Certification</h3>
+                        <p class="cert-subtitle">Aruba Certified ClearPass Associate</p>
+                        <p class="cert-description">Network Access Security</p>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-badge">ACMA</div>
+                        <h3 class="cert-title">ACMA Certification</h3>
+                        <p class="cert-subtitle">Aruba Certified Mobility Associate</p>
+                        <p class="cert-description">Wireless Network Fundamentals</p>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-badge">ACEP</div>
+                        <h3 class="cert-title">ACEP Certification</h3>
+                        <p class="cert-subtitle">Aruba Certified Edge Professional</p>
+                        <p class="cert-description">Advanced Edge Solutions</p>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-badge">ACCP</div>
+                        <h3 class="cert-title">ACCP Certification</h3>
+                        <p class="cert-subtitle">Aruba Certified ClearPass Professional</p>
+                        <p class="cert-description">Advanced Security Management</p>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-badge">ACMP</div>
+                        <h3 class="cert-title">ACMP Certification</h3>
+                        <p class="cert-subtitle">Aruba Certified Mobility Professional</p>
+                        <p class="cert-description">Advanced Wireless Solutions</p>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-badge">ACSA</div>
+                        <h3 class="cert-title">ACSA Certification</h3>
+                        <p class="cert-subtitle">Aruba Certified Switching Associate</p>
+                        <p class="cert-description">Campus Switching Fundamentals</p>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-badge">ACSP</div>
+                        <h3 class="cert-title">ACSP Certification</h3>
+                        <p class="cert-subtitle">Aruba Certified Switching Professional</p>
+                        <p class="cert-description">Advanced Switching Solutions</p>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-badge">HPE</div>
+                        <h3 class="cert-title">HPE Sales Certification</h3>
+                        <p class="cert-subtitle">Aruba HPE Sales Certified</p>
+                        <p class="cert-description">Aruba Products & Solutions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Free WiFi Assessment CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Free Wi-Fi Assessment</h2>
+                <p>
+                    Uncover specific configurations or components that are affecting your performance. 
+                    Know what is required to remediate and improve the overall health of the system.
+                </p>
+                <a href="contact.html" class="cta-button">Sign Up Now</a>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section class="content-section" style="background: #f8f9fa;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Solutions For Today's Environment</h2>
+                    <p>Simple, Secure, All-inclusive - Comprehensive Aruba solutions designed for modern business challenges</p>
+                </div>
+
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <div class="solution-icon">★</div>
+                        <h3>Next-Gen Network Performance</h3>
+                        <p>Lightning-fast connectivity and optimized network performance for modern business needs.</p>
+                        <ul class="solution-features">
+                            <li>High Performance Connectivity</li>
+                            <li>Zero Touch Provisioning</li>
+                            <li>Network Optimization</li>
+                            <li>Routine Tasks Acceleration</li>
+                        </ul>
+                    </div>
+
+                    <div class="solution-card">
+                        <div class="solution-icon">▲</div>
+                        <h3>Best In-Class Network Security</h3>
+                        <p>Advanced security protocols and comprehensive threat protection for your network infrastructure.</p>
+                        <ul class="solution-features">
+                            <li>Intrusion Detection and Prevention</li>
+                            <li>Unified Policy Enforcement Firewall</li>
+                            <li>Web Content Filtering</li>
+                        </ul>
+                    </div>
+
+                    <div class="solution-card">
+                        <div class="solution-icon">■</div>
+                        <h3>Simplified Network Management</h3>
+                        <p>Streamlined network administration with centralized control and intuitive management tools.</p>
+                        <ul class="solution-features">
+                            <li>Built-to-Scale</li>
+                            <li>Versatile Deployment</li>
+                            <li>Made for Any Environment</li>
+                            <li>Single Pane Glass Management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transformation Steps -->
+        <section class="content-section" style="background: white;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Your Business Transformation is As Easy As…</h2>
+                    <p>Simple steps to modernize your network infrastructure with Aruba solutions</p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Step 1 - Kickstart</h3>
+                        <p>Kickstart with switching and Wi-Fi</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Step 2 - Add Layer</h3>
+                        <p>Add-in an aggregation layer and APs</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Step 3 - Cloud Management</h3>
+                        <p>Start services expansion and manage multiple sites from the cloud</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="contact.html" class="cta-button">Get Free Consultation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 style="color: white;">Aruba Products & Solutions</h2>
+                    <p style="color: rgba(255, 255, 255, 0.8);">Comprehensive Aruba networking portfolio for enterprise environments</p>
+                </div>
+
+                <div class="product-category">
+                    <h3>Access Points</h3>
+                    <div class="product-item">
+                        <h4>Flexible Wireless Deployment</h4>
+                        <p>Flexible deployment for controller-managed, controllerless (instant) and remote access modes APs.</p>
+                        <strong>Ideal For:</strong>
+                        <p>Users needing network access from remote locations while maintaining connectivity to instructional tools and systems.</p>
+                    </div>
+                </div>
+
+                <div class="product-category">
+                    <h3>Switches</h3>
+                    <div class="product-item">
+                        <h4>Intelligent Switching Solutions</h4>
+                        <p>Built-in security and intelligent automations for enterprise branches, data centres and SMBs.</p>
+                        <strong>Ideal For:</strong>
+                        <p>Organizations with built-in security and intelligent automation requirements.</p>
+                    </div>
+                </div>
+
+                <div class="product-category">
+                    <h3>Network Management</h3>
+                    <div class="product-item">
+                        <h4>Comprehensive Network Control</h4>
+                        <p>Delivers granular visibility, powerful control, and deeper insights for your network.</p>
+                        <strong>Ideal For:</strong>
+                        <p>Challenging IT environments that require granular visibility, powerful control, and deeper insights of the local network or in the cloud.</p>
+                    </div>
+                </div>
+
+                <div class="product-category">
+                    <h3>Software Defined WAN</h3>
+                    <div class="product-item">
+                        <h4>Advanced WAN Management</h4>
+                        <p>A better way to control WAN traffic and gain visibility for all existing branch deployment.</p>
+                        <strong>Ideal For:</strong>
+                        <p>Simplified and cost-effective way of controlling WAN traffic and gain visibility for all existing branch deployments.</p>
+                    </div>
+                </div>
+
+                <div class="product-category">
+                    <h3>Aruba ClearPass</h3>
+                    <div class="product-item">
+                        <h4>Network Access Control</h4>
+                        <p>Manage and control access for mobile and IoT on vendor's wired and wireless networks.</p>
+                        <strong>Ideal For:</strong>
+                        <p>Authentication access management with AI-powered visibility and policy enforcement for mobile and IoT on any wired and wireless networks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Smart Features -->
+        <section class="content-section" style="background: #f8f9fa;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Smart Features For Smart Networking</h2>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>Better IT Operations</h3>
+                        <p>Streamlined network management and operations with AI-driven insights and automation.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Data Security</h3>
+                        <p>Comprehensive security from edge-to-cloud with Zero Trust and SASE integration.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Competitive Edge</h3>
+                        <p>Intelligent, safe, and fast networking solutions that keep you ahead.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Increased Capabilities</h3>
+                        <p>Enhanced network performance and scalability to support business growth.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Customer Retention</h3>
+                        <p>Better service delivery through reliable and high-performance networking.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Increased Profitability</h3>
+                        <p>Cost-effective solutions that reduce operational expenses and improve ROI.</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="contact.html" class="cta-button">Get Free Consultation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Framework -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Strengthen Your Security Framework</h2>
+                <p>
+                    Protect your business from edge-to-cloud. Gain the advantages of the cloud with consistent 
+                    network protection with Aruba's built-in foundation for Zero Trust and SASE.
+                </p>
+            </div>
+        </section>
+
+        <!-- Authorised Reseller -->
+        <section class="info-section">
+            <div class="container">
+                <div class="info-content">
+                    <h2>We are the Authorised Reseller for Aruba Networks Solution</h2>
+                    <p>AceTeam Networks is a fast-growing IT solution company in Malaysia, specialized in Network Infrastructure & Security, Data Center, Network Management, End User Computing & Mobility.</p>
+                    
+                    <div class="info-highlight">
+                        <h3>Our Services Include:</h3>
+                        <ul class="benefits-list" style="grid-template-columns: 1fr; gap: 1rem; margin-top: 1rem;">
+                            <li class="benefit-item">
+                                <span class="benefit-icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                IT System Design for business and organization needs
+                            </li>
+                            <li class="benefit-item">
+                                <span class="benefit-icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                Network Infrastructure & Security Solutions
+                            </li>
+                            <li class="benefit-item">
+                                <span class="benefit-icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                Data Center Solutions
+                            </li>
+                            <li class="benefit-item">
+                                <span class="benefit-icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                End User Computing & Mobility
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="content-section" style="background: white;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Resources & Insights</h2>
+                    <p>Stay informed with the latest network security trends and best practices</p>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>Zero Trust Network Guide</h3>
+                        <p>
+                            Granting Trust on a Zero Trust Network: Why Zero Trust is best practice for modern enterprise security.
+                        </p>
+                        <a href="#" class="resource-link">Find Out More →</a>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Zero Trust Webinar</h3>
+                        <p>
+                            Is Zero Trust Networking Practical or Not? Join the debate on trend vs practicality in network security.
+                        </p>
+                        <a href="#" class="resource-link">Watch On-Demand →</a>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Product Brochure</h3>
+                        <p>
+                            Aruba Products and Solutions Brochure Enterprise Edition with comprehensive solution overview.
+                        </p>
+                        <a href="#" class="resource-link">Download PDF →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Ready to see how Aruba can connect your business seamlessly?</h2>
+                    <p>Speak with one of our Aruba experts today!</p>
+                </div>
+
+                <div class="form-container">
+                    <form>
+                        <div class="form-group">
+                            <label>Name *</label>
+                            <input type="text" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Phone *</label>
+                            <input type="tel" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Job Title *</label>
+                            <input type="text" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Company Name *</label>
+                            <input type="text" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea placeholder="Tell us about your network requirements..." maxlength="300"></textarea>
+                            <small style="color: #6b7280; font-size: 0.875rem;">0 of 300 max characters</small>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="privacy" required>
+                                <label for="privacy" style="font-weight: 400; color: #6b7280;">
+                                    By submitting this form, I confirm that I have read, understood and agree to the Privacy Policy.
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/components.js"></script>
+</body>
+</html>

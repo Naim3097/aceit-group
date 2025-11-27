@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <title>Aruba Edge Services Platform: Intelligent Branch Office Computing and Network Infrastructure | ACEiT Group</title>
+    <meta name="description" content="Complete guide to Aruba Edge Services Platform delivering intelligent branch office computing, SD-WAN connectivity, security services, and unified infrastructure management.">
+    <meta name="keywords" content="Aruba Edge Services Platform, branch office computing, SD-WAN, edge computing, unified infrastructure, network services, distributed computing, branch networking, ACEiT Group">
+    <meta name="author" content="ACEiT Group">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Aruba Edge Services Platform: Intelligent Branch Office Computing and Network Infrastructure">
+    <meta property="og:description" content="Complete guide to Aruba Edge Services Platform delivering intelligent branch office computing, SD-WAN connectivity, security services, and unified infrastructure management.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ACEiT.asia/blog/aruba-edge-services-platform-intelligent-branch-office-computing.html">
+    <meta property="og:image" content="https://ACEiT.asia/assets/blog/aruba-edge-services-platform.jpg">
+    <meta property="article:published_time" content="2025-09-29">
+    <meta property="article:section" content="Edge Computing">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aruba Edge Services Platform: Intelligent Branch Office Computing and Network Infrastructure">
+    <meta name="twitter:description" content="Complete guide to Aruba Edge Services Platform delivering intelligent branch office computing, SD-WAN connectivity, security services, and unified infrastructure management.">
+    <meta name="twitter:image" content="https://ACEiT.asia/assets/blog/aruba-edge-services-platform.jpg">
+    
+    <link rel="stylesheet" href="globaldesign.css">
+        <style>
+        /* Blog Hero Section */
+        .blog-hero {
+            background: var(--primary-dark);
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 4rem 0;
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .blog-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        
+        .blog-date {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .blog-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: white !important;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        .blog-hero h1 {
+            color: white !important;
+        }
+        
+        .blog-excerpt {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            max-width: 900px;
+            font-weight: 400;
+        }
+        
+        /* Blog Content */
+        .blog-content {
+            background: white;
+            padding: 5rem 0;
+        }
+        
+        .blog-article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .blog-article h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+        
+        .blog-article h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        
+        .blog-article h2:first-child,
+        .blog-article h3:first-child {
+            margin-top: 0;
+        }
+        
+        .blog-article p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+        
+        .blog-article ul,
+        .blog-article ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .blog-article li {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 0.75rem;
+        }
+        
+        .blog-article a {
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--primary-dark);
+            transition: all 0.2s ease;
+        }
+        
+        .blog-article a:hover {
+            color: #000;
+            border-bottom-color: #000;
+        }
+        
+        /* Call-to-Action Box */
+        .blog-cta {
+            background: #f8f9fa;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+        }
+        
+        .blog-cta h3 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 0 0 1rem 0;
+        }
+        
+        .blog-cta p {
+            font-size: 1rem;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .blog-cta-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .blog-cta-links a {
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--primary-dark);
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+        
+        .blog-cta-links a:hover {
+            color: #000;
+            border-bottom-color: #000;
+        }
+        
+        /* Latest News Section - Override any inherited styles */
+        .section .blog-card {
+            background: white;
+            color: var(--primary-dark);
+        }
+        
+        .section .blog-card .blog-badge {
+            background: var(--primary-dark);
+            color: white;
+        }
+        
+        .section .blog-card .blog-title {
+            color: var(--primary-dark) !important;
+        }
+        
+        .section .blog-card .blog-link {
+            color: var(--primary-dark);
+        }
+        
+        /* Responsive Design - Enhanced */
+        @media (max-width: 1024px) {
+            .blog-content {
+                padding: 4rem 0;
+            }
+            
+            .blog-article {
+                padding: 0 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .blog-hero {
+                min-height: 35vh;
+                padding: 2.5rem 0;
+            }
+            
+            .blog-meta {
+                gap: 0.75rem;
+            }
+            
+            .blog-badge {
+                font-size: 0.7rem;
+                padding: 0.35rem 0.85rem;
+            }
+            
+            .blog-date {
+                font-size: 0.85rem;
+            }
+            
+            .blog-title {
+                font-size: 1.65rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .blog-excerpt {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            
+            .blog-content {
+                padding: 2.5rem 0;
+            }
+            
+            .blog-article {
+                padding: 0 1.25rem;
+            }
+            
+            .blog-article h2 {
+                font-size: 1.5rem;
+                margin-top: 2rem;
+                margin-bottom: 0.85rem;
+            }
+            
+            .blog-article h3 {
+                font-size: 1.25rem;
+                margin-top: 1.75rem;
+            }
+            
+            .blog-article p,
+            .blog-article li {
+                font-size: 1rem;
+                line-height: 1.7;
+                margin-bottom: 1.25rem;
+            }
+            
+            .blog-cta {
+                padding: 1.75rem 1.5rem;
+                margin: 2rem 0;
+            }
+            
+            .blog-cta h3 {
+                font-size: 1.25rem;
+            }
+            
+            .blog-cta p {
+                font-size: 0.95rem;
+            }
+            
+            /* Latest News Section */
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .section .container {
+                padding: 0 1.25rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .blog-hero {
+                min-height: 30vh;
+                padding: 2rem 0;
+            }
+            
+            .blog-badge {
+                font-size: 0.65rem;
+                padding: 0.3rem 0.75rem;
+            }
+            
+            .blog-date {
+                font-size: 0.8rem;
+            }
+            
+            .blog-title {
+                font-size: 1.5rem;
+                line-height: 1.25;
+            }
+            
+            .blog-excerpt {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+            
+            .blog-content {
+                padding: 2rem 0;
+            }
+            
+            .blog-article {
+                padding: 0 1rem;
+            }
+            
+            .blog-article h2 {
+                font-size: 1.35rem;
+                margin-top: 1.75rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .blog-article h3 {
+                font-size: 1.15rem;
+                margin-top: 1.5rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .blog-article p,
+            .blog-article li {
+                font-size: 0.95rem;
+                line-height: 1.65;
+                margin-bottom: 1rem;
+            }
+            
+            .blog-article ul,
+            .blog-article ol {
+                padding-left: 1.25rem;
+                margin: 1.25rem 0;
+            }
+            
+            .blog-cta {
+                padding: 1.5rem 1.25rem;
+                margin: 1.75rem 0;
+            }
+            
+            .blog-cta h3 {
+                font-size: 1.15rem;
+                margin-bottom: 0.85rem;
+            }
+            
+            .blog-cta p {
+                font-size: 0.9rem;
+                margin-bottom: 1.25rem;
+            }
+            
+            .blog-cta-links {
+                gap: 0.6rem;
+            }
+            
+            /* Latest News Section */
+            .section {
+                padding: 2.5rem 0;
+            }
+            
+            .section .container {
+                padding: 0 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+                margin-bottom: 2rem;
+            }
+            
+            .blog-grid {
+                gap: 1.75rem;
+            }
+            
+            .blog-card-image {
+                height: 180px;
+            }
+            
+            .blog-card-content {
+                padding: 1.25rem;
+            }
+            
+            .blog-card-title {
+                font-size: 1rem;
+            }
+            
+            .blog-card-excerpt {
+                font-size: 0.875rem;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .blog-hero {
+                padding: 1.75rem 0;
+            }
+            
+            .blog-title {
+                font-size: 1.35rem;
+            }
+            
+            .blog-excerpt {
+                font-size: 0.9rem;
+            }
+            
+            .blog-article {
+                padding: 0 0.85rem;
+            }
+            
+            .blog-article h2 {
+                font-size: 1.25rem;
+            }
+            
+            .blog-article h3 {
+                font-size: 1.1rem;
+            }
+            
+            .blog-article p,
+            .blog-article li {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Aruba Edge Services Platform: Intelligent Branch Office Computing and Network Infrastructure | Tech Today Global",
+        "description": "Complete guide to Aruba Edge Services Platform delivering intelligent branch office computing, SD-WAN connectivity, security services, and unified infrastructure management.",
+        "image": "https://ACEiT.asia/assets/blog/aruba-edge-services-platform-intelligent-branch-office-computing.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "ACEiT Group"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "ACEiT Group",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://ACEiT.asia/assets/logo.png"
+            }
+        },
+        "datePublished": "2025-09-29",
+        "dateModified": "2025-09-29",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://ACEiT.asia/blog/aruba-edge-services-platform-intelligent-branch-office-computing.html"
+        },
+        "keywords": "Aruba Edge Services Platform, branch office computing, SD-WAN, edge computing, unified infrastructure, network services, distributed computing, branch networking"
+    }
+    </script>
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+
+    
+    <!-- Blog Hero Section --><!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="blog-meta">
+                <span class="blog-badge">Edge Computing</span>
+                <span class="blog-date">September 29, 2025 • 15 min read</span>
+            </div>
+            <h1 class="blog-title">Aruba Edge Services Platform: Intelligent Branch Office Computing and Network Infrastructure</h1>
+            <p class="blog-excerpt">Modern distributed enterprises require sophisticated edge computing solutions that combine networking, security, and compute capabilities at branch locations while maintaining centralized management and consistent policy enforcement.</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content">
+        <div class="container">
+            <article class="blog-article">
+
+        <p>
+          Aruba's Edge Services Platform delivers comprehensive branch office infrastructure that converges SD-WAN connectivity, security services, wireless networking, and compute resources into unified, intelligent systems that adapt to changing business requirements while reducing operational complexity and total cost of ownership.
+        </p>
+
+        <h2>Unified Edge Architecture</h2>
+        
+        <p>
+          Aruba Edge Services Platform consolidates multiple branch office functions including SD-WAN gateways, wireless controllers, security appliances, and compute resources into integrated platforms that reduce hardware footprint while increasing functionality and performance.
+        </p>
+
+        <p>
+          Hyperconverged infrastructure design enables flexible resource allocation and dynamic scaling based on changing application demands and business requirements without requiring physical hardware modifications or additional deployments.
+        </p>
+
+        <p>
+          Organizations implementing comprehensive edge infrastructure require support from <a href="partners/datanetworking/aruba.html">certified Aruba edge computing specialists</a> who understand distributed architecture design, resource optimization, and integration strategies for maximum efficiency and business value across diverse branch office environments. Our <a href="../aceteam-networks/aceteamnetworks.html">AceTeam Networks</a> division delivers complete edge services deployment and ongoing support.
+        </p>
+
+        <h2>Intelligent SD-WAN Integration</h2>
+
+        <p>
+          Built-in SD-WAN capabilities provide intelligent path selection across multiple WAN connections including broadband internet, MPLS, LTE, and 5G to optimize application performance while maintaining connectivity reliability and cost efficiency.
+        </p>
+
+        <p>
+          Application-aware routing ensures that business-critical applications receive priority bandwidth and optimal paths while enabling efficient utilization of available connectivity resources and automatic failover during network disruptions.
+        </p>
+
+        <p>
+          Dynamic policy enforcement adapts routing decisions based on real-time network conditions, application requirements, and business priorities to maintain optimal performance across distributed enterprise networks.
+        </p>
+
+        <h2>Comprehensive Security Services</h2>
+
+        <p>
+          Integrated security services include <a href="../aceteam-connect/service-next-gen-firewall.html">next-generation firewall capabilities</a>, intrusion detection and prevention, malware protection, and content filtering that protect branch offices from diverse threats without requiring separate security appliances.
+        </p>
+
+        <p>
+          <a href="../blog/aruba-zero-trust-network-security-july-2025.html">Zero-trust network architecture</a> implementation ensures that all network traffic is inspected and authorized regardless of source location, extending enterprise security policies consistently across distributed infrastructure.
+        </p>
+
+        <p>
+          <a href="../aceteam-connect/service-cyber-threat-intelligence.html">Advanced threat intelligence integration</a> provides real-time protection against emerging threats while automated security updates ensure consistent protection across all branch locations without manual intervention.
+        </p>
+
+        <h2>Branch Office Compute Resources</h2>
+
+        <p>
+          Distributed compute capabilities enable local processing of business applications, data analytics, and specialized workloads that require low latency or local data residency while maintaining centralized management and oversight.
+        </p>
+
+        <p>
+          Virtualization support allows deployment of virtual machines and containerized applications directly at branch locations, reducing dependence on centralized data centers while improving application performance for local users.
+        </p>
+
+        <p>
+          Professional edge deployment services from our <a href="partners/datanetworking/aruba.html">experienced Aruba infrastructure specialists</a> ensure optimal configuration and ongoing management of distributed computing resources for maximum business value and operational efficiency.
+        </p>
+
+        <h2>Wireless and Wired Networking</h2>
+
+        <p>
+          Integrated wireless controller functionality supports comprehensive <a href="../aceteam-networks/service-wired-wireless.html">Wi-Fi networks at branch locations</a> including guest access, IoT connectivity, and mobile device support with consistent policy enforcement and security controls.
+        </p>
+
+        <p>
+          <a href="../blog/aruba-switching-solutions-enterprise-network-foundation.html">Advanced switching capabilities</a> provide intelligent wired connectivity with support for Power over Ethernet devices, VLAN segmentation, and quality of service policies that align with overall network architecture and business requirements.
+        </p>
+
+        <h2>Cloud-Native Management</h2>
+
+        <p>
+          <a href="../blog/aruba-central-cloud-management-revolution-july-2025.html">Centralized management through Aruba Central</a> provides unified visibility and control across all edge locations with automated deployment, configuration management, and policy enforcement that scales efficiently across distributed infrastructures.
+        </p>
+
+        <p>
+          Zero-touch provisioning enables rapid deployment of new branch locations without requiring on-site technical expertise while ensuring consistent configuration and security policy application across all sites. <a href="../blog/aruba-makes-connecting-easy-remote-work.html">Aruba's simplified connectivity approach</a> eliminates complex deployment requirements for distributed edge infrastructure.
+        </p>
+
+        <h2>Performance Analytics and Optimization</h2>
+
+        <p>
+          Comprehensive monitoring and analytics provide detailed visibility into application performance, network utilization, and user experience across distributed infrastructure with actionable insights for optimization and troubleshooting. Our <a href="../aceteam-networks/service-centralized-network-management.html">centralized network management services</a> ensure proactive monitoring and rapid issue resolution.
+        </p>
+
+        <p>
+          Machine learning algorithms analyze usage patterns and performance metrics to identify optimization opportunities and automatically adjust configurations for improved efficiency and user satisfaction. <a href="../blog/aruba-network-optimization-ai-powered-performance-analytics.html">AI-powered network optimization</a> delivers continuous performance improvements.
+        </p>
+
+        <h2>IoT and Edge Application Support</h2>
+
+        <p>
+          Specialized IoT connectivity and management capabilities support diverse edge devices including sensors, cameras, and industrial equipment with appropriate <a href="../aceteam-connect/service-network-security-management.html">security controls and bandwidth management</a>.
+        </p>
+
+        <p>
+          Edge application deployment capabilities enable local hosting of business applications, content caching, and data processing that improve user experience while reducing bandwidth consumption and latency.
+        </p>
+
+        <h2>High Availability and Resilience</h2>
+
+        <p>
+          Built-in redundancy and failover capabilities ensure continuous operation during hardware failures, network disruptions, or other service interruptions while maintaining business continuity and user productivity.
+        </p>
+
+        <p>
+          Automated backup and recovery systems protect configuration data and critical information while enabling rapid restoration of services following unexpected events or system failures.
+        </p>
+
+        <h2>Cost Optimization and ROI</h2>
+
+        <p>
+          Consolidated infrastructure reduces total cost of ownership by eliminating multiple discrete appliances while improving energy efficiency and reducing physical space requirements at branch locations.
+        </p>
+
+        <p>
+          Simplified management reduces operational overhead and technical complexity while enabling centralized oversight of distributed infrastructure without requiring specialized expertise at each location.
+        </p>
+
+        <h2>Scalability and Future-Proofing</h2>
+
+        <p>
+          Modular architecture enables flexible expansion and upgrade paths that accommodate changing business requirements and emerging technologies without requiring complete infrastructure replacement.
+        </p>
+
+        <p>
+          Software-defined capabilities enable feature updates and functionality enhancements through software upgrades rather than hardware replacements, protecting infrastructure investments while maintaining current capabilities. Our team's expertise with <a href="partners/datanetworking/aruba.html">Aruba enterprise solutions</a> ensures optimal edge platform deployment for long-term business value.
+        </p>
+
+        <h2>Industry-Specific Solutions</h2>
+
+        <p>
+          Retail-specific features include point-of-sale system support, customer analytics, and integrated security systems that address unique requirements of distributed retail environments and customer-facing applications.
+        </p>
+
+        <p>
+          Manufacturing and industrial capabilities include support for specialized protocols, environmental hardening, and integration with operational technology systems that require reliable and secure connectivity.
+        </p>
+
+        <h2>Compliance and Governance</h2>
+
+        <p>
+          Comprehensive audit and compliance capabilities ensure adherence to regulatory requirements and corporate policies across distributed infrastructure with automated reporting and policy enforcement mechanisms.
+        </p>
+
+        <p>
+          Data sovereignty and privacy controls enable appropriate handling of sensitive information while maintaining compliance with regional and industry-specific regulations across diverse geographic locations.
+        </p>
+
+        <div class="blog-cta">
+          <h3>Transform Your Branch Office Infrastructure</h3>
+          <p>
+            Modernize distributed operations with Aruba Edge Services Platform. Our specialists provide comprehensive assessment, design, deployment, and management services for unified branch office infrastructure that drives business efficiency.
+          </p>
+          <div class="blog-cta-links">
+            <a href="partners/datanetworking/aruba.html">Explore Aruba Edge Solutions →</a>
+            <a href="../aceteam-networks/aceteamnetworks.html">View Network Infrastructure Services →</a>
+            <a href="../contact.html">Schedule a Free Consultation →</a>
+          </div>
+        </div>
+      
+            </article>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section class="section" style="background: white; padding: 5rem 0; border-top: 1px solid #e5e5e5;">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2rem; font-weight: 700; color: var(--primary-dark);">Read Our Latest News</h2>
+                <a href="../blog.html" style="background: white; border: 2px solid var(--primary-dark); color: var(--primary-dark); padding: 0.6rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 4px; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">ALL NEWS</a>
+            </div>
+
+            <div class="grid grid-4" style="gap: 2rem;">
+                <!-- Blog Post 1 -->
+                <div class="blog-card">
+                    <span class="blog-badge">CYBERSECURITY</span>
+                    <h3 class="blog-title">Rethinking the SOC: Why AI is Redefining Cybersecurity</h3>
+                    <a href="../blog/rethinking-soc-ai-redefining-cybersecurity.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="blog-card">
+                    <span class="blog-badge">AI & SECURITY</span>
+                    <h3 class="blog-title">Gemini 2.5 and the Evolving Cybersecurity Landscape</h3>
+                    <a href="../blog/gemini-2-5-evolving-cybersecurity-landscape.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="blog-card">
+                    <span class="blog-badge">NETWORKING</span>
+                    <h3 class="blog-title">The Future of AI-Native Networking with Juniper</h3>
+                    <a href="../blog/future-of-ai-native-networking-juniper.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+
+                <!-- Blog Post 4 -->
+                <div class="blog-card">
+                    <span class="blog-badge">COMPANY NEWS</span>
+                    <h3 class="blog-title">2 Days to Launch: ACEiT is Coming</h3>
+                    <a href="../blog/2-days-to-launch-ACEiT-is-coming.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+
+    <script src="js/components.js"></script>
+</body>
+</html>

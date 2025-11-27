@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../../">
+    <title>Sophos - Cybersecurity Partner | ACEiT Group</title>
+    <link rel="stylesheet" href="globaldesign.css">
+    <style>
+        .partner-hero {
+            background: linear-gradient(135deg, #0a1628 0%, #1a2842 100%);
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: clamp(2rem, 5vh, 4rem) 0;
+        }
+        .partner-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(233, 30, 140, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(9, 11, 26, 0.3) 0%, transparent 50%);
+        }
+        .partner-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        .partner-logo-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .partner-logo {
+            max-width: 300px;
+            height: auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
+        }
+        .partner-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #e91e8c 0%, #b01567 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 1.5rem;
+            text-transform: uppercase;
+        }
+        .partner-intro {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .partner-intro h1 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .partner-intro p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+        }
+        .content-section {
+            padding: 5rem 0;
+        }
+        .content-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0a1628;
+            margin-bottom: 1rem;
+        }
+        .section-header p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0a1628;
+            margin-bottom: 1rem;
+        }
+        .feature-card p {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .benefit-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #e91e8c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+        .benefit-icon svg {
+            width: 14px;
+            height: 14px;
+            stroke: white;
+            stroke-width: 3;
+        }
+        .benefit-content h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #0a1628;
+            margin-bottom: 0.5rem;
+        }
+        .benefit-content p {
+            font-size: 0.95rem;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+        .products-section {
+            background: #0a1628;
+            color: white;
+            padding: 5rem 0;
+        }
+        .product-category {
+            margin-bottom: 3rem;
+        }
+        .product-category h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #e91e8c;
+            margin-bottom: 1.5rem;
+        }
+        .product-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        .product-item h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+        .product-item p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+        .info-section {
+            padding: 5rem 0;
+            background: white;
+        }
+        .info-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .info-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0a1628;
+            margin-bottom: 1.5rem;
+        }
+        .info-content p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .info-highlight {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-top: 2.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .info-highlight h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0a1628;
+            margin-bottom: 1rem;
+        }
+        .info-highlight p {
+            color: #4b5563;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #0a1628 0%, #1a2842 100%);
+            padding: 5rem 0;
+            text-align: center;
+            color: white;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        .cta-section p {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #e91e8c 0%, #b01567 100%);
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(233, 30, 140, 0.4);
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 30, 140, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .partner-logo {
+                max-width: 200px;
+                padding: 1.5rem;
+            }
+            .partner-badge {
+                padding: 0.4rem 1rem;
+                font-size: 0.75rem;
+                margin-top: 1rem;
+            }
+            .partner-logo-section {
+                margin-bottom: 2rem;
+            }
+            .partner-intro p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <!-- Partner Hero Section -->
+    <section class="partner-hero">
+        <div class="container">
+            <div class="partner-logo-section">
+                <img src="assets/partner logo/cc7.jpg" alt="Sophos" class="partner-logo">
+                <div class="partner-badge">Authorized Partner</div>
+            </div>
+            <div class="partner-intro">
+                <h1>Sophos</h1>
+                <p>Comprehensive Cybersecurity Solutions for Over 36 Years. Founded in 1985, Sophos protects more than 400,000 organizations worldwide with synchronized security combining deep learning AI and cloud-native architecture.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why ACEiT Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Partner with ACEiT Group</h2>
+                <p>We are one of the fastest growing IT solution providers in Malaysia, specialising in comprehensive cybersecurity solutions with Malaysia Digital (MD) status from MDEC.</p>
+            </div>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Professional Services</h4>
+                        <p>Highly qualified engineers available around-the-clock for support and consultation</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>IT Solutioning & Consultation</h4>
+                        <p>Expert consultation that best suits your business's IT infrastructure needs</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Data Security</h4>
+                        <p>Comprehensive security for sensitive business-related data and information</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Sophos -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Sophos</h2>
+                <p>Leading synchronized security protecting 400,000+ organizations worldwide</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Over 36 Years of Innovation</h3>
+                    <p>Founded in 1985, Sophos has been lauded as a Gartner Leader in 2021 for Endpoint Protection Platforms and winner of CRN's Best Managed Security Services Offering, protecting organizations across all industries.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Synchronized Security</h3>
+                    <p>Unique synchronized security approach enables different security products to share threat intelligence and coordinate responses automatically, creating a more effective defense system that adapts to evolving threats.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>AI-Powered Protection</h3>
+                    <p>Solutions powered by deep learning artificial intelligence and machine learning provide predictive protection against known and unknown threats while maintaining optimal system performance across all environments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: white;">Sophos Core Security Solutions</h2>
+                <p style="color: rgba(255, 255, 255, 0.8);">Comprehensive protection for your entire digital infrastructure</p>
+            </div>
+
+            <div class="product-category">
+                <h3>Endpoint & Network Security</h3>
+                <div class="product-item">
+                    <h4>Endpoint Protection</h4>
+                    <p>Award-winning endpoint protection powered by deep learning AI that prevents malware, ransomware, and advanced threats with predictive capabilities and automated response features.</p>
+                </div>
+                <div class="product-item">
+                    <h4>Network Security (XG Firewall)</h4>
+                    <p>Next-generation firewall with synchronized security that provides advanced threat protection, application control, web filtering, and deep packet inspection with centralized management.</p>
+                </div>
+            </div>
+
+            <div class="product-category">
+                <h3>Email & Mobile Security</h3>
+                <div class="product-item">
+                    <h4>Email Security</h4>
+                    <p>Comprehensive email protection that blocks phishing, malware, spam, and data loss with advanced threat analysis, sandboxing, and encryption capabilities for cloud and on-premises email systems.</p>
+                </div>
+                <div class="product-item">
+                    <h4>Mobile Security</h4>
+                    <p>Enterprise mobile device management and security solution that protects smartphones, tablets, and mobile applications with policy enforcement, encryption, and threat detection.</p>
+                </div>
+            </div>
+
+            <div class="product-category">
+                <h3>Advanced Security Services</h3>
+                <div class="product-item">
+                    <h4>Managed Detection & Response (MDR)</h4>
+                    <p>24/7 managed security service that combines advanced threat hunting, incident response, and remediation with expert security analysts monitoring your environment around the clock.</p>
+                </div>
+                <div class="product-item">
+                    <h4>Encryption & Data Protection</h4>
+                    <p>Enterprise-grade encryption solutions for data at rest and in transit, including full disk encryption, file and folder encryption, and cloud storage protection with centralized key management.</p>
+                </div>
+                <div class="product-item">
+                    <h4>Cloud Security</h4>
+                    <p>Comprehensive cloud security solutions that protect workloads, applications, and data across public, private, and hybrid cloud environments with consistent security policies and compliance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-content">
+                <h2>Why Choose ACEiT Group as Your Sophos Partner</h2>
+                <p>ACEiT Group provides end-to-end Sophos implementation and managed services, including security assessment, architecture design, deployment support, and ongoing security operations to ensure optimal protection and compliance.</p>
+                <p>Our Sophos certified security professionals work with your team to design and implement synchronized security solutions that provide comprehensive protection while maintaining operational efficiency and business continuity.</p>
+                <div class="info-highlight">
+                    <h3>Synchronized Security Excellence</h3>
+                    <p>From security assessment to full deployment, our team ensures your Sophos synchronized security ecosystem provides comprehensive protection for your organization's digital assets and infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Protect Your Organization with Sophos</h2>
+            <p>Contact ACEiT Group today to evaluate your cybersecurity posture and determine which Sophos solutions best protect your organization from advanced threats while meeting compliance requirements.</p>
+            <a href="contact.html" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section" style="background: white; padding: 5rem 0;">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2rem; font-weight: 700; color: var(--primary-dark);">Read Our Latest News</h2>
+                <a href="blog.html" style="background: white; border: 2px solid var(--primary-dark); color: var(--primary-dark); padding: 0.6rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">ALL NEWS</a>
+            </div>
+
+            <div class="grid grid-4" style="gap: 2rem;">
+                <div class="blog-card">
+                    <span class="blog-badge">TECHNOLOGY</span>
+                    <h3 class="blog-title">Zoom: Powering Agile Business Communication with ACEiT Asia</h3>
+                    <a href="blog-post-1.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+                <div class="blog-card">
+                    <span class="blog-badge">TECHNOLOGY</span>
+                    <h3 class="blog-title">Logitech: Elevating Workplace Collaboration with ACEiT Asia</h3>
+                    <a href="blog-post-2.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+                <div class="blog-card">
+                    <span class="blog-badge">TECHNOLOGY</span>
+                    <h3 class="blog-title">Jabra: Empowering Flexible Work Culture with ACEiT Asia</h3>
+                    <a href="blog-post-3.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+                <div class="blog-card">
+                    <span class="blog-badge">TECHNOLOGY</span>
+                    <h3 class="blog-title">Poly: Transforming Enterprise Collaboration in the Hybrid Era</h3>
+                    <a href="blog-post-4.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/components.js"></script>
+</body>
+</html>

@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <title>Enterprise Security Subscriptions: How SaaS Security Models in May 2025 Transformed Cybersecurity | Tech Today Global | ACEiT Group</title>
+    <meta name="description" content="CrowdStrike">
+    <meta name="keywords" content="security subscriptions, SaaS security, CrowdStrike Falcon Complete 2.0, Microsoft Security Copilot, Palo Alto Prisma Cloud, managed security, security-as-a-service, ACEiT Group">
+    <meta name="author" content="ACEiT Group">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Enterprise Security Subscriptions: How SaaS Security Models in May 2025 Transformed Cybersecurity | Tech Today Global">
+    <meta property="og:description" content="CrowdStrike">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ACEiT.asia/blog/enterprise-security-subscriptions-saas-may-2025.html">
+    <meta property="og:image" content="https://ACEiT.asia/assets/blog/enterprise-security-subscriptions-saas-may-2025.jpg">
+    <meta property="article:published_time" content="2025-05-14">
+    <meta property="article:section" content="Security Services">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Enterprise Security Subscriptions: How SaaS Security Models in May 2025 Transformed Cybersecurity | Tech Today Global">
+    <meta name="twitter:description" content="CrowdStrike">
+    <meta name="twitter:image" content="https://ACEiT.asia/assets/blog/enterprise-security-subscriptions-saas-may-2025.jpg">
+    
+    <link rel="stylesheet" href="globaldesign.css">
+        <style>
+        /* Blog Hero Section */
+        .blog-hero {
+            background: var(--primary-dark);
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 4rem 0;
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .blog-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        
+        .blog-date {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .blog-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: white !important;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        .blog-hero h1 {
+            color: white !important;
+        }
+        
+        .blog-excerpt {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            max-width: 900px;
+            font-weight: 400;
+        }
+        
+        /* Blog Content */
+        .blog-content {
+            background: white;
+            padding: 5rem 0;
+        }
+        
+        .blog-article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .blog-article h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+        
+        .blog-article h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        
+        .blog-article h2:first-child,
+        .blog-article h3:first-child {
+            margin-top: 0;
+        }
+        
+        .blog-article p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+        
+        .blog-article ul,
+        .blog-article ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .blog-article li {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 0.75rem;
+        }
+        
+        .blog-article a {
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--primary-dark);
+            transition: all 0.2s ease;
+        }
+        
+        .blog-article a:hover {
+            color: #000;
+            border-bottom-color: #000;
+        }
+        
+        /* Call-to-Action Box */
+        .blog-cta {
+            background: #f8f9fa;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+        }
+        
+        .blog-cta h3 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 0 0 1rem 0;
+        }
+        
+        .blog-cta p {
+            font-size: 1rem;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .blog-cta-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .blog-cta-links a {
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--primary-dark);
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+        
+        .blog-cta-links a:hover {
+            color: #000;
+            border-bottom-color: #000;
+        }
+        
+        /* Latest News Section - Override any inherited styles */
+        .section .blog-card {
+            background: white;
+            color: var(--primary-dark);
+        }
+        
+        .section .blog-card .blog-badge {
+            background: var(--primary-dark);
+            color: white;
+        }
+        
+        .section .blog-card .blog-title {
+            color: var(--primary-dark) !important;
+        }
+        
+        .section .blog-card .blog-link {
+            color: var(--primary-dark);
+        }
+        
+        /* Responsive Design - Enhanced */
+        @media (max-width: 1024px) {
+            .blog-content {
+                padding: 4rem 0;
+            }
+            
+            .blog-article {
+                padding: 0 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .blog-hero {
+                min-height: 35vh;
+                padding: 2.5rem 0;
+            }
+            
+            .blog-meta {
+                gap: 0.75rem;
+            }
+            
+            .blog-badge {
+                font-size: 0.7rem;
+                padding: 0.35rem 0.85rem;
+            }
+            
+            .blog-date {
+                font-size: 0.85rem;
+            }
+            
+            .blog-title {
+                font-size: 1.65rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .blog-excerpt {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            
+            .blog-content {
+                padding: 2.5rem 0;
+            }
+            
+            .blog-article {
+                padding: 0 1.25rem;
+            }
+            
+            .blog-article h2 {
+                font-size: 1.5rem;
+                margin-top: 2rem;
+                margin-bottom: 0.85rem;
+            }
+            
+            .blog-article h3 {
+                font-size: 1.25rem;
+                margin-top: 1.75rem;
+            }
+            
+            .blog-article p,
+            .blog-article li {
+                font-size: 1rem;
+                line-height: 1.7;
+                margin-bottom: 1.25rem;
+            }
+            
+            .blog-cta {
+                padding: 1.75rem 1.5rem;
+                margin: 2rem 0;
+            }
+            
+            .blog-cta h3 {
+                font-size: 1.25rem;
+            }
+            
+            .blog-cta p {
+                font-size: 0.95rem;
+            }
+            
+            /* Latest News Section */
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .section .container {
+                padding: 0 1.25rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .blog-hero {
+                min-height: 30vh;
+                padding: 2rem 0;
+            }
+            
+            .blog-badge {
+                font-size: 0.65rem;
+                padding: 0.3rem 0.75rem;
+            }
+            
+            .blog-date {
+                font-size: 0.8rem;
+            }
+            
+            .blog-title {
+                font-size: 1.5rem;
+                line-height: 1.25;
+            }
+            
+            .blog-excerpt {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+            
+            .blog-content {
+                padding: 2rem 0;
+            }
+            
+            .blog-article {
+                padding: 0 1rem;
+            }
+            
+            .blog-article h2 {
+                font-size: 1.35rem;
+                margin-top: 1.75rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .blog-article h3 {
+                font-size: 1.15rem;
+                margin-top: 1.5rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .blog-article p,
+            .blog-article li {
+                font-size: 0.95rem;
+                line-height: 1.65;
+                margin-bottom: 1rem;
+            }
+            
+            .blog-article ul,
+            .blog-article ol {
+                padding-left: 1.25rem;
+                margin: 1.25rem 0;
+            }
+            
+            .blog-cta {
+                padding: 1.5rem 1.25rem;
+                margin: 1.75rem 0;
+            }
+            
+            .blog-cta h3 {
+                font-size: 1.15rem;
+                margin-bottom: 0.85rem;
+            }
+            
+            .blog-cta p {
+                font-size: 0.9rem;
+                margin-bottom: 1.25rem;
+            }
+            
+            .blog-cta-links {
+                gap: 0.6rem;
+            }
+            
+            /* Latest News Section */
+            .section {
+                padding: 2.5rem 0;
+            }
+            
+            .section .container {
+                padding: 0 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+                margin-bottom: 2rem;
+            }
+            
+            .blog-grid {
+                gap: 1.75rem;
+            }
+            
+            .blog-card-image {
+                height: 180px;
+            }
+            
+            .blog-card-content {
+                padding: 1.25rem;
+            }
+            
+            .blog-card-title {
+                font-size: 1rem;
+            }
+            
+            .blog-card-excerpt {
+                font-size: 0.875rem;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .blog-hero {
+                padding: 1.75rem 0;
+            }
+            
+            .blog-title {
+                font-size: 1.35rem;
+            }
+            
+            .blog-excerpt {
+                font-size: 0.9rem;
+            }
+            
+            .blog-article {
+                padding: 0 0.85rem;
+            }
+            
+            .blog-article h2 {
+                font-size: 1.25rem;
+            }
+            
+            .blog-article h3 {
+                font-size: 1.1rem;
+            }
+            
+            .blog-article p,
+            .blog-article li {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Enterprise Security Subscriptions: How SaaS Security Models in May 2025 Transformed Cybersecurity | Tech Today Global",
+        "description": "CrowdStrike",
+        "image": "https://ACEiT.asia/assets/blog/enterprise-security-subscriptions-saas-may-2025.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "ACEiT Group"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "ACEiT Group",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://ACEiT.asia/assets/logo.png"
+            }
+        },
+        "datePublished": "2025-05-14",
+        "dateModified": "2025-05-14",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://ACEiT.asia/blog/enterprise-security-subscriptions-saas-may-2025.html"
+        },
+        "keywords": "security subscriptions, SaaS security, CrowdStrike Falcon Complete 2.0, Microsoft Security Copilot, Palo Alto Prisma Cloud, managed security, security-as-a-service"
+    }
+    </script>
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+
+    
+    <!-- Blog Hero Section --><!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="blog-meta">
+                <span class="blog-badge">Security Services</span>
+                <span class="blog-date">May 14, 2025 • 10 min read</span>
+            </div>
+            <h1 class="blog-title">Enterprise Security Subscriptions: How SaaS Security Models in May 2025 Transformed Cybersecurity</h1>
+            <p class="blog-excerpt">May 2025 marked the definitive shift to security-as-a-service with CrowdStrike's Falcon Complete 2.0 launch, Microsoft's Security Copilot subscription platform, and Palo Alto's unified Prisma Cloud offering. These comprehensive security subscription models transformed how organizations approach cybersecurity, moving from capital-intensive implementations to outcome-based security services that adapt continuously to evolving threats.</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content">
+        <div class="container">
+            <article class="blog-article">
+
+        <p class="lead text-xl text-gray-700 mb-8">
+          May 2025 marked the definitive shift to security-as-a-service with CrowdStrike's Falcon Complete 2.0 launch, Microsoft's Security Copilot subscription platform, and Palo Alto's unified Prisma Cloud offering. These comprehensive security subscription models transformed how organizations approach cybersecurity, moving from capital-intensive implementations to outcome-based security services that adapt continuously to evolving threats.
+        </p>
+
+        <h2>CrowdStrike Falcon Complete 2.0: Comprehensive Security Operations</h2>
+        
+        <p>
+          CrowdStrike's May 11 launch of Falcon Complete 2.0 redefined managed security services by providing comprehensive security operations that include threat hunting, incident response, and continuous monitoring through a single subscription model. The platform handles over 1 trillion security events daily across their global customer base.
+        </p>
+
+        <p>
+          Toyota implemented Falcon Complete 2.0 across their global manufacturing operations, achieving 94% threat detection accuracy while reducing their internal security team requirements by 60%. The service provides 24/7 monitoring and response capabilities that would be impossible for most organizations to maintain internally.
+        </p>
+
+        <p>
+          Organizations leveraging comprehensive <a href="../aceteam-connect/service-security-subscription.html" target="_blank" rel="noopener">security subscription services</a> achieve enterprise-grade protection without the complexity and cost of building internal security operations centers, while maintaining access to the latest threat intelligence and response capabilities.
+        </p>
+
+        <h2>Microsoft Security Copilot: AI-Powered Security Intelligence</h2>
+
+        <p>
+          Microsoft's May 18 commercial launch of Security Copilot subscriptions provides AI-powered security analysis that augments human security teams with machine learning capabilities that can process and analyze security data at unprecedented scale and speed.
+        </p>
+
+        <p>
+          The platform analyzes security events across Microsoft's entire ecosystem including Azure, Office 365, Windows endpoints, and third-party security tools to provide comprehensive threat visibility and automated response recommendations. Security teams report 78% improvements in incident response times and 85% better threat analysis accuracy.
+        </p>
+
+        <p>
+          General Electric deployed Security Copilot across their industrial control systems, achieving real-time threat analysis for operational technology environments that traditional security teams couldn't effectively monitor due to complexity and scale requirements.
+        </p>
+
+        <h2>Palo Alto Prisma Cloud: Unified Cloud Security Platform</h2>
+
+        <p>
+          Palo Alto's May 25 unified Prisma Cloud subscription platform integrates cloud security posture management, workload protection, network security, and compliance monitoring into a single, comprehensive security service that adapts automatically to changing cloud environments.
+        </p>
+
+        <p>
+          The platform provides consistent security policies across multi-cloud environments while automatically discovering and protecting new cloud resources as they're deployed. Organizations report 67% reductions in cloud security incidents and 54% improvements in compliance audit results.
+        </p>
+
+        <h2>Economic Advantages: OpEx vs CapEx Security Models</h2>
+
+        <p>
+          The security subscription models launched in May 2025 fundamentally changed cybersecurity economics by shifting from capital-intensive security infrastructure investments to operational expenditure models that provide predictable costs and continuous capability improvements.
+        </p>
+
+        <p>
+          Organizations using security subscriptions avoid the high upfront costs of security technology purchases, lengthy implementation projects, and ongoing maintenance requirements while gaining access to enterprise-grade security capabilities that scale with business needs.
+        </p>
+
+        <h2>Continuous Innovation: Always-Current Security Capabilities</h2>
+
+        <p>
+          Security subscription models ensure organizations always have access to the latest security technologies and threat intelligence without requiring manual updates or technology refresh cycles. Security providers continuously enhance their platforms and deploy improvements automatically to all subscribers.
+        </p>
+
+        <p>
+          This continuous improvement model is crucial in the rapidly evolving threat landscape where new attack techniques emerge constantly. Organizations using traditional security implementations often fall behind on updates and patches, creating security gaps that attackers can exploit.
+        </p>
+
+        <h2>Scalability and Flexibility: Adapting to Business Changes</h2>
+
+        <p>
+          Security subscriptions provide the flexibility to scale security capabilities up or down based on changing business requirements without requiring new technology purchases or lengthy procurement processes. Organizations can adjust their security services as they grow, contract, or change their operational models.
+        </p>
+
+        <p>
+          Startups can access enterprise-grade security capabilities from day one, while large enterprises can rapidly scale security across new acquisitions or geographic expansions without implementing separate security infrastructures for each location.
+        </p>
+
+        <h2>Expert Security Teams: Access to Specialized Knowledge</h2>
+
+        <p>
+          Security subscriptions provide access to expert security teams and specialized knowledge that most organizations couldn't afford to maintain internally. The security providers employ thousands of security analysts, threat researchers, and incident response specialists.
+        </p>
+
+        <p>
+          Organizations utilizing <a href="../aceteam-connect/service-cybersecurity-managed.html" target="_blank" rel="noopener">comprehensive cybersecurity managed services</a> gain access to expert security capabilities including threat hunting, digital forensics, and advanced incident response that would require significant internal investment to develop and maintain.
+        </p>
+
+        <h2>Integration with Existing Infrastructure</h2>
+
+        <p>
+          Modern security subscription services integrate seamlessly with existing IT infrastructure and security tools, providing enhanced capabilities without requiring organizations to replace their current technology investments. The platforms work alongside existing systems while providing additional protection and intelligence.
+        </p>
+
+        <p>
+          Successful integration requires sophisticated <a href="../aceteam-connect/service-network-security-management.html" target="_blank" rel="noopener">network security management solutions</a> that can coordinate between subscription-based security services and on-premises security tools while maintaining optimal performance and user experience.
+        </p>
+
+        <h2>Compliance and Regulatory Support</h2>
+
+        <p>
+          Security subscription services include comprehensive compliance monitoring and reporting capabilities that help organizations maintain regulatory compliance across multiple frameworks including PCI DSS, HIPAA, SOX, GDPR, and industry-specific regulations.
+        </p>
+
+        <p>
+          The platforms automatically generate compliance reports, maintain audit trails, and provide evidence of security controls implementation that auditors require. This automated compliance support reduces the administrative burden of regulatory compliance while ensuring organizations maintain appropriate security postures.
+        </p>
+
+        <h2>Threat Intelligence Integration</h2>
+
+        <p>
+          Security subscriptions include access to global threat intelligence networks that provide real-time information about emerging threats, attack techniques, and indicators of compromise. This intelligence is automatically integrated into security monitoring and response capabilities.
+        </p>
+
+        <p>
+          Advanced <a href="../aceteam-connect/service-cyber-threat-intelligence.html" target="_blank" rel="noopener">cyber threat intelligence solutions</a> enhance security subscription effectiveness by providing additional context and specialized intelligence feeds that improve threat detection and response capabilities.
+        </p>
+
+        <h2>Business Continuity and Disaster Recovery</h2>
+
+        <p>
+          Security subscription services include business continuity planning and disaster recovery capabilities that ensure security operations continue even during major incidents or outages. The distributed infrastructure of security providers offers resilience that individual organizations couldn't achieve independently.
+        </p>
+
+        <p>
+          When organizations experience security incidents, subscription services provide immediate expert response capabilities and backup security monitoring to ensure protection continues while primary systems are restored.
+        </p>
+
+        <h2>Performance Measurement and Optimization</h2>
+
+        <p>
+          Security subscription models include comprehensive performance measurement and optimization capabilities that provide detailed metrics on security effectiveness, threat detection rates, and incident response times. Organizations can track security performance improvements over time.
+        </p>
+
+        <p>
+          Regular performance reviews and optimization recommendations ensure that security services continue meeting organizational requirements and adapting to changing threat landscapes and business requirements.
+        </p>
+
+        <div class="bg-gradient-to-r from-gray-50 to-gray-100 border border-gray-200 rounded-lg p-6 my-8">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Transform Your Security Operations</h3>
+          <p class="text-gray-700 mb-4">
+            Access enterprise-grade security capabilities through comprehensive subscription services and managed security operations designed for continuous protection and improvement.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="../aceteam-connect/service-security-subscription.html" target="_blank" rel="noopener">
+              Security Subscriptions
+            </a>
+            <a href="../aceteam-connect/service-cybersecurity-managed.html" target="_blank" rel="noopener">
+              Managed Services
+            </a>
+            <a href="../contact.html" target="_blank" rel="noopener">
+              Get Started
+            </a>
+          </div>
+        </div>
+      
+            </article>
+        </div>
+    </section>
+
+    
+    <!-- Latest News Section -->
+    <section class="section" style="background: white; padding: 5rem 0; border-top: 1px solid #e5e5e5;">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2rem; font-weight: 700; color: var(--primary-dark);">Read Our Latest News</h2>
+                <a href="../blog.html" style="background: white; border: 2px solid var(--primary-dark); color: var(--primary-dark); padding: 0.6rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 4px; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">ALL NEWS</a>
+            </div>
+
+            <div class="grid grid-4" style="gap: 2rem;">
+                <!-- Blog Post 1 -->
+                <div class="blog-card">
+                    <span class="blog-badge">CYBERSECURITY</span>
+                    <h3 class="blog-title">Rethinking the SOC: Why AI is Redefining Cybersecurity</h3>
+                    <a href="../blog/rethinking-soc-ai-redefining-cybersecurity.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="blog-card">
+                    <span class="blog-badge">AI & SECURITY</span>
+                    <h3 class="blog-title">Gemini 2.5 and the Evolving Cybersecurity Landscape</h3>
+                    <a href="../blog/gemini-2-5-evolving-cybersecurity-landscape.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="blog-card">
+                    <span class="blog-badge">NETWORKING</span>
+                    <h3 class="blog-title">The Future of AI-Native Networking with Juniper</h3>
+                    <a href="../blog/future-of-ai-native-networking-juniper.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+
+                <!-- Blog Post 4 -->
+                <div class="blog-card">
+                    <span class="blog-badge">COMPANY NEWS</span>
+                    <h3 class="blog-title">2 Days to Launch: ACEiT is Coming</h3>
+                    <a href="../blog/2-days-to-launch-ACEiT-is-coming.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+
+    <script src="js/components.js"></script>
+</body>
+</html>

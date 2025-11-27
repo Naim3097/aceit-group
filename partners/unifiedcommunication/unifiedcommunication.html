@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../../">
+    <title>Unified Communications Partners - ACEiT Group</title>
+    <link rel="stylesheet" href="globaldesign.css">
+    <style>
+        .hero-uc {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../../assets/partner pages hero.jpg') center/cover;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-uc::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(233, 30, 140, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(233, 30, 140, 0.08) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .hero-uc h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            text-transform: none !important;
+        }
+        
+        .hero-uc p {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 850px;
+            margin: 0 auto;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        /* Partner Cards Section */
+        .partners-section {
+            padding: 6rem 0;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Glass Flip Card */
+        .partner-card {
+            position: relative;
+            height: 400px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        
+        .partner-card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        /* Front of Card - Glass Effect */
+        .card-front {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .partner-card:hover .card-front {
+            box-shadow: 
+                0 12px 48px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+        
+        .partner-logo {
+            width: 100%;
+            max-width: 200px;
+            max-height: 120px;
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 2rem;
+            filter: grayscale(0);
+            transition: filter 0.3s ease;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .partner-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            text-align: center;
+            line-height: 1.3;
+        }
+        
+        .partner-tagline {
+            font-size: 0.85rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        /* Back of Card - Information */
+        .card-back {
+            background: linear-gradient(135deg, #0a1628 0%, #1a2842 100%);
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 2rem 2.5rem 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-back::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(233, 30, 140, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .card-back-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+        }
+        
+        .back-logo {
+            width: 90px;
+            height: auto;
+            max-height: 40px;
+            object-fit: contain;
+            margin-bottom: 0.8rem;
+            opacity: 0.95;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .back-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.7rem;
+            line-height: 1.3;
+        }
+        
+        .back-description {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.5;
+            flex-grow: 1;
+            margin-bottom: 0.8rem;
+        }
+        
+        .back-specialties {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .specialty-tag {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.65rem 1.2rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-1px);
+        }
+        
+        /* CTA Section */
+        .cta-uc {
+            background: linear-gradient(135deg, #0a1628 0%, #1a2842 100%);
+            padding: 5rem 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-uc h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .cta-uc p {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-primary {
+            background: #e91e8c;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(233, 30, 140, 0.4);
+        }
+        
+        .cta-primary:hover {
+            background: #d01876;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 30, 140, 0.5);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-uc h1 {
+                font-size: 2.5rem;
+            }
+            
+            .partners-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+            
+            .partner-card {
+                height: 380px;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-uc">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Unified <span class="accent">Communications</span> Partners</h1>
+                    <p>Your trusted networking expert in Malaysia. We work with top global vendors to deliver fast, reliable, and future-ready communication solutions that power your digital growth.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Grid Section -->
+        <section class="partners-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Elite Partners</h2>
+                    <p>ACEiT Group partners with industry-leading unified communications vendors to deliver world-class collaboration and communication solutions.</p>
+                </div>
+
+                <div class="partners-grid">
+                    <!-- Poly Card -->
+                    <div class="partner-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="assets/partner logo/uc1.jpg" alt="Poly" class="partner-logo">
+                                <h3 class="partner-name">Poly</h3>
+                                <p class="partner-tagline">Gold Partner in Malaysia</p>
+                            </div>
+                            <div class="card-back">
+                                <div class="card-back-content">
+                                    <img src="assets/partner logo/uc1.jpg" alt="Poly" class="back-logo">
+                                    <h3 class="back-title">Poly</h3>
+                                    <p class="back-description">
+                                        Communication & collaboration solutions from a multinational corporation specializing in video, voice, and content collaboration. Acquired by HP in 2022, Poly focuses on solutions for remote and hybrid working environments.
+                                    </p>
+                                    <div class="back-specialties">
+                                        <span class="specialty-tag">Headsets</span>
+                                        <span class="specialty-tag">Video Conferencing</span>
+                                        <span class="specialty-tag">Business Phones</span>
+                                    </div>
+                                    <a href="partners/unifiedcommunication/poly.html" class="back-button">Explore Solutions →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Zoom Card -->
+                    <div class="partner-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="assets/partner logo/uc2.jpg" alt="Zoom" class="partner-logo">
+                                <h3 class="partner-name">Zoom</h3>
+                                <p class="partner-tagline">Appointed Reseller in Malaysia</p>
+                            </div>
+                            <div class="card-back">
+                                <div class="card-back-content">
+                                    <img src="assets/partner logo/uc2.jpg" alt="Zoom" class="back-logo">
+                                    <h3 class="back-title">Zoom</h3>
+                                    <p class="back-description">
+                                        All-in-one cloud-based video communications platform for hosting and managing online video conferences. Highly scalable solution suitable for meetings ranging from one-on-one to 50,000 view-only webinars.
+                                    </p>
+                                    <div class="back-specialties">
+                                        <span class="specialty-tag">Video Meetings</span>
+                                        <span class="specialty-tag">Webinars</span>
+                                        <span class="specialty-tag">Cloud Phone</span>
+                                    </div>
+                                    <a href="partners/unifiedcommunication/zoom.html" class="back-button">Explore Solutions →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grandstream Card -->
+                    <div class="partner-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="assets/partner logo/uc3.jpg" alt="Grandstream" class="partner-logo">
+                                <h3 class="partner-name">Grandstream</h3>
+                                <p class="partner-tagline">SIP-Based Communications Partner</p>
+                            </div>
+                            <div class="card-back">
+                                <div class="card-back-content">
+                                    <img src="assets/partner logo/uc3.jpg" alt="Grandstream" class="back-logo">
+                                    <h3 class="back-title">Grandstream</h3>
+                                    <p class="back-description">
+                                        Session Initiation Protocol (SIP)-based manufacturer providing unified communications solutions including IP voice and video, gateways, ATAs, and Asterisk-based IP-PBX appliances.
+                                    </p>
+                                    <div class="back-specialties">
+                                        <span class="specialty-tag">IP Voice & Video</span>
+                                        <span class="specialty-tag">IP-PBX Systems</span>
+                                        <span class="specialty-tag">Gateways</span>
+                                    </div>
+                                    <a href="partners/unifiedcommunication/grandstream.html" class="back-button">Explore Solutions →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Logitech Card -->
+                    <div class="partner-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="assets/partner logo/uc4.jpg" alt="Logitech" class="partner-logo">
+                                <h3 class="partner-name">Logitech</h3>
+                                <p class="partner-tagline">Computer Peripherals & UC Partner</p>
+                            </div>
+                            <div class="card-back">
+                                <div class="card-back-content">
+                                    <img src="assets/partner logo/uc4.jpg" alt="Logitech" class="back-logo">
+                                    <h3 class="back-title">Logitech</h3>
+                                    <p class="back-description">
+                                        Over 40 years of excellence in computer peripherals and unified communications. Award-winning designs for keyboards, mice, webcams, and video collaboration solutions for modern workplaces.
+                                    </p>
+                                    <div class="back-specialties">
+                                        <span class="specialty-tag">Computer Peripherals</span>
+                                        <span class="specialty-tag">Video Conferencing</span>
+                                        <span class="specialty-tag">Audio Solutions</span>
+                                    </div>
+                                    <a href="partners/unifiedcommunication/logitech.html" class="back-button">Explore Solutions →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Jabra Card -->
+                    <div class="partner-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="assets/partner logo/uc5.jpg" alt="Jabra" class="partner-logo">
+                                <h3 class="partner-name">Jabra</h3>
+                                <p class="partner-tagline">Professional Audio Partner</p>
+                            </div>
+                            <div class="card-back">
+                                <div class="card-back-content">
+                                    <img src="assets/partner logo/uc5.jpg" alt="Jabra" class="back-logo">
+                                    <h3 class="back-title">Jabra</h3>
+                                    <p class="back-description">
+                                        Specializing in professional audio equipment for nearly 40 years. Award-winning wireless and corded headphones, video conference systems, and unified communications solutions for business environments.
+                                    </p>
+                                    <div class="back-specialties">
+                                        <span class="specialty-tag">Professional Headsets</span>
+                                        <span class="specialty-tag">Video Systems</span>
+                                        <span class="specialty-tag">Speakerphones</span>
+                                    </div>
+                                    <a href="partners/unifiedcommunication/jabra.html" class="back-button">Explore Solutions →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-uc">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Transform Your Communications?</h2>
+                    <p>
+                        Our certified experts will help you select and implement the right unified communications solutions 
+                        for your organization. From initial consultation to ongoing support, we're with you every step of the way.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="cta-primary">Schedule Consultation</a>
+                        <a href="aceteam-digital/aceteamdigital.html" class="cta-secondary">View UC Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest News/Blog Section -->
+        <section class="section" style="background: white; padding: 5rem 0;">
+            <div class="container">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2rem; font-weight: 700; color: var(--primary-dark);">Read Our Latest News</h2>
+                    <a href="blog.html" style="background: white; border: 2px solid var(--primary-dark); color: var(--primary-dark); padding: 0.6rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">ALL NEWS</a>
+                </div>
+
+                <div class="grid grid-4" style="gap: 2rem;">
+                    <!-- Blog Post 1 -->
+                    <div class="blog-card">
+                        <span class="blog-badge">TECHNOLOGY</span>
+                        <h3 class="blog-title">Zoom: Powering Agile Business Communication with ACEiT Asia</h3>
+                        <a href="blog-post-1.html" class="blog-link">→ LEARN MORE</a>
+                    </div>
+
+                    <!-- Blog Post 2 -->
+                    <div class="blog-card">
+                        <span class="blog-badge">TECHNOLOGY</span>
+                        <h3 class="blog-title">Logitech: Elevating Workplace Collaboration with ACEiT Asia</h3>
+                        <a href="blog-post-2.html" class="blog-link">→ LEARN MORE</a>
+                    </div>
+
+                    <!-- Blog Post 3 -->
+                    <div class="blog-card">
+                        <span class="blog-badge">TECHNOLOGY</span>
+                        <h3 class="blog-title">Jabra: Empowering Flexible Work Culture with ACEiT Asia</h3>
+                        <a href="blog-post-3.html" class="blog-link">→ LEARN MORE</a>
+                    </div>
+
+                    <!-- Blog Post 4 -->
+                    <div class="blog-card">
+                        <span class="blog-badge">TECHNOLOGY</span>
+                        <h3 class="blog-title">Poly: Transforming Enterprise Collaboration in the Hybrid Era</h3>
+                        <a href="blog-post-4.html" class="blog-link">→ LEARN MORE</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/components.js"></script>
+</body>
+</html>

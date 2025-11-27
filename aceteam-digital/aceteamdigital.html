@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <title>Aceteam Digital - Digital Workplace Solutions</title>
+    <link rel="stylesheet" href="globaldesign.css">
+    <style>
+        /* Custom Transparent Header */
+        .aceteam-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.15);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        .aceteam-header.scrolled {
+            background: linear-gradient(135deg, #2a1a2a 0%, #3a2a3a 50%, #4a2a42 100%);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(206, 147, 216, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        .aceteam-header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .aceteam-brand {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .aceteam-brand img {
+            height: 32px;
+            width: auto;
+        }
+        
+        /* Desktop Navigation */
+        .aceteam-nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex: 1;
+            justify-content: center;
+        }
+        .aceteam-nav-desktop .nav-item {
+            position: relative;
+        }
+        .aceteam-nav-desktop .nav-link {
+            color: white;
+            text-decoration: none !important;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            border-bottom: none !important;
+        }
+        .aceteam-nav-desktop .nav-link:hover {
+            color: #ce93d8;
+            text-decoration: none !important;
+            border-bottom: none !important;
+        }
+        .aceteam-nav-desktop .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .aceteam-nav-desktop .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+        }
+        .aceteam-nav-desktop .dropdown-menu a {
+            display: block;
+            padding: 0.7rem 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none !important;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            border-bottom: none !important;
+        }
+        .aceteam-nav-desktop .dropdown-menu a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            padding-left: 1.5rem;
+            text-decoration: none !important;
+            border-bottom: none !important;
+        }
+        .aceteam-nav-desktop .dropdown-menu .submenu-indent {
+            padding-left: 2rem;
+            font-size: 0.85rem;
+        }
+        .aceteam-nav-desktop .dropdown-menu .divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 0.5rem 0;
+        }
+        
+        .inquiry-btn {
+            background: #e91e8c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+        .inquiry-btn:hover {
+            background: #c71769;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(233, 30, 140, 0.3);
+        }
+        
+        /* Mobile Navigation */
+        .aceteam-nav-mobile {
+            display: none;
+        }
+        .mobile-menu-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 0.4rem 0.75rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .mobile-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+        }
+        .aceteam-nav-mobile.open .mobile-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .mobile-dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+        .mobile-dropdown-menu a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+        }
+        .mobile-dropdown-menu .submenu-indent {
+            padding-left: 2rem;
+            font-size: 0.85rem;
+        }
+        .mobile-dropdown-menu .divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 0.5rem 0;
+        }
+        
+        @media (max-width: 992px) {
+            .aceteam-nav-desktop {
+                display: none;
+            }
+            .aceteam-nav-mobile {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                position: relative;
+            }
+            .inquiry-btn {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .aceteam-header-container {
+                padding: 0 1rem;
+            }
+            .aceteam-brand img {
+                height: 28px;
+            }
+            .inquiry-btn {
+                padding: 0.35rem 0.85rem;
+                font-size: 0.75rem;
+            }
+        }
+        
+        .hero-animated {
+            background: linear-gradient(135deg, #1a0a1a 0%, #2a1a2a 50%, #3a2a3a 100%);
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 0;
+            padding-top: 5rem;
+        }
+        .neural-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.6;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: rgba(206,147,216,0.95);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid rgba(206,147,216,0.3);
+            border-radius: 50px;
+            background: rgba(206,147,216,0.05);
+            backdrop-filter: blur(10px);
+        }
+        .hero-title {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .hero-title .highlight {
+            color: #ce93d8;
+            position: relative;
+            display: inline-block;
+        }
+        .hero-title .light {
+            color: #ffffff;
+            font-weight: 700;
+        }
+        .hero-description {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 850px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        @media (max-width: 768px) {
+            .aceteam-header .subsidiary-text {
+                font-size: 0.65rem;
+                letter-spacing: 1.5px;
+            }
+            .hero-animated {
+                min-height: 60vh;
+                padding: 2.5rem 0;
+                padding-top: 5rem;
+            }
+            .hero-badge {
+                font-size: 0.75rem;
+                letter-spacing: 2px;
+                padding: 0.4rem 1rem;
+            }
+            .hero-description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom AceTeam Header -->
+    <header class="aceteam-header">
+        <div class="aceteam-header-container">
+            <a href="../index.html" class="aceteam-brand">
+                <img src="../assets/ACEiT GAMBAR/cropped-LOGO-ACEiT-A.png" alt="ACEiT Logo">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="aceteam-nav-desktop">
+                <div class="nav-item">
+                    <a href="#" class="nav-link">ACEiT Group</a>
+                    <div class="dropdown-menu">
+                        <a href="../aceteam-networks/aceteamnetworks.html" class="submenu-indent">Aceteam Networks</a>
+                        <a href="../aceteam-connect/aceteamconnect.html" class="submenu-indent">Aceteam Connect</a>
+                        <a href="../aceteam-digital/aceteamdigital.html" class="submenu-indent">Aceteam Digital</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="../about.html" class="nav-link">About Us</a>
+                </div>
+                <div class="nav-item">
+                    <a href="../partners/ourpartner.html" class="nav-link">Our Partners</a>
+                    <div class="dropdown-menu">
+                        <a href="../partners/ourpartner.html">All Partners</a>
+                        <div class="divider"></div>
+                        <a href="../partners/cybersecurity/" class="submenu-indent">Cybersecurity</a>
+                        <a href="../partners/datacentre/" class="submenu-indent">Data Centre</a>
+                        <a href="../partners/datanetworking/" class="submenu-indent">Data Networking</a>
+                        <a href="../partners/unifiedcommunication/" class="submenu-indent">Unified Communication</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="https://boards.briohr.com/aceteamnetworks-2atxdx8xbd" target="_blank" rel="noopener noreferrer" class="nav-link">Careers</a>
+                </div>
+                <div class="nav-item">
+                    <a href="../faq.html" class="nav-link">FAQs</a>
+                </div>
+                <div class="nav-item">
+                    <a href="../blogs.html" class="nav-link">Blogs</a>
+                </div>
+            </nav>
+            
+            <a href="../contact.html" class="inquiry-btn">Inquiry</a>
+            
+            <!-- Mobile Navigation -->
+            <nav class="aceteam-nav-mobile">
+                <button class="mobile-menu-btn" onclick="this.parentElement.classList.toggle('open')">☰</button>
+                <div class="mobile-dropdown-menu">
+                    <a href="../aceteam-networks/aceteamnetworks.html" class="submenu-indent">Aceteam Networks</a>
+                    <a href="../aceteam-connect/aceteamconnect.html" class="submenu-indent">Aceteam Connect</a>
+                    <a href="../aceteam-digital/aceteamdigital.html" class="submenu-indent">Aceteam Digital</a>
+                    <div class="divider"></div>
+                    <a href="../about.html">About Us</a>
+                    <a href="../partners/ourpartner.html">Our Partners</a>
+                    <a href="../partners/cybersecurity/" class="submenu-indent">Cybersecurity</a>
+                    <a href="../partners/datacentre/" class="submenu-indent">Data Centre</a>
+                    <a href="../partners/datanetworking/" class="submenu-indent">Data Networking</a>
+                    <a href="../partners/unifiedcommunication/" class="submenu-indent">Unified Communication</a>
+                    <div class="divider"></div>
+                    <a href="https://boards.briohr.com/aceteamnetworks-2atxdx8xbd" target="_blank" rel="noopener noreferrer">Careers</a>
+                    <a href="../faq.html">FAQs</a>
+                    <a href="../blogs.html">Blogs</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <script>
+        // Add scroll effect for header background
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.aceteam-header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero hero-animated">
+            <canvas class="neural-canvas" id="neuralCanvas"></canvas>
+            <div class="container hero-content" style="text-align: center;">
+                <div class="hero-badge">COLLABORATE · COMMUNICATE · CREATE</div>
+                <h1 class="hero-title">
+                    <span class="highlight">Aceteam</span> <span class="light">Digital</span>
+                </h1>
+                <p class="hero-description">Transform your digital workplace with cutting-edge collaboration tools, unified communications, and AI-powered solutions that empower teams to work smarter.</p>
+            </div>
+        </section>
+
+        <script>
+            (function() {
+                const canvas = document.getElementById('neuralCanvas');
+                if (!canvas) return;
+                
+                const ctx = canvas.getContext('2d');
+                let w = canvas.width = canvas.offsetWidth;
+                let h = canvas.height = canvas.offsetHeight;
+                
+                window.addEventListener('resize', () => {
+                    w = canvas.width = canvas.offsetWidth;
+                    h = canvas.height = canvas.offsetHeight;
+                    signalX = 0;
+                    signalY = h / 2;
+                    initNodes();
+                });
+
+                const nodes = [];
+                const isMobile = window.innerWidth < 768;
+                const nodeCount = isMobile ? 18 : 55;
+                const color = 'rgba(206, 147, 216, ';
+                let signalX = 0;
+                let signalY = h / 2;
+                let signalVX = isMobile ? 1 : 2.2;
+                let signalVY = isMobile ? 0.5 : 1.1;
+                const activationRadius = isMobile ? 130 : 270;
+                
+                class Node {
+                    constructor(x, y) {
+                        // Add slight randomization to grid position for organic feel
+                        this.x = x + (Math.random() - 0.5) * 40;
+                        this.y = y + (Math.random() - 0.5) * 40;
+                        this.radius = 3;
+                        this.activation = 0;
+                        this.connectedNodes = [];
+                        this.directConnections = [];
+                        this.lastActivation = 0;
+                    }
+                    
+                    checkSignalProximity(sx, sy) {
+                        const dx = this.x - sx;
+                        const dy = this.y - sy;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (dist < activationRadius) {
+                            const currentTime = Date.now();
+                            // Only activate if enough time has passed (prevent rapid re-activation)
+                            if (currentTime - this.lastActivation > 500) {
+                                this.activation = 1.5;
+                                this.lastActivation = currentTime;
+                                
+                                const starCount = isMobile ? 3 : 5;
+                                this.directConnections = nodes
+                                    .filter(n => n !== this && n.activation > 0)
+                                    .sort((a, b) => {
+                                        const distA = Math.sqrt((sx - a.x)**2 + (sy - a.y)**2);
+                                        const distB = Math.sqrt((sx - b.x)**2 + (sy - b.y)**2);
+                                        return distA - distB;
+                                    })
+                                    .slice(0, starCount);
+                            }
+                            
+                            const meshDist = isMobile ? 100 : 150;
+                            const activationThreshold = isMobile ? 0.5 : 0.5;
+                            this.connectedNodes = nodes.filter(n => {
+                                if (n === this) return false;
+                                const ndx = this.x - n.x;
+                                const ndy = this.y - n.y;
+                                const ndist = Math.sqrt(ndx * ndx + ndy * ndy);
+                                return ndist < meshDist && n.activation > activationThreshold;
+                            });
+                        } else {
+                            // Clear connections when signal is far away
+                            if (this.activation < 0.1) {
+                                this.connectedNodes = [];
+                                this.directConnections = [];
+                            }
+                        }
+                    }
+                    
+                    update() {
+                        if (this.activation > 1) {
+                            this.activation -= 0.08;
+                        } else {
+                            this.activation *= 0.96;
+                        }
+                        
+                        if (this.activation < 0.01) {
+                            this.activation = 0;
+                            this.connectedNodes = [];
+                            this.directConnections = [];
+                        }
+                    }
+                    
+                    draw() {
+                        if (this.activation > 0) {
+                            const flashAmount = Math.max(0, this.activation - 1);
+                            const colorAmount = Math.min(1, this.activation);
+                            
+                            if (flashAmount > 0) {
+                                const whiteGlow = 35 * flashAmount;
+                                const whiteGrad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, whiteGlow);
+                                whiteGrad.addColorStop(0, 'rgba(255, 255, 255, ' + (flashAmount * 0.9) + ')');
+                                whiteGrad.addColorStop(0.4, 'rgba(255, 255, 255, ' + (flashAmount * 0.5) + ')');
+                                whiteGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                                ctx.fillStyle = whiteGrad;
+                                ctx.fillRect(this.x - whiteGlow, this.y - whiteGlow, whiteGlow * 2, whiteGlow * 2);
+                            }
+                            
+                            const glowSize = 25 * colorAmount;
+                            const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, glowSize);
+                            gradient.addColorStop(0, color + (colorAmount * 0.9) + ')');
+                            gradient.addColorStop(0.5, color + (colorAmount * 0.4) + ')');
+                            gradient.addColorStop(1, color + '0)');
+                            ctx.fillStyle = gradient;
+                            ctx.fillRect(this.x - glowSize, this.y - glowSize, glowSize * 2, glowSize * 2);
+                        }
+                        
+                        const baseOpacity = 0.3;
+                        const flashAmount = Math.max(0, this.activation - 1);
+                        const colorAmount = Math.min(1, this.activation);
+                        
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.radius + (flashAmount * 2), 0, Math.PI * 2);
+                        
+                        if (flashAmount > 0.3) {
+                            ctx.fillStyle = 'rgba(255, 255, 255, ' + Math.min(1, flashAmount) + ')';
+                        } else {
+                            ctx.fillStyle = color + (baseOpacity + colorAmount * 0.7) + ')';
+                        }
+                        ctx.fill();
+                        
+                        if (this.activation > 1 && this.directConnections.length > 0) {
+                            const flashAmt = Math.max(0, this.activation - 1);
+                            this.directConnections.forEach((node, index) => {
+                                ctx.beginPath();
+                                ctx.moveTo(this.x, this.y);
+                                ctx.lineTo(node.x, node.y);
+                                ctx.strokeStyle = 'rgba(255, 255, 255, ' + (flashAmt * 0.9) + ')';
+                                ctx.lineWidth = 3.5 * flashAmt;
+                                ctx.stroke();
+                                
+                                ctx.beginPath();
+                                ctx.arc(node.x, node.y, 4 * flashAmt, 0, Math.PI * 2);
+                                ctx.fillStyle = 'rgba(255, 255, 255, ' + (flashAmt * 0.8) + ')';
+                                ctx.fill();
+                            });
+                        }
+                        
+                        this.connectedNodes.forEach(node => {
+                            const avgActivation = (this.activation + node.activation) / 2;
+                            const avgFlash = Math.max(0, avgActivation - 1);
+                            
+                            ctx.beginPath();
+                            ctx.moveTo(this.x, this.y);
+                            ctx.lineTo(node.x, node.y);
+                            
+                            if (avgFlash > 0.2) {
+                                ctx.strokeStyle = 'rgba(255, 255, 255, ' + Math.min(avgFlash * 0.7, 0.8) + ')';
+                                ctx.lineWidth = 2.5 * avgFlash;
+                            } else {
+                                const lineOpacity = Math.min(1, avgActivation);
+                                ctx.strokeStyle = color + (lineOpacity * 0.6) + ')';
+                                ctx.lineWidth = 2 * lineOpacity;
+                            }
+                            ctx.stroke();
+                            
+                            if (avgFlash > 0.3) {
+                                const midX = (this.x + node.x) / 2;
+                                const midY = (this.y + node.y) / 2;
+                                const pulseSize = 10 * avgFlash;
+                                
+                                const pulseGrad = ctx.createRadialGradient(midX, midY, 0, midX, midY, pulseSize);
+                                pulseGrad.addColorStop(0, 'rgba(255, 255, 255, ' + (avgFlash * 0.9) + ')');
+                                pulseGrad.addColorStop(0.6, color + (avgFlash * 0.5) + ')');
+                                pulseGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                                ctx.fillStyle = pulseGrad;
+                                ctx.fillRect(midX - pulseSize, midY - pulseSize, pulseSize * 2, pulseSize * 2);
+                            }
+                        });
+                    }
+                }
+                
+                function initNodes() {
+                    nodes.length = 0;
+                    // Create hexagonal grid pattern
+                    const spacing = isMobile ? 120 : 150;
+                    const cols = Math.ceil(w / spacing) + 1;
+                    const rows = Math.ceil(h / spacing) + 1;
+                    
+                    for (let row = 0; row < rows; row++) {
+                        for (let col = 0; col < cols; col++) {
+                            // Hexagonal offset for alternating rows
+                            const xOffset = (row % 2) * (spacing / 2);
+                            const x = col * spacing + xOffset;
+                            const y = row * spacing;
+                            
+                            if (x >= -50 && x <= w + 50 && y >= -50 && y <= h + 50) {
+                                nodes.push(new Node(x, y));
+                            }
+                        }
+                    }
+                }
+                
+                function drawSignal() {
+                    const angle = Math.atan2(signalVY, signalVX);
+                    
+                    const pulseSize = 25;
+                    const gradient = ctx.createRadialGradient(signalX, signalY, 0, signalX, signalY, pulseSize);
+                    gradient.addColorStop(0, color + '0.8)');
+                    gradient.addColorStop(0.5, color + '0.3)');
+                    gradient.addColorStop(1, color + '0)');
+                    ctx.fillStyle = gradient;
+                    ctx.fillRect(signalX - pulseSize, signalY - pulseSize, pulseSize * 2, pulseSize * 2);
+                    
+                    ctx.save();
+                    ctx.translate(signalX, signalY);
+                    ctx.rotate(angle);
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(12, 0);
+                    ctx.lineTo(-8, -6);
+                    ctx.lineTo(-4, 0);
+                    ctx.lineTo(-8, 6);
+                    ctx.closePath();
+                    
+                    const shipGrad = ctx.createLinearGradient(-8, 0, 12, 0);
+                    shipGrad.addColorStop(0, color + '0.6)');
+                    shipGrad.addColorStop(0.5, 'rgba(255, 255, 255, 0.9)');
+                    shipGrad.addColorStop(1, 'rgba(255, 255, 255, 1)');
+                    ctx.fillStyle = shipGrad;
+                    ctx.fill();
+                    
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+                    ctx.lineWidth = 1.5;
+                    ctx.stroke();
+                    
+                    ctx.beginPath();
+                    ctx.arc(4, 0, 2, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(100, 200, 255, 0.9)';
+                    ctx.fill();
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(-4, -2);
+                    ctx.lineTo(-12, -3);
+                    ctx.moveTo(-4, 2);
+                    ctx.lineTo(-12, 3);
+                    ctx.strokeStyle = color + '0.6)';
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                    
+                    ctx.restore();
+                    
+                    ctx.beginPath();
+                    ctx.arc(signalX, signalY, activationRadius, 0, Math.PI * 2);
+                    ctx.strokeStyle = color + '0.06)';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+                
+                function updateSignal() {
+                    signalX += signalVX;
+                    signalY += signalVY;
+                    
+                    if (signalX <= 0 || signalX >= w) {
+                        signalVX *= -1;
+                        signalX = Math.max(0, Math.min(w, signalX));
+                    }
+                    if (signalY <= 0 || signalY >= h) {
+                        signalVY *= -1;
+                        signalY = Math.max(0, Math.min(h, signalY));
+                    }
+                }
+                
+                function animate() {
+                    ctx.clearRect(0, 0, w, h);
+                    
+                    updateSignal();
+                    drawSignal();
+                    
+                    nodes.forEach(node => {
+                        node.checkSignalProximity(signalX, signalY);
+                        node.update();
+                        node.draw();
+                    });
+                    
+                    requestAnimationFrame(animate);
+                }
+                
+                initNodes();
+                animate();
+            })();
+        </script>
+
+        <!-- Our Services Section -->
+        <section class="section" style="background: white; padding: 5rem 0;">
+            <div class="container">
+                <h2 class="section-title" style="color: var(--primary-dark); text-align: center; margin-bottom: 4rem;">Our Digital Solutions</h2>
+                <div class="grid grid-3" style="gap: 2rem;">
+                    <!-- Business Audio Card -->
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="2">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">Business Audio Solutions</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Professional headsets, headphones, and VOIP phones for clear communication.</p>
+                        <a href="aceteam-digital/service-business-audio-solutions.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+
+                    <!-- UC Meeting Rooms Card -->
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="2">
+                                <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">UC Solutions for Meeting Rooms</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Transform meeting spaces with unified collaboration systems.</p>
+                        <a href="aceteam-digital/service-uc-meeting-rooms.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+
+                    <!-- Display Solutions Card -->
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">Display Solutions</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Professional displays for boardrooms and digital signage needs.</p>
+                        <a href="aceteam-digital/service-display-solutions.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+
+                    <!-- Visitor Management Card -->
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">Visitor Management Solutions</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Smart digital systems for secure and seamless guest check-in.</p>
+                        <a href="aceteam-digital/service-visitor-management.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+
+                    <!-- AI Software Card -->
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><circle cx="12" cy="12" r="4"></circle>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">AI Software Distribution</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Enterprise AI solutions ready to deploy from day one.</p>
+                        <a href="aceteam-digital/service-ai-software-distribution.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Section -->
+        <section class="section" style="background: white; padding: 5rem 0;">
+            <div class="container">
+                <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+                    <h2 class="section-title" style="font-size: 2.5rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 1rem;">Why Choose Aceteam Digital</h2>
+                    <p class="section-subtitle" style="font-size: 1.125rem; color: #6b7280; max-width: 800px; margin: 0 auto;">Empowering modern workplaces with innovative digital tools and seamless collaboration platforms.</p>
+                </div>
+                
+                <div class="service-group" style="background: #f8f9fa; border: 1px solid #e5e5e5; border-radius: 12px; padding: 2.5rem; margin-bottom: 2rem;">
+                    <div class="service-category-header" style="display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 2rem;">
+                        <div class="service-icon-large" style="width: 60px; height: 60px; background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <div class="service-category-title" style="flex: 1;">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.5rem;">Hybrid-Ready Solutions</h3>
+                            <p class="service-category-description" style="color: #6b7280; font-size: 1rem; line-height: 1.6;">Enable seamless collaboration between in-office and remote teams with unified platforms.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Unified Communications</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Single platform for video, voice, messaging, and content sharing across all locations.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Flexible Workspaces</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Hot-desking, room booking, and workspace analytics for optimized office utilization.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Device Agnostic</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Work seamlessly across desktops, laptops, tablets, and mobile devices.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-group" style="background: #f8f9fa; border: 1px solid #e5e5e5; border-radius: 12px; padding: 2.5rem; margin-bottom: 2rem;">
+                    <div class="service-category-header" style="display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 2rem;">
+                        <div class="service-icon-large" style="width: 60px; height: 60px; background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                        </div>
+                        <div class="service-category-title" style="flex: 1;">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.5rem;">AI-Powered Intelligence</h3>
+                            <p class="service-category-description" style="color: #6b7280; font-size: 1rem; line-height: 1.6;">Leverage artificial intelligence to automate workflows and enhance decision-making.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Smart Assistants</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">AI-powered virtual assistants handle routine tasks and provide instant information.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Meeting Intelligence</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Automated transcription, action items, and meeting summaries powered by AI.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Predictive Analytics</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Data-driven insights help optimize workplace efficiency and employee satisfaction.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-group" style="background: #f8f9fa; border: 1px solid #e5e5e5; border-radius: 12px; padding: 2.5rem;">
+                    <div class="service-category-header" style="display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 2rem;">
+                        <div class="service-icon-large" style="width: 60px; height: 60px; background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="service-category-title" style="flex: 1;">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.5rem;">Seamless Integration</h3>
+                            <p class="service-category-description" style="color: #6b7280; font-size: 1rem; line-height: 1.6;">Connect with Microsoft Teams, Zoom, Google Meet, and other leading platforms effortlessly.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Platform Compatibility</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Works seamlessly with Microsoft Teams, Zoom, Google Workspace, and Slack.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">API Connectivity</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Open APIs enable integration with your existing business applications and tools.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">One-Touch Join</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Join any meeting with a single tap regardless of the platform or service provider.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="section" style="background: #f8f9fa; padding: 5rem 0;">
+            <div class="container">
+                <h2 style="font-size: 2rem; font-weight: 700; color: var(--primary-dark); text-align: center; margin-bottom: 1rem;">Digital Transformation Use Cases</h2>
+                <p style="text-align: center; color: #4a5568; margin-bottom: 4rem; max-width: 700px; margin-left: auto; margin-right: auto;">From meeting rooms to visitor management, we digitalize every touchpoint of your workplace.</p>
+                
+                <div class="grid grid-4" style="gap: 2rem;">
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2rem; text-align: center; border-top: 3px solid #ab47bc;">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">Hybrid Workspaces</h4>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Flexible collaboration tools for distributed teams</p>
+                    </div>
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2rem; text-align: center; border-top: 3px solid #ab47bc;">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">Smart Meetings</h4>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Intelligent meeting rooms with unified controls</p>
+                    </div>
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2rem; text-align: center; border-top: 3px solid #ab47bc;">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">Digital Reception</h4>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Automated visitor management and check-in systems</p>
+                    </div>
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2rem; text-align: center; border-top: 3px solid #ab47bc;">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">AI Assistants</h4>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Conversational AI for customer support and engagement</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section" style="background: linear-gradient(135deg, #6a3c8c 0%, #2d1b4e 100%); padding: 4rem 0;">
+            <div class="container">
+                <div style="position: relative; background: rgba(206,147,216,0.05); border: 1px solid rgba(206,147,216,0.2); border-radius: 12px; overflow: hidden; min-height: 300px; padding: 3rem; display: flex; align-items: center;">
+                    <div style="position: relative; z-index: 2; max-width: 700px; margin: 0 auto; text-align: center;">
+                        <h2 style="font-size: 2.5rem; font-weight: 800; color: white; margin-bottom: 1.5rem; line-height: 1.1;">Transform Your Digital Workplace</h2>
+                        <p style="font-size: 1.05rem; color: rgba(255,255,255,0.85); margin-bottom: 2rem; line-height: 1.7;">Discover how our digital solutions can revolutionize collaboration, productivity, and workplace experience.</p>
+                        <a href="../contact.html" style="display: inline-block; background: #ce93d8; border: 2px solid #ce93d8; color: #2d1b4e; padding: 0.8rem 2.5rem; text-decoration: none; font-weight: 700; border-radius: 4px; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif;">START YOUR JOURNEY</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest News/Blog Section -->
+        <section class="section" style="background: white; padding: 5rem 0;">
+            <div class="container">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2rem; font-weight: 700; color: var(--primary-dark);">Latest Digital Trends</h2>
+                    <a href="../blog.html" style="background: white; border: 2px solid var(--primary-dark); color: var(--primary-dark); padding: 0.6rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 4px; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">ALL NEWS</a>
+                </div>
+
+                <div class="grid grid-4" style="gap: 2rem;">
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';" onmouseout="this.style.boxShadow='none';">
+                        <span style="display: inline-block; padding: 0.3rem 0.8rem; background: #1a1a1a; color: white; font-size: 0.75rem; font-weight: 600; border-radius: 4px; margin-bottom: 1rem;">COLLABORATION</span>
+                        <h3 style="font-size: 1.05rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.4;">Zoom: Powering Agile Business Communication with ACEiT Asia</h3>
+                        <a href="blog-post-1.html" style="color: #1a1a1a; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.color='#555';" onmouseout="this.style.color='#1a1a1a';">→ LEARN MORE</a>
+                    </div>
+
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';" onmouseout="this.style.boxShadow='none';">
+                        <span style="display: inline-block; padding: 0.3rem 0.8rem; background: #1a1a1a; color: white; font-size: 0.75rem; font-weight: 600; border-radius: 4px; margin-bottom: 1rem;">WORKPLACE</span>
+                        <h3 style="font-size: 1.05rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.4;">Logitech: Elevating Workplace Collaboration with ACEiT Asia</h3>
+                        <a href="blog-post-2.html" style="color: #1a1a1a; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.color='#555';" onmouseout="this.style.color='#1a1a1a';">→ LEARN MORE</a>
+                    </div>
+
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';" onmouseout="this.style.boxShadow='none';">
+                        <span style="display: inline-block; padding: 0.3rem 0.8rem; background: #1a1a1a; color: white; font-size: 0.75rem; font-weight: 600; border-radius: 4px; margin-bottom: 1rem;">TECHNOLOGY</span>
+                        <h3 style="font-size: 1.05rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.4;">Jabra: Empowering Flexible Work Culture with ACEiT Asia</h3>
+                        <a href="blog-post-3.html" style="color: #1a1a1a; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.color='#555';" onmouseout="this.style.color='#1a1a1a';">→ LEARN MORE</a>
+                    </div>
+
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';" onmouseout="this.style.boxShadow='none';">
+                        <span style="display: inline-block; padding: 0.3rem 0.8rem; background: #1a1a1a; color: white; font-size: 0.75rem; font-weight: 600; border-radius: 4px; margin-bottom: 1rem;">AI & INNOVATION</span>
+                        <h3 style="font-size: 1.05rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.4;">AI in the Workplace: Transforming Productivity and Experience</h3>
+                        <a href="blog-post-4.html" style="color: #1a1a1a; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.color='#555';" onmouseout="this.style.color='#1a1a1a';">→ LEARN MORE</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/components.js"></script>
+</body>
+</html>

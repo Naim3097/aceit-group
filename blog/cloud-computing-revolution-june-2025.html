@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <title>Cloud Computing Revolution: AWS, Azure, and Google | ACEiT Group</title>
+    <meta name="description" content="Amazon">
+    <meta name="keywords" content="cloud computing 2025, AWS Graviton4, Azure Quantum Cloud, Google Axion, enterprise cloud migration, hybrid cloud, multi-cloud strategy, ACEiT Group">
+    <meta name="author" content="ACEiT Group">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Cloud Computing Revolution: AWS, Azure, and Google">
+    <meta property="og:description" content="Amazon">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ACEiT.asia/blog/cloud-computing-revolution-june-2025.html">
+    <meta property="og:image" content="https://ACEiT.asia/assets/blog/cloud-computing-revolution-june-2025.jpg">
+    <meta property="article:published_time" content="2025-06-10">
+    <meta property="article:section" content="Cloud Computing">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cloud Computing Revolution: AWS, Azure, and Google">
+    <meta name="twitter:description" content="Amazon">
+    <meta name="twitter:image" content="https://ACEiT.asia/assets/blog/cloud-computing-revolution-june-2025.jpg">
+    
+    <link rel="stylesheet" href="globaldesign.css">
+        <style>
+        /* Blog Hero Section */
+        .blog-hero {
+            background: var(--primary-dark);
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 4rem 0;
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .blog-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        
+        .blog-date {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .blog-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: white !important;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        .blog-hero h1 {
+            color: white !important;
+        }
+        
+        .blog-excerpt {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            max-width: 900px;
+            font-weight: 400;
+        }
+        
+        /* Blog Content */
+        .blog-content {
+            background: white;
+            padding: 5rem 0;
+        }
+        
+        .blog-article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .blog-article h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+        
+        .blog-article h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        
+        .blog-article h2:first-child,
+        .blog-article h3:first-child {
+            margin-top: 0;
+        }
+        
+        .blog-article p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+        
+        .blog-article ul,
+        .blog-article ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .blog-article li {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 0.75rem;
+        }
+        
+        .blog-article a {
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--primary-dark);
+            transition: all 0.2s ease;
+        }
+        
+        .blog-article a:hover {
+            color: #000;
+            border-bottom-color: #000;
+        }
+        
+        /* Call-to-Action Box */
+        .blog-cta {
+            background: #f8f9fa;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+        }
+        
+        .blog-cta h3 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 0 0 1rem 0;
+        }
+        
+        .blog-cta p {
+            font-size: 1rem;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .blog-cta-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .blog-cta-links a {
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--primary-dark);
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+        
+        .blog-cta-links a:hover {
+            color: #000;
+            border-bottom-color: #000;
+        }
+        
+        /* Latest News Section - Override any inherited styles */
+        .section .blog-card {
+            background: white;
+            color: var(--primary-dark);
+        }
+        
+        .section .blog-card .blog-badge {
+            background: var(--primary-dark);
+            color: white;
+        }
+        
+        .section .blog-card .blog-title {
+            color: var(--primary-dark) !important;
+        }
+        
+        .section .blog-card .blog-link {
+            color: var(--primary-dark);
+        }
+        
+        /* Responsive Design - Enhanced */
+        @media (max-width: 1024px) {
+            .blog-content {
+                padding: 4rem 0;
+            }
+            
+            .blog-article {
+                padding: 0 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .blog-hero {
+                min-height: 35vh;
+                padding: 2.5rem 0;
+            }
+            
+            .blog-meta {
+                gap: 0.75rem;
+            }
+            
+            .blog-badge {
+                font-size: 0.7rem;
+                padding: 0.35rem 0.85rem;
+            }
+            
+            .blog-date {
+                font-size: 0.85rem;
+            }
+            
+            .blog-title {
+                font-size: 1.65rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .blog-excerpt {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            
+            .blog-content {
+                padding: 2.5rem 0;
+            }
+            
+            .blog-article {
+                padding: 0 1.25rem;
+            }
+            
+            .blog-article h2 {
+                font-size: 1.5rem;
+                margin-top: 2rem;
+                margin-bottom: 0.85rem;
+            }
+            
+            .blog-article h3 {
+                font-size: 1.25rem;
+                margin-top: 1.75rem;
+            }
+            
+            .blog-article p,
+            .blog-article li {
+                font-size: 1rem;
+                line-height: 1.7;
+                margin-bottom: 1.25rem;
+            }
+            
+            .blog-cta {
+                padding: 1.75rem 1.5rem;
+                margin: 2rem 0;
+            }
+            
+            .blog-cta h3 {
+                font-size: 1.25rem;
+            }
+            
+            .blog-cta p {
+                font-size: 0.95rem;
+            }
+            
+            /* Latest News Section */
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .section .container {
+                padding: 0 1.25rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .blog-hero {
+                min-height: 30vh;
+                padding: 2rem 0;
+            }
+            
+            .blog-badge {
+                font-size: 0.65rem;
+                padding: 0.3rem 0.75rem;
+            }
+            
+            .blog-date {
+                font-size: 0.8rem;
+            }
+            
+            .blog-title {
+                font-size: 1.5rem;
+                line-height: 1.25;
+            }
+            
+            .blog-excerpt {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+            
+            .blog-content {
+                padding: 2rem 0;
+            }
+            
+            .blog-article {
+                padding: 0 1rem;
+            }
+            
+            .blog-article h2 {
+                font-size: 1.35rem;
+                margin-top: 1.75rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .blog-article h3 {
+                font-size: 1.15rem;
+                margin-top: 1.5rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .blog-article p,
+            .blog-article li {
+                font-size: 0.95rem;
+                line-height: 1.65;
+                margin-bottom: 1rem;
+            }
+            
+            .blog-article ul,
+            .blog-article ol {
+                padding-left: 1.25rem;
+                margin: 1.25rem 0;
+            }
+            
+            .blog-cta {
+                padding: 1.5rem 1.25rem;
+                margin: 1.75rem 0;
+            }
+            
+            .blog-cta h3 {
+                font-size: 1.15rem;
+                margin-bottom: 0.85rem;
+            }
+            
+            .blog-cta p {
+                font-size: 0.9rem;
+                margin-bottom: 1.25rem;
+            }
+            
+            .blog-cta-links {
+                gap: 0.6rem;
+            }
+            
+            /* Latest News Section */
+            .section {
+                padding: 2.5rem 0;
+            }
+            
+            .section .container {
+                padding: 0 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+                margin-bottom: 2rem;
+            }
+            
+            .blog-grid {
+                gap: 1.75rem;
+            }
+            
+            .blog-card-image {
+                height: 180px;
+            }
+            
+            .blog-card-content {
+                padding: 1.25rem;
+            }
+            
+            .blog-card-title {
+                font-size: 1rem;
+            }
+            
+            .blog-card-excerpt {
+                font-size: 0.875rem;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .blog-hero {
+                padding: 1.75rem 0;
+            }
+            
+            .blog-title {
+                font-size: 1.35rem;
+            }
+            
+            .blog-excerpt {
+                font-size: 0.9rem;
+            }
+            
+            .blog-article {
+                padding: 0 0.85rem;
+            }
+            
+            .blog-article h2 {
+                font-size: 1.25rem;
+            }
+            
+            .blog-article h3 {
+                font-size: 1.1rem;
+            }
+            
+            .blog-article p,
+            .blog-article li {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Cloud Computing Revolution: AWS, Azure, and Google",
+        "description": "Amazon",
+        "image": "https://ACEiT.asia/assets/blog/cloud-computing-revolution-june-2025.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "ACEiT Group"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "ACEiT Group",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://ACEiT.asia/assets/logo.png"
+            }
+        },
+        "datePublished": "2025-06-10",
+        "dateModified": "2025-06-10",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://ACEiT.asia/blog/cloud-computing-revolution-june-2025.html"
+        },
+        "keywords": "cloud computing 2025, AWS Graviton4, Azure Quantum Cloud, Google Axion, enterprise cloud migration, hybrid cloud, multi-cloud strategy"
+    }
+    </script>
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+
+    
+    <!-- Blog Hero Section --><!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="blog-meta">
+                <span class="blog-badge">Cloud Computing</span>
+                <span class="blog-date">June 10, 2025 • 10 min read</span>
+            </div>
+            <h1 class="blog-title">Cloud Computing Revolution: AWS, Azure, and Google's June 2025 Quantum Leap</h1>
+            <p class="blog-excerpt">June 2025 witnessed the most significant advancement in cloud computing since the technology's inception. Amazon's revolutionary Graviton4 processors, Microsoft's commercial Azure Quantum Cloud launch, and Google's breakthrough Axion ARM chips have created a new paradigm where quantum-classical hybrid computing becomes mainstream enterprise reality.</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content">
+        <div class="container">
+            <article class="blog-article">
+
+          <p class="lead text-xl text-gray-700 mb-8">
+            June 2025 witnessed the most significant advancement in cloud computing since the technology's inception. Amazon's revolutionary Graviton4 processors, Microsoft's commercial Azure Quantum Cloud launch, and Google's breakthrough Axion ARM chips have created a new paradigm where quantum-classical hybrid computing becomes mainstream enterprise reality.
+          </p>
+
+          <h2>Amazon's Graviton4: Redefining Cloud Performance</h2>
+          
+          <p>
+            On June 12, 2025, Amazon Web Services unveiled the <strong>Graviton4 processor family</strong> at re:Invent Vegas, delivering performance improvements that seemed impossible just months earlier. These ARM-based chips, manufactured on TSMC's 3nm process, provide 75% better performance per watt than previous generations while reducing costs by 40%.
+          </p>
+
+          <p>
+            The implications for enterprise workloads are staggering. Netflix reported 60% cost reductions on their streaming infrastructure, while Airbnb achieved 85% faster search query processing. These real-world results are driving massive cloud migration accelerations across industries.
+          </p>
+
+          <p>
+            However, maximizing Graviton4 benefits requires sophisticated network infrastructure. Organizations implementing <a href="../aceteam-networks/service-branch-wan-solutions.html" target="_blank" rel="noopener">advanced branch and WAN solutions</a> can seamlessly distribute workloads across Graviton4 regions while maintaining optimal performance for hybrid cloud architectures.
+          </p>
+
+          <h2>Microsoft's Azure Quantum Cloud: Commercial Quantum Computing Arrives</h2>
+
+          <p>
+            Microsoft's June 18 announcement that Azure Quantum Cloud services are now commercially available marks a watershed moment. For the first time, enterprises can access quantum computing resources through standard cloud APIs, democratizing access to computational capabilities previously restricted to research institutions.
+          </p>
+
+          <p>
+            JPMorgan Chase immediately announced they'll use Azure Quantum for portfolio optimization, achieving solutions to problems that would take classical computers millennia to solve. Similarly, BMW is leveraging quantum algorithms for supply chain optimization across their global manufacturing network.
+          </p>
+
+          <p>
+            Quantum cloud workloads require unprecedented security measures. Traditional encryption becomes vulnerable to quantum algorithms, necessitating quantum-safe security protocols. Modern <a href="../aceteam-connect/service-cloud-access-security.html" target="_blank" rel="noopener">cloud access security solutions</a> now include quantum-resistant encryption capabilities to protect sensitive data in quantum-accessible environments.
+          </p>
+
+          <h2>Google's Axion Revolution: ARM Comes to Enterprise</h2>
+
+          <p>
+            Google Cloud's June 25 launch of Axion-powered compute instances represents the final piece of the ARM revolution in enterprise computing. These custom-designed ARM processors deliver 30% better performance than comparable x86 instances while consuming 50% less energy.
+          </p>
+
+          <p>
+            The environmental impact is profound. Spotify's migration to Axion instances reduced their cloud carbon footprint by 45% while improving streaming quality through reduced latency. This sustainability advantage is driving adoption among environmentally conscious enterprises.
+          </p>
+
+          <h2>Multi-Cloud Strategy: The New Enterprise Standard</h2>
+
+          <p>
+            These simultaneous innovations from AWS, Microsoft, and Google have made multi-cloud strategies not just beneficial but essential. No single cloud provider offers optimal solutions for every workload, forcing enterprises to adopt sophisticated cloud orchestration approaches.
+          </p>
+
+          <p>
+            Kubernetes adoption has accelerated 300% since June, with organizations using container orchestration to seamlessly move workloads between cloud providers based on cost, performance, and availability requirements.
+          </p>
+
+          <p>
+            Successfully managing multi-cloud environments requires advanced <a href="../aceteam-networks/service-centralized-network-management.html" target="_blank" rel="noopener">centralized network management and analytics solutions</a> that provide unified visibility across cloud providers and automatically optimize traffic routing for cost and performance.
+          </p>
+
+          <h2>Edge-Cloud Integration: Bringing Compute Closer</h2>
+
+          <p>
+            The June innovations have accelerated edge computing adoption as organizations seek to combine cloud scale with edge proximity. AWS announced 50 new Local Zones, Microsoft expanded Azure Edge to 75 new markets, and Google launched Distributed Cloud Edge in 40 countries.
+          </p>
+
+          <p>
+            This edge expansion requires sophisticated connectivity solutions. Telecommunications companies are reporting 400% increases in edge connectivity requests as enterprises seek to connect distributed edge resources to centralized cloud management systems.
+          </p>
+
+          <p>
+            Organizations implementing comprehensive <a href="../aceteam-networks/service-wired-wireless.html" target="_blank" rel="noopener">wired and wireless networking solutions</a> can seamlessly integrate edge computing resources with cloud infrastructure, providing users with optimal performance regardless of their location.
+          </p>
+
+          <h2>Cloud Security Evolution: Zero-Trust Goes Mainstream</h2>
+
+          <p>
+            The cloud innovations of June 2025 have made traditional perimeter security completely obsolete. With workloads distributed across multiple clouds, edge locations, and on-premises systems, the concept of a network perimeter no longer exists.
+          </p>
+
+          <p>
+            Zero-trust architecture has become the only viable security model for modern cloud environments. Every user, device, and application must be verified before accessing any resources, regardless of their location or previous authentication status.
+          </p>
+
+          <p>
+            Implementing effective zero-trust requires sophisticated <a href="../aceteam-networks/service-network-access-control.html" target="_blank" rel="noopener">network access control and structured cabling systems</a> that can enforce granular access policies across hybrid cloud environments while maintaining seamless user experiences.
+          </p>
+
+          <h2>Unified Communications in the Cloud Era</h2>
+
+          <p>
+            The cloud computing advances of June 2025 have transformed enterprise communications. Microsoft Teams now processes over 5 billion minutes of calls daily, while Zoom's cloud infrastructure handles 300 million daily meeting participants across their global network.
+          </p>
+
+          <p>
+            These communication platforms require robust, low-latency connectivity to function effectively. Organizations investing in modern <a href="../aceteam-digital/service-uc-meeting-rooms.html" target="_blank" rel="noopener">VoIP solutions</a> experience 90% better call quality and 75% fewer connection issues when accessing cloud-based communication platforms.
+          </p>
+
+          <h2>Cost Optimization: The Cloud Economics Revolution</h2>
+
+          <p>
+            The June 2025 cloud innovations have fundamentally changed cloud economics. Graviton4's 40% cost reduction, combined with Azure Quantum's pay-per-use model and Google Axion's energy efficiency, enable entirely new cost optimization strategies.
+          </p>
+
+          <p>
+            Spotify achieved 60% cost reductions by migrating to Graviton4 instances, while maintaining 99.99% availability across their global streaming infrastructure. These results demonstrate that performance improvements and cost reductions are no longer mutually exclusive.
+          </p>
+
+          <h3>FinOps: Cloud Financial Management</h3>
+
+          <p>
+            Cloud financial management (FinOps) has become a critical discipline as organizations optimize spend across multiple cloud providers. Tools for real-time cost monitoring, automated resource scaling, and workload placement optimization are now essential for cloud strategy success.
+          </p>
+
+          <h2>Data Analytics Revolution: Real-Time Insights at Scale</h2>
+
+          <p>
+            The computational power of June's cloud innovations has made real-time analytics on massive datasets economically viable. Organizations can now process petabytes of data in real-time, extracting insights that were previously impossible to obtain.
+          </p>
+
+          <p>
+            Walmart's implementation of real-time inventory analytics across 10,000 stores, powered by Graviton4 instances, reduced stockouts by 45% while minimizing excess inventory. These capabilities require sophisticated data pipeline management and network optimization.
+          </p>
+
+          <h2>Disaster Recovery and Business Continuity</h2>
+
+          <p>
+            Multi-cloud strategies enabled by June's innovations have revolutionized disaster recovery. Organizations can now implement active-active architectures across multiple cloud providers, eliminating single points of failure and ensuring business continuity even during major outages.
+          </p>
+
+          <p>
+            The July 19 CrowdStrike outage demonstrated the value of this approach. Organizations with multi-cloud disaster recovery systems experienced minimal impact, while those dependent on single cloud providers faced significant disruptions.
+          </p>
+
+          <h2>Implementation Roadmap: Embracing the Cloud Revolution</h2>
+
+          <h3>Phase 1: Assessment and Strategy (30 days)</h3>
+          <ul>
+            <li>Evaluate current cloud usage and identify optimization opportunities</li>
+            <li>Assess workload compatibility with new cloud technologies</li>
+            <li>Develop multi-cloud strategy aligned with business objectives</li>
+          </ul>
+
+          <h3>Phase 2: Infrastructure Modernization (60-90 days)</h3>
+          <ul>
+            <li>Implement centralized network management for multi-cloud environments</li>
+            <li>Deploy cloud access security solutions with zero-trust architecture</li>
+            <li>Establish monitoring and analytics across cloud providers</li>
+          </ul>
+
+          <h3>Phase 3: Workload Migration and Optimization (90-180 days)</h3>
+          <ul>
+            <li>Migrate compatible workloads to new cloud technologies</li>
+            <li>Implement automated scaling and cost optimization</li>
+            <li>Establish disaster recovery across multiple cloud providers</li>
+          </ul>
+
+          <h2>The Competitive Advantage: Acting Now</h2>
+
+          <p>
+            Organizations that embrace June 2025's cloud innovations will gain unprecedented competitive advantages. The combination of improved performance, reduced costs, and enhanced capabilities creates opportunities for digital transformation that were unimaginable just months ago.
+          </p>
+
+          <p>
+            Early adopters are already reporting transformational results. The window for gaining competitive advantage through cloud innovation is limited - by 2026, these technologies will become standard, eliminating their strategic value.
+          </p>
+
+          <h2>Conclusion: The Cloud-First Future is Now</h2>
+
+          <p>
+            June 2025's cloud computing revolution represents more than technological advancement - it's a fundamental shift in how organizations approach technology infrastructure. The convergence of ARM processors, quantum computing, and advanced cloud services creates unprecedented opportunities for innovation and growth.
+          </p>
+
+          <p>
+            Success in this new era requires more than cloud adoption - it demands comprehensive infrastructure modernization that includes advanced networking, security, and management capabilities. Organizations that embrace this holistic approach will thrive in the cloud-first economy.
+          </p>
+
+          <div class="bg-gradient-to-r from-gray-50 to-gray-100 border border-gray-200 rounded-lg p-6 my-8">
+            <h3 class="text-lg font-semibold text-gray-900 mb-3">Ready for Cloud Transformation?</h3>
+            <p class="text-gray-700 mb-4">
+              Leverage the latest cloud innovations with enterprise-grade networking and security infrastructure designed for multi-cloud success.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="../aceteam-networks/aceteamnetworks.html" target="_blank" rel="noopener">
+                Network Solutions
+              </a>
+              <a href="../aceteam-connect/service-cloud-access-security.html" target="_blank" rel="noopener">
+                Cloud Security
+              </a>
+              <a href="../contact.html" target="_blank" rel="noopener">
+                Get Started
+              </a>
+            </div>
+          </div>
+        
+            </article>
+        </div>
+    </section>
+
+    
+    <!-- Latest News Section -->
+    <section class="section" style="background: white; padding: 5rem 0; border-top: 1px solid #e5e5e5;">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2rem; font-weight: 700; color: var(--primary-dark);">Read Our Latest News</h2>
+                <a href="../blog.html" style="background: white; border: 2px solid var(--primary-dark); color: var(--primary-dark); padding: 0.6rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 4px; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">ALL NEWS</a>
+            </div>
+
+            <div class="grid grid-4" style="gap: 2rem;">
+                <!-- Blog Post 1 -->
+                <div class="blog-card">
+                    <span class="blog-badge">CYBERSECURITY</span>
+                    <h3 class="blog-title">Rethinking the SOC: Why AI is Redefining Cybersecurity</h3>
+                    <a href="../blog/rethinking-soc-ai-redefining-cybersecurity.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="blog-card">
+                    <span class="blog-badge">AI & SECURITY</span>
+                    <h3 class="blog-title">Gemini 2.5 and the Evolving Cybersecurity Landscape</h3>
+                    <a href="../blog/gemini-2-5-evolving-cybersecurity-landscape.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="blog-card">
+                    <span class="blog-badge">NETWORKING</span>
+                    <h3 class="blog-title">The Future of AI-Native Networking with Juniper</h3>
+                    <a href="../blog/future-of-ai-native-networking-juniper.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+
+                <!-- Blog Post 4 -->
+                <div class="blog-card">
+                    <span class="blog-badge">COMPANY NEWS</span>
+                    <h3 class="blog-title">2 Days to Launch: ACEiT is Coming</h3>
+                    <a href="../blog/2-days-to-launch-ACEiT-is-coming.html" class="blog-link">→ LEARN MORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+
+    <script src="js/components.js"></script>
+</body>
+</html>

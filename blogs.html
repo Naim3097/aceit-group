@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Blogs - ACEiT Group | IT Infrastructure, Cybersecurity & Network Insights</title>
+    <meta name="description" content="Explore the latest insights on enterprise networking, cybersecurity, unified communications, and IT infrastructure from ACEiT Group experts.">
+    <meta name="keywords" content="IT blogs, cybersecurity insights, network infrastructure, enterprise technology, ACEiT Group, Aruba networks, unified communications">
+    
+    <!-- Performance Optimization -->
+    <meta name="theme-color" content="#090B1A">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link rel="stylesheet" href="globaldesign.css">
+    <style>
+        /* Performance & Accessibility */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Blog Grid Styles */
+        .blogs-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/main pages hero.jpg') center/cover;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+            position: relative;
+        }
+        
+        .blogs-hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 800;
+            color: white !important;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            text-transform: none !important;
+        }
+        
+        .blogs-hero p {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 850px;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .blog-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            border: 2px solid var(--primary-pink);
+            background: transparent;
+            color: var(--primary-dark);
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            user-select: none;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-pink);
+            color: white;
+            transform: translateY(-1px);
+        }
+        
+        .filter-btn:active {
+            transform: translateY(0);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        @media (max-width: 1200px) {
+            .blog-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+        }
+        
+        .blog-card-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-pink) 100%);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
+        }
+        
+        .blog-card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.1);
+            transition: background 0.3s ease;
+        }
+        
+        .blog-card:hover .blog-card-image::after {
+            background: rgba(0,0,0,0.05);
+        }
+        
+        .blog-card-content {
+            padding: 1.75rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-card-category {
+            display: inline-block;
+            background: rgba(233, 30, 140, 0.1);
+            color: var(--primary-pink);
+            padding: 0.4rem 1rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            align-self: flex-start;
+        }
+        
+        .blog-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .blog-card-excerpt {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .blog-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .blog-card-date {
+            font-size: 0.85rem;
+            color: #999;
+            font-weight: 500;
+        }
+        
+        .blog-card-link {
+            color: var(--primary-pink);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+        
+        .blog-card-link:hover {
+            gap: 0.75rem;
+        }
+        
+        .blog-card-link::after {
+            content: '→';
+            font-size: 1.2rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .blogs-hero {
+                min-height: 30vh;
+                padding: 3rem 0;
+            }
+            
+            .blogs-hero h1 {
+                font-size: 2rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .blogs-hero p {
+                font-size: 1rem;
+            }
+            
+            .blog-filters {
+                gap: 0.75rem;
+                margin-bottom: 2rem;
+            }
+            
+            .filter-btn {
+                padding: 0.5rem 1.25rem;
+                font-size: 0.85rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .blog-card-image {
+                height: 200px;
+            }
+            
+            .blog-card-content {
+                padding: 1.5rem;
+            }
+            
+            .blog-card-title {
+                font-size: 1.125rem;
+            }
+            
+            .blog-card-excerpt {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .blogs-hero {
+                padding: 2rem 0;
+            }
+            
+            .blogs-hero h1 {
+                font-size: 1.75rem;
+            }
+            
+            .blogs-hero p {
+                font-size: 0.95rem;
+            }
+            
+            .filter-btn {
+                padding: 0.45rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .blog-card-image {
+                height: 180px;
+            }
+            
+            .blog-card-content {
+                padding: 1.25rem;
+            }
+            
+            .blog-card-category {
+                font-size: 0.7rem;
+                padding: 0.35rem 0.85rem;
+            }
+            
+            .blog-card-title {
+                font-size: 1rem;
+            }
+            
+            .blog-card-excerpt {
+                font-size: 0.875rem;
+            }
+            
+            .blog-card-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+            
+            .blog-card-date {
+                font-size: 0.8rem;
+            }
+            
+            .blog-card-link {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="blogs-hero">
+        <div class="container" style="text-align: center;">
+            <h1 style="margin-left: auto; margin-right: auto;">Latest Insights</h1>
+            <p style="margin-left: auto; margin-right: auto;">Stay ahead with expert perspectives on enterprise networking, cybersecurity, unified communications, and digital transformation.</p>
+        </div>
+    </section>
+
+    <!-- Blog Content Section -->
+    <section class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <!-- Filter Buttons -->
+            <div class="blog-filters">
+                <button class="filter-btn active" data-filter="all">All Posts</button>
+                <button class="filter-btn" data-filter="networking">Networking</button>
+                <button class="filter-btn" data-filter="cybersecurity">Cybersecurity</button>
+                <button class="filter-btn" data-filter="unified-comms">Unified Communications</button>
+                <button class="filter-btn" data-filter="company">Company News</button>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid">
+                <!-- Blog Card 1: 5G Networks -->
+                <div class="blog-card" data-category="networking">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/5g-enterprise-networks-june-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Networking</span>
+                        <h3 class="blog-card-title">5G Enterprise Networks: How June 2025's Breakthroughs Changed Business Connectivity</h3>
+                        <p class="blog-card-excerpt">Verizon's 5G Standalone launch, AT&T's private network expansion, and WiFi 7 enterprise rollouts revolutionized business connectivity standards.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">June 3, 2025</span>
+                            <a href="blog/5g-enterprise-networks-june-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 2: AI Infrastructure -->
+                <div class="blog-card" data-category="networking">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/ai-infrastructure-revolution-july-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">AI & Infrastructure</span>
+                        <h3 class="blog-card-title">AI Infrastructure Revolution: Networking for Machine Learning Workloads</h3>
+                        <p class="blog-card-excerpt">The infrastructure demands of AI and machine learning are reshaping enterprise network architecture with unprecedented requirements for bandwidth and processing power.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">July 2, 2025</span>
+                            <a href="blog/ai-infrastructure-revolution-july-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 3: Rethinking SOC -->
+                <div class="blog-card" data-category="cybersecurity">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/rethinking-soc-ai-redefining-cybersecurity.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Cybersecurity</span>
+                        <h3 class="blog-card-title">Rethinking the SOC: How AI is Redefining Cybersecurity Operations</h3>
+                        <p class="blog-card-excerpt">Modern Security Operations Centers are transforming from reactive monitoring hubs to AI-powered prediction and prevention engines.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">January 15, 2025</span>
+                            <a href="blog/rethinking-soc-ai-redefining-cybersecurity.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 4: Gemini 2.5 -->
+                <div class="blog-card" data-category="cybersecurity">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/gemini-2-5-evolving-cybersecurity-landscape.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">AI & Security</span>
+                        <h3 class="blog-card-title">Gemini 2.5 & The Evolving Cybersecurity Landscape</h3>
+                        <p class="blog-card-excerpt">Google's Gemini 2.5 release demonstrates both AI's incredible potential and the emerging security challenges facing organizations.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">January 22, 2025</span>
+                            <a href="blog/gemini-2-5-evolving-cybersecurity-landscape.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 5: Behavioral Analytics -->
+                <div class="blog-card" data-category="cybersecurity">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/behavioral-analytics-ai-breakthrough-april-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Security Analytics</span>
+                        <h3 class="blog-card-title">Behavioral Analytics: The AI Breakthrough in Network Security</h3>
+                        <p class="blog-card-excerpt">User and Entity Behavioral Analytics (UEBA) represents a fundamental shift in how organizations detect and respond to security threats.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">April 15, 2025</span>
+                            <a href="blog/behavioral-analytics-ai-breakthrough-april-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 6: Managed Security Services -->
+                <div class="blog-card" data-category="cybersecurity">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/managed-security-services-evolution-may-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Managed Services</span>
+                        <h3 class="blog-card-title">The Evolution of Managed Security Services in 2025</h3>
+                        <p class="blog-card-excerpt">Modern managed security services have transformed from simple monitoring to comprehensive security ecosystems powered by AI and automation.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">May 8, 2025</span>
+                            <a href="blog/managed-security-services-evolution-may-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 7: Next-Gen Firewall -->
+                <div class="blog-card" data-category="cybersecurity">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/next-generation-firewall-ai-revolution-may-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Network Security</span>
+                        <h3 class="blog-card-title">Next-Generation Firewall: The AI Revolution in Network Security</h3>
+                        <p class="blog-card-excerpt">Next-generation firewalls powered by AI are redefining perimeter security with intelligent threat detection and automated response capabilities.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">May 20, 2025</span>
+                            <a href="blog/next-generation-firewall-ai-revolution-may-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 8: Advanced Cyber Consultation -->
+                <div class="blog-card" data-category="cybersecurity">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/advanced-cyber-consultation-strategic-june-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Strategic Security</span>
+                        <h3 class="blog-card-title">Advanced Cyber Consultation: Strategic Security for Modern Enterprises</h3>
+                        <p class="blog-card-excerpt">In an era of sophisticated cyber threats, organizations need more than technology—they need strategic cybersecurity guidance.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">June 10, 2025</span>
+                            <a href="blog/advanced-cyber-consultation-strategic-june-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 9: Quantum Computing -->
+                <div class="blog-card" data-category="cybersecurity">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/quantum-computing-threat-post-quantum-cryptography-july-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Future Tech</span>
+                        <h3 class="blog-card-title">Quantum Computing Threat & Post-Quantum Cryptography</h3>
+                        <p class="blog-card-excerpt">The quantum computing era is approaching faster than expected, bringing both unprecedented opportunities and existential cybersecurity challenges.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">July 8, 2025</span>
+                            <a href="blog/quantum-computing-threat-post-quantum-cryptography-july-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 10: Aruba ClearPass -->
+                <div class="blog-card" data-category="networking">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/aruba-clearpass-access-management-identity-network-security.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Network Access</span>
+                        <h3 class="blog-card-title">Aruba ClearPass: Comprehensive Access Management & Identity-Based Network Security</h3>
+                        <p class="blog-card-excerpt">ClearPass Policy Manager provides unified policy enforcement across wired, wireless, and VPN connections with context-aware access control.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">June 25, 2025</span>
+                            <a href="blog/aruba-clearpass-access-management-identity-network-security.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 11: Aruba Central -->
+                <div class="blog-card" data-category="networking">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/aruba-central-cloud-management-revolution-july-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Cloud Management</span>
+                        <h3 class="blog-card-title">Aruba Central: The Cloud Management Revolution</h3>
+                        <p class="blog-card-excerpt">Aruba Central represents a fundamental shift in network management, bringing cloud-native operations to enterprise infrastructure.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">July 12, 2025</span>
+                            <a href="blog/aruba-central-cloud-management-revolution-july-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 12: Aruba SD-WAN -->
+                <div class="blog-card" data-category="networking">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/aruba-sdwan-edge-computing-july-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">SD-WAN</span>
+                        <h3 class="blog-card-title">Aruba SD-WAN & Edge Computing: Transforming Branch Office Connectivity</h3>
+                        <p class="blog-card-excerpt">Aruba's EdgeConnect SD-WAN platform delivers application-driven routing, built-in security, and seamless cloud integration for distributed enterprises.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">July 18, 2025</span>
+                            <a href="blog/aruba-sdwan-edge-computing-july-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 13: Aruba WiFi 7 -->
+                <div class="blog-card" data-category="networking">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/aruba-wifi-7-enterprise-deployment-july-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">WiFi Technology</span>
+                        <h3 class="blog-card-title">Aruba WiFi 7: Enterprise Deployment & Performance Benchmarks</h3>
+                        <p class="blog-card-excerpt">WiFi 7 (802.11be) represents the most significant wireless advancement in a decade, delivering unprecedented speed and reliability.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">July 22, 2025</span>
+                            <a href="blog/aruba-wifi-7-enterprise-deployment-july-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 14: Aruba Zero Trust -->
+                <div class="blog-card" data-category="networking">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/aruba-zero-trust-network-security-july-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Zero Trust</span>
+                        <h3 class="blog-card-title">Aruba Zero Trust Network Security: Implementation & Best Practices</h3>
+                        <p class="blog-card-excerpt">Aruba's zero trust architecture combines identity-based access, micro-segmentation, and continuous verification for comprehensive network security.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">July 25, 2025</span>
+                            <a href="blog/aruba-zero-trust-network-security-july-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 15: Future of AI Native Networking -->
+                <div class="blog-card" data-category="networking">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/future-of-ai-native-networking-juniper.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">AI Networking</span>
+                        <h3 class="blog-card-title">The Future of AI-Native Networking: A Deep Dive into Juniper's Vision</h3>
+                        <p class="blog-card-excerpt">Juniper Networks is pioneering AI-native networking, fundamentally reimagining how networks operate, optimize, and secure themselves.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">January 28, 2025</span>
+                            <a href="blog/future-of-ai-native-networking-juniper.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 16: VoIP Evolution -->
+                <div class="blog-card" data-category="unified-comms">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/voip-evolution-microsoft-zoom-may-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Unified Communications</span>
+                        <h3 class="blog-card-title">The Evolution of VoIP: Microsoft Teams Phone & Zoom Phone Transforming Enterprise Communications</h3>
+                        <p class="blog-card-excerpt">Traditional telephony is being replaced by cloud-based unified communications platforms that integrate voice, video, and collaboration.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">May 28, 2025</span>
+                            <a href="blog/voip-evolution-microsoft-zoom-may-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 17: Poly Collaboration -->
+                <div class="blog-card" data-category="unified-comms">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/poly-transforming-enterprise-collaboration-hybrid-era.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Collaboration Tech</span>
+                        <h3 class="blog-card-title">Poly: Transforming Enterprise Collaboration in the Hybrid Work Era</h3>
+                        <p class="blog-card-excerpt">Poly (formerly Plantronics and Polycom) delivers professional-grade audio and video solutions that power productive hybrid work environments.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">February 14, 2025</span>
+                            <a href="blog/poly-transforming-enterprise-collaboration-hybrid-era.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 18: Jabra Flexible Work -->
+                <div class="blog-card" data-category="unified-comms">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/jabra-empowering-flexible-work.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Workplace Tech</span>
+                        <h3 class="blog-card-title">Jabra: Empowering Flexible Work with Intelligent Audio Solutions</h3>
+                        <p class="blog-card-excerpt">Jabra's intelligent audio technology combines active noise cancellation, AI-powered call clarity, and seamless UC platform integration.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">February 18, 2025</span>
+                            <a href="blog/jabra-empowering-flexible-work.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 19: Logitech Collaboration -->
+                <div class="blog-card" data-category="unified-comms">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/logitech-elevating-workplace-collaboration.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Video Conferencing</span>
+                        <h3 class="blog-card-title">Logitech: Elevating Workplace Collaboration Through Innovation</h3>
+                        <p class="blog-card-excerpt">Logitech's comprehensive video conferencing portfolio delivers exceptional meeting experiences with AI-powered cameras and audio systems.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">February 22, 2025</span>
+                            <a href="blog/logitech-elevating-workplace-collaboration.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 20: Zoom Business Communications -->
+                <div class="blog-card" data-category="unified-comms">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/zoom-powering-agile-business-communication.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Business Communications</span>
+                        <h3 class="blog-card-title">Zoom: Powering Agile Business Communication with Unified Collaboration</h3>
+                        <p class="blog-card-excerpt">Zoom has evolved from video conferencing into a comprehensive unified communications platform powering modern business operations.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">February 25, 2025</span>
+                            <a href="blog/zoom-powering-agile-business-communication.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 21: ACEiT Launch -->
+                <div class="blog-card" data-category="company">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/2-days-to-launch-ACEiT-is-coming.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Company News</span>
+                        <h3 class="blog-card-title">2 Days to Launch: ACEiT is Coming</h3>
+                        <p class="blog-card-excerpt">We're 48 hours away from unveiling ACEiT—a unified brand representing our commitment to excellence in enterprise IT solutions.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">December 30, 2024</span>
+                            <a href="blog/2-days-to-launch-ACEiT-is-coming.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 22: Why ACEiT Exists -->
+                <div class="blog-card" data-category="company">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/why-ACEiT-exists-not-just-brand-but-reason.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Brand Story</span>
+                        <h3 class="blog-card-title">Why ACEiT Exists: Not Just a Brand, But a Reason</h3>
+                        <p class="blog-card-excerpt">ACEiT represents more than rebranding—it embodies our commitment to delivering integrated IT excellence across networking, security, and collaboration.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">January 2, 2025</span>
+                            <a href="blog/why-ACEiT-exists-not-just-brand-but-reason.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 23: Aceteam Networks 2025 Vision -->
+                <div class="blog-card" data-category="company">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/aceteam-networks-2025-vision-growth-innovation.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Company Vision</span>
+                        <h3 class="blog-card-title">Aceteam Networks 2025 Vision: Growth Through Innovation & Partnership</h3>
+                        <p class="blog-card-excerpt">As we enter 2025, Aceteam Networks is positioned for transformative growth through strategic partnerships and innovative technology solutions.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">January 10, 2025</span>
+                            <a href="blog/aceteam-networks-2025-vision-growth-innovation.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 24: International Women's Day -->
+                <div class="blog-card" data-category="company">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/international-womens-day-led-by-women.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Company Culture</span>
+                        <h3 class="blog-card-title">International Women's Day: Celebrating Excellence – A Company Led by Women</h3>
+                        <p class="blog-card-excerpt">At ACEiT Group, women's leadership isn't an initiative—it's our foundation. Our female executives drive strategy, innovation, and growth.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">March 8, 2025</span>
+                            <a href="blog/international-womens-day-led-by-women.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 25: First Malaysian Aruba Certified -->
+                <div class="blog-card" data-category="company">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/first-malaysian-achieves-aruba-certified-professional.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Achievement</span>
+                        <h3 class="blog-card-title">First Malaysian to Achieve Aruba Certified Professional Status</h3>
+                        <p class="blog-card-excerpt">We're proud to announce that our network engineer became the first Malaysian to achieve Aruba Certified Professional (ACP) certification.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">January 20, 2025</span>
+                            <a href="blog/first-malaysian-achieves-aruba-certified-professional.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 27: Aruba Makes Connecting Easy -->
+                <div class="blog-card" data-category="networking">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/aruba-makes-connecting-easy-remote-work.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Remote Work</span>
+                        <h3 class="blog-card-title">Aruba Makes Connecting Easy: Remote Work Edition</h3>
+                        <p class="blog-card-excerpt">Aruba's connectivity solutions eliminate complexity in remote work deployments, delivering seamless network access from anywhere.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">March 15, 2025</span>
+                            <a href="blog/aruba-makes-connecting-easy-remote-work.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 28: Aruba Network Optimization -->
+                <div class="blog-card" data-category="networking">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/aruba-network-optimization-ai-powered-performance-analytics.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Network Analytics</span>
+                        <h3 class="blog-card-title">Aruba Network Optimization: AI-Powered Performance Analytics</h3>
+                        <p class="blog-card-excerpt">AI-driven network analytics from Aruba deliver proactive optimization, automated troubleshooting, and predictive performance management.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">April 5, 2025</span>
+                            <a href="blog/aruba-network-optimization-ai-powered-performance-analytics.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 29: Aruba Network Security Framework -->
+                <div class="blog-card" data-category="networking">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/aruba-network-security-framework-edge-cloud-protection.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Network Security</span>
+                        <h3 class="blog-card-title">Aruba Network Security Framework: Edge to Cloud Protection</h3>
+                        <p class="blog-card-excerpt">Comprehensive security framework protecting networks from edge to cloud with integrated threat intelligence and policy enforcement.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">May 12, 2025</span>
+                            <a href="blog/aruba-network-security-framework-edge-cloud-protection.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 30: Aruba Edge Services Platform -->
+                <div class="blog-card" data-category="networking">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/aruba-edge-services-platform-intelligent-branch-office-computing.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Edge Computing</span>
+                        <h3 class="blog-card-title">Aruba Edge Services Platform: Intelligent Branch Office Computing</h3>
+                        <p class="blog-card-excerpt">Transform branch offices into intelligent edge computing hubs with Aruba's integrated platform for distributed enterprise operations.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">June 18, 2025</span>
+                            <a href="blog/aruba-edge-services-platform-intelligent-branch-office-computing.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 31: Aruba Enterprise Networking Solutions -->
+                <div class="blog-card" data-category="networking">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/aruba-enterprise-networking-solutions-infrastructure-transformation.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Enterprise Networks</span>
+                        <h3 class="blog-card-title">Aruba Enterprise Networking Solutions: Infrastructure Transformation</h3>
+                        <p class="blog-card-excerpt">Complete infrastructure transformation with Aruba's enterprise networking portfolio—from access to core, wired to wireless.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">July 5, 2025</span>
+                            <a href="blog/aruba-enterprise-networking-solutions-infrastructure-transformation.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 32: Aruba Enterprise Wireless Solutions -->
+                <div class="blog-card" data-category="networking">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/aruba-enterprise-wireless-solutions-business-connectivity-performance.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Wireless Technology</span>
+                        <h3 class="blog-card-title">Aruba Enterprise Wireless Solutions: Business Connectivity & Performance</h3>
+                        <p class="blog-card-excerpt">Enterprise-grade wireless solutions delivering consistent connectivity, application performance, and user experience across all locations.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">August 2, 2025</span>
+                            <a href="blog/aruba-enterprise-wireless-solutions-business-connectivity-performance.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 33: Aruba Switching Solutions -->
+                <div class="blog-card" data-category="networking">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/aruba-switching-solutions-enterprise-network-foundation.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Network Infrastructure</span>
+                        <h3 class="blog-card-title">Aruba Switching Solutions: Enterprise Network Foundation</h3>
+                        <p class="blog-card-excerpt">Modern switching infrastructure powering enterprise networks with cloud-managed simplicity and data center-class performance.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">August 15, 2025</span>
+                            <a href="blog/aruba-switching-solutions-enterprise-network-foundation.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 34: Aruba Wireless Access Points -->
+                <div class="blog-card" data-category="networking">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/aruba-wireless-access-points-enterprise-wifi-performance.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Access Points</span>
+                        <h3 class="blog-card-title">Aruba Wireless Access Points: Enterprise WiFi Performance</h3>
+                        <p class="blog-card-excerpt">Next-generation access points delivering exceptional WiFi performance, coverage, and capacity for demanding enterprise environments.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">September 1, 2025</span>
+                            <a href="blog/aruba-wireless-access-points-enterprise-wifi-performance.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 35: Certified & Secured -->
+                <div class="blog-card" data-category="company">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/certified-secured-what-this-means-for-you.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Certifications</span>
+                        <h3 class="blog-card-title">Certified & Secured: What This Means for You</h3>
+                        <p class="blog-card-excerpt">Our commitment to excellence through industry certifications and security standards ensures the highest quality service delivery.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">April 20, 2025</span>
+                            <a href="blog/certified-secured-what-this-means-for-you.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 36: Cloud Computing Revolution -->
+                <div class="blog-card" data-category="cybersecurity">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/cloud-computing-revolution-june-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Cloud Security</span>
+                        <h3 class="blog-card-title">Cloud Computing Revolution: Security in the Multi-Cloud Era</h3>
+                        <p class="blog-card-excerpt">The shift to multi-cloud architectures demands new security approaches combining visibility, control, and automated protection.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">June 15, 2025</span>
+                            <a href="blog/cloud-computing-revolution-june-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 37: Cybersecurity Mega Breaches -->
+                <div class="blog-card" data-category="cybersecurity">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/cybersecurity-mega-breaches-july-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Threat Intelligence</span>
+                        <h3 class="blog-card-title">Cybersecurity Mega Breaches: Lessons from July 2025</h3>
+                        <p class="blog-card-excerpt">Analyzing major security breaches to extract critical lessons on threat detection, response strategies, and prevention measures.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">July 28, 2025</span>
+                            <a href="blog/cybersecurity-mega-breaches-july-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 38: Digital Transformation Acceleration -->
+                <div class="blog-card" data-category="company">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/digital-transformation-acceleration-may-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Digital Strategy</span>
+                        <h3 class="blog-card-title">Digital Transformation Acceleration: Enterprise IT Evolution</h3>
+                        <p class="blog-card-excerpt">Organizations accelerating digital transformation through cloud adoption, automation, and modernized infrastructure strategies.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">May 18, 2025</span>
+                            <a href="blog/digital-transformation-acceleration-may-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 39: Edge Computing & IoT -->
+                <div class="blog-card" data-category="networking">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/edge-computing-iot-revolution-april-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Edge & IoT</span>
+                        <h3 class="blog-card-title">Edge Computing & IoT Revolution: Distributed Intelligence</h3>
+                        <p class="blog-card-excerpt">Edge computing transforms IoT deployments by processing data closer to sources, reducing latency and enabling real-time decisions.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">April 28, 2025</span>
+                            <a href="blog/edge-computing-iot-revolution-april-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 40: Endpoint Security Crisis -->
+                <div class="blog-card" data-category="cybersecurity">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/endpoint-security-crisis-ransomware-june-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Endpoint Security</span>
+                        <h3 class="blog-card-title">Endpoint Security Crisis: Ransomware Defense Strategies</h3>
+                        <p class="blog-card-excerpt">Ransomware attacks targeting endpoints demand comprehensive security strategies combining prevention, detection, and rapid response.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">June 22, 2025</span>
+                            <a href="blog/endpoint-security-crisis-ransomware-june-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 41: Enterprise Digital Transformation -->
+                <div class="blog-card" data-category="company">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/enterprise-digital-transformation-trends-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Enterprise Strategy</span>
+                        <h3 class="blog-card-title">Enterprise Digital Transformation Trends 2025</h3>
+                        <p class="blog-card-excerpt">Key digital transformation trends shaping enterprise IT strategies including AI integration, cloud migration, and automation.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">March 25, 2025</span>
+                            <a href="blog/enterprise-digital-transformation-trends-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 42: Enterprise Office Revolution -->
+                <div class="blog-card" data-category="company">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/enterprise-office-real-estate-revolution-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Workplace Innovation</span>
+                        <h3 class="blog-card-title">Enterprise Office & Real Estate Revolution 2025</h3>
+                        <p class="blog-card-excerpt">The future of enterprise real estate shaped by hybrid work, smart buildings, and technology-enabled collaboration spaces.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">April 10, 2025</span>
+                            <a href="blog/enterprise-office-real-estate-revolution-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 43: Enterprise Security Subscriptions -->
+                <div class="blog-card" data-category="cybersecurity">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/enterprise-security-subscriptions-saas-may-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Security SaaS</span>
+                        <h3 class="blog-card-title">Enterprise Security Subscriptions: The SaaS Security Model</h3>
+                        <p class="blog-card-excerpt">Security-as-a-Service subscriptions provide flexible, scalable protection with continuous updates and professional management.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">May 25, 2025</span>
+                            <a href="blog/enterprise-security-subscriptions-saas-may-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 44: Enterprise Website Presentation -->
+                <div class="blog-card" data-category="company">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/enterprise-website-presentation-revolution-june-2025.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Digital Presence</span>
+                        <h3 class="blog-card-title">Enterprise Website & Presentation Revolution</h3>
+                        <p class="blog-card-excerpt">Modern enterprise digital presence requires sophisticated websites that showcase capabilities and deliver exceptional user experiences.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">June 28, 2025</span>
+                            <a href="blog/enterprise-website-presentation-revolution-june-2025.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 45: Evolution of Headphones -->
+                <div class="blog-card" data-category="unified-comms">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/evolution-of-headphones-ai-meets-sound.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Audio Technology</span>
+                        <h3 class="blog-card-title">The Evolution of Headphones: Where AI Meets Sound</h3>
+                        <p class="blog-card-excerpt">AI-powered audio technology transforms headphones into intelligent communication tools with adaptive noise cancellation and clarity enhancement.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">March 5, 2025</span>
+                            <a href="blog/evolution-of-headphones-ai-meets-sound.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 46: US-China Tech War -->
+                <div class="blog-card" data-category="company">
+                    <div class="blog-card-image" style="background-image: url('assets/blog-images/us-china-tech-war-digital-crossroads.jpg');"></div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Global Tech</span>
+                        <h3 class="blog-card-title">US-China Tech War: Digital Crossroads for Enterprises</h3>
+                        <p class="blog-card-excerpt">Geopolitical technology tensions create strategic challenges for global enterprises navigating supply chains and vendor relationships.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">February 28, 2025</span>
+                            <a href="blog/us-china-tech-war-digital-crossroads.html" class="blog-card-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/components.js"></script>
+    <script>
+        // Blog filtering functionality - Enhanced with smooth animations
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const blogCards = document.querySelectorAll('.blog-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const filter = button.getAttribute('data-filter');
+                
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Filter cards with fade animation
+                blogCards.forEach((card, index) => {
+                    const category = card.getAttribute('data-category');
+                    const shouldShow = filter === 'all' || category === filter;
+                    
+                    if (shouldShow) {
+                        card.style.display = 'flex';
+                        // Stagger animation for better UX
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, index * 30);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(10px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+                
+                // Smooth scroll to grid after filter
+                const blogGrid = document.querySelector('.blog-grid');
+                if (blogGrid && window.innerWidth < 768) {
+                    setTimeout(() => {
+                        blogGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
+            });
+        });
+        
+        // Initialize card animations
+        blogCards.forEach(card => {
+            card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        });
+        
+        // Performance: Use Intersection Observer for lazy loading effects
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '50px'
+            });
+            
+            // Observe cards on page load
+            blogCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                observer.observe(card);
+            });
+        }
+    </script>
+</body>
+</html>

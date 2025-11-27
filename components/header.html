@@ -1,0 +1,299 @@
+<!-- ACEiT Header Component -->
+<style>
+    .global-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(10, 10, 10, 0.15);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        padding: 0.5rem 0;
+        transition: all 0.3s ease;
+    }
+    .global-header.scrolled {
+        background: linear-gradient(135deg, #0a0f1e 0%, #1a2332 50%, #0f1a2e 100%);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+    .global-header-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+    .global-brand {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+    .global-brand img {
+        height: 32px;
+        width: auto;
+    }
+    
+    /* Desktop Navigation */
+    .global-nav-desktop {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        flex: 1;
+        justify-content: center;
+    }
+    .global-nav-desktop .nav-item {
+        position: relative;
+    }
+    .global-nav-desktop .nav-link {
+        color: white;
+        text-decoration: none !important;
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        border-bottom: none !important;
+    }
+    .global-nav-desktop .nav-link:hover {
+        color: #e91e8c;
+        text-decoration: none !important;
+        border-bottom: none !important;
+    }
+    .global-nav-desktop .nav-item:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .global-nav-desktop .dropdown-menu {
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        left: 50%;
+        transform: translateX(-50%) translateY(-10px);
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 0.5rem 0;
+        min-width: 200px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        z-index: 1001;
+    }
+    .global-nav-desktop .dropdown-menu a {
+        display: block;
+        padding: 0.7rem 1.25rem;
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none !important;
+        font-size: 0.875rem;
+        white-space: nowrap;
+        transition: all 0.2s ease;
+        border-bottom: none !important;
+    }
+    .global-nav-desktop .dropdown-menu a:hover {
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        padding-left: 1.5rem;
+        text-decoration: none !important;
+        border-bottom: none !important;
+    }
+    .global-nav-desktop .dropdown-menu .submenu-indent {
+        padding-left: 2rem;
+        font-size: 0.85rem;
+    }
+    .global-nav-desktop .dropdown-menu .divider {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 0.5rem 0;
+    }
+    
+    .inquiry-btn {
+        background: #e91e8c;
+        color: white;
+        border: none;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        letter-spacing: 0.5px;
+        flex-shrink: 0;
+    }
+    .inquiry-btn:hover {
+        background: #c71769;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(233, 30, 140, 0.3);
+    }
+    
+    /* Mobile Navigation */
+    .global-nav-mobile {
+        display: none;
+    }
+    .mobile-menu-btn {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: white;
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+    .mobile-menu-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    .mobile-dropdown-menu {
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        right: 0;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 0.5rem 0;
+        min-width: 220px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        z-index: 1001;
+    }
+    .global-nav-mobile.open .mobile-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .mobile-dropdown-menu a {
+        display: block;
+        padding: 0.75rem 1.25rem;
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: all 0.2s ease;
+    }
+    .mobile-dropdown-menu a:hover {
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+    }
+    .mobile-dropdown-menu .submenu-indent {
+        padding-left: 2rem;
+        font-size: 0.85rem;
+    }
+    .mobile-dropdown-menu .divider {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 0.5rem 0;
+    }
+    
+    @media (max-width: 992px) {
+        .global-nav-desktop {
+            display: none;
+        }
+        .global-nav-mobile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+        }
+        .inquiry-btn {
+            display: none;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .global-header {
+            padding: 0.4rem 0;
+        }
+        .global-header-container {
+            padding: 0 1rem;
+            min-height: 45px;
+        }
+        .global-brand img {
+            height: 28px;
+        }
+        .inquiry-btn {
+            padding: 0.35rem 0.85rem;
+            font-size: 0.75rem;
+        }
+    }
+</style>
+
+<header class="global-header">
+    <div class="global-header-container">
+        <a href="index.html" class="global-brand">
+            <img src="assets/ACEiT GAMBAR/cropped-LOGO-ACEiT-A.png" alt="ACEiT Logo">
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="global-nav-desktop">
+            <div class="nav-item">
+                <a href="#" class="nav-link">ACEiT Group</a>
+                <div class="dropdown-menu">
+                    <a href="aceteam-networks/aceteamnetworks.html" class="submenu-indent">Aceteam Networks</a>
+                    <a href="aceteam-connect/aceteamconnect.html" class="submenu-indent">Aceteam Connect</a>
+                    <a href="aceteam-digital/aceteamdigital.html" class="submenu-indent">Aceteam Digital</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="about.html" class="nav-link">About Us</a>
+            </div>
+            <div class="nav-item">
+                <a href="partners/ourpartner.html" class="nav-link">Our Partners</a>
+                <div class="dropdown-menu">
+                    <a href="partners/ourpartner.html">All Partners</a>
+                    <div class="divider"></div>
+                    <a href="partners/cybersecurity/cybersecurity.html" class="submenu-indent">Cybersecurity</a>
+                    <a href="partners/datacentre/datacentre.html" class="submenu-indent">Data Centre</a>
+                    <a href="partners/datanetworking/datanetworking.html" class="submenu-indent">Data Networking</a>
+                    <a href="partners/unifiedcommunication/unifiedcommunication.html" class="submenu-indent">Unified Communication</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="https://boards.briohr.com/aceteamnetworks-2atxdx8xbd" target="_blank" rel="noopener noreferrer" class="nav-link">Careers</a>
+            </div>
+            <div class="nav-item">
+                <a href="faq.html" class="nav-link">FAQs</a>
+            </div>
+            <div class="nav-item">
+                <a href="blogs.html" class="nav-link">Blogs</a>
+            </div>
+        </nav>
+        
+        <a href="contact.html" class="inquiry-btn">Inquiry</a>
+        
+        <!-- Mobile Navigation -->
+        <nav class="global-nav-mobile">
+            <button class="mobile-menu-btn" onclick="this.parentElement.classList.toggle('open')">☰</button>
+            <div class="mobile-dropdown-menu">
+                <a href="aceteam-networks/aceteamnetworks.html" class="submenu-indent">Aceteam Networks</a>
+                <a href="aceteam-connect/aceteamconnect.html" class="submenu-indent">Aceteam Connect</a>
+                <a href="aceteam-digital/aceteamdigital.html" class="submenu-indent">Aceteam Digital</a>
+                <div class="divider"></div>
+                <a href="about.html">About Us</a>
+                <a href="partners/ourpartner.html">Our Partners</a>
+                <a href="partners/cybersecurity/cybersecurity.html" class="submenu-indent">Cybersecurity</a>
+                <a href="partners/datacentre/datacentre.html" class="submenu-indent">Data Centre</a>
+                <a href="partners/datanetworking/datanetworking.html" class="submenu-indent">Data Networking</a>
+                <a href="partners/unifiedcommunication/unifiedcommunication.html" class="submenu-indent">Unified Communication</a>
+                <div class="divider"></div>
+                <a href="https://boards.briohr.com/aceteamnetworks-2atxdx8xbd" target="_blank" rel="noopener noreferrer">Careers</a>
+                <a href="faq.html">FAQs</a>
+                <a href="blogs.html">Blogs</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </nav>
+    </div>
+</header>

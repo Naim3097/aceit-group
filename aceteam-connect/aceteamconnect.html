@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <title>Aceteam Connect - Cybersecurity Solutions</title>
+    <link rel="stylesheet" href="globaldesign.css">
+    <style>
+        /* Custom Transparent Header */
+        .aceteam-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.15);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        .aceteam-header.scrolled {
+            background: linear-gradient(135deg, #0f1f3a 0%, #1a2a4a 50%, #243552 100%);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(66, 165, 245, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        .aceteam-header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .aceteam-brand {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .aceteam-brand img {
+            height: 32px;
+            width: auto;
+        }
+        
+        /* Desktop Navigation */
+        .aceteam-nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex: 1;
+            justify-content: center;
+        }
+        .aceteam-nav-desktop .nav-item {
+            position: relative;
+        }
+        .aceteam-nav-desktop .nav-link {
+            color: white;
+            text-decoration: none !important;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            border-bottom: none !important;
+        }
+        .aceteam-nav-desktop .nav-link:hover {
+            color: #42a5f5;
+            text-decoration: none !important;
+            border-bottom: none !important;
+        }
+        .aceteam-nav-desktop .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .aceteam-nav-desktop .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+        }
+        .aceteam-nav-desktop .dropdown-menu a {
+            display: block;
+            padding: 0.7rem 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none !important;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            border-bottom: none !important;
+        }
+        .aceteam-nav-desktop .dropdown-menu a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            padding-left: 1.5rem;
+            text-decoration: none !important;
+            border-bottom: none !important;
+        }
+        .aceteam-nav-desktop .dropdown-menu .submenu-indent {
+            padding-left: 2rem;
+            font-size: 0.85rem;
+        }
+        .aceteam-nav-desktop .dropdown-menu .divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 0.5rem 0;
+        }
+        
+        .inquiry-btn {
+            background: #e91e8c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+        .inquiry-btn:hover {
+            background: #c71769;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(233, 30, 140, 0.3);
+        }
+        
+        /* Mobile Navigation */
+        .aceteam-nav-mobile {
+            display: none;
+        }
+        .mobile-menu-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 0.4rem 0.75rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .mobile-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+        }
+        .aceteam-nav-mobile.open .mobile-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .mobile-dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+        .mobile-dropdown-menu a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+        }
+        .mobile-dropdown-menu .submenu-indent {
+            padding-left: 2rem;
+            font-size: 0.85rem;
+        }
+        .mobile-dropdown-menu .divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 0.5rem 0;
+        }
+        
+        @media (max-width: 992px) {
+            .aceteam-nav-desktop {
+                display: none;
+            }
+            .aceteam-nav-mobile {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                position: relative;
+            }
+            .inquiry-btn {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .aceteam-header-container {
+                padding: 0 1rem;
+            }
+            .aceteam-brand img {
+                height: 28px;
+            }
+            .inquiry-btn {
+                padding: 0.35rem 0.85rem;
+                font-size: 0.75rem;
+            }
+        }
+        
+        .hero-animated {
+            background: linear-gradient(135deg, #0a0a1a 0%, #0f1f3a 50%, #1a2a4a 100%);
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 0;
+            padding-top: 5rem;
+        }
+        .neural-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.6;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: rgba(66,165,245,0.95);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid rgba(66,165,245,0.3);
+            border-radius: 50px;
+            background: rgba(66,165,245,0.05);
+            backdrop-filter: blur(10px);
+        }
+        .hero-title {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .hero-title .highlight {
+            color: #42a5f5;
+            position: relative;
+            display: inline-block;
+        }
+        .hero-title .light {
+            color: #ffffff;
+            font-weight: 700;
+        }
+        .hero-description {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 850px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        @media (max-width: 768px) {
+            .aceteam-header .subsidiary-text {
+                font-size: 0.65rem;
+                letter-spacing: 1.5px;
+            }
+            .hero-animated {
+                min-height: 60vh;
+                padding: 2.5rem 0;
+                padding-top: 5rem;
+            }
+            .hero-badge {
+                font-size: 0.75rem;
+                letter-spacing: 2px;
+                padding: 0.4rem 1rem;
+            }
+            .hero-description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom AceTeam Header -->
+    <header class="aceteam-header">
+        <div class="aceteam-header-container">
+            <a href="../index.html" class="aceteam-brand">
+                <img src="../assets/ACEiT GAMBAR/cropped-LOGO-ACEiT-A.png" alt="ACEiT Logo">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="aceteam-nav-desktop">
+                <div class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link">ACEiT Group</a>
+                    <div class="dropdown-menu">
+                        <a href="../aceteam-networks/aceteamnetworks.html" class="submenu-indent">Aceteam Networks</a>
+                        <a href="../aceteam-connect/aceteamconnect.html" class="submenu-indent">Aceteam Connect</a>
+                        <a href="../aceteam-digital/aceteamdigital.html" class="submenu-indent">Aceteam Digital</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="../about.html" class="nav-link">About Us</a>
+                </div>
+                <div class="nav-item">
+                    <a href="../partners/ourpartner.html" class="nav-link">Our Partners</a>
+                    <div class="dropdown-menu">
+                        <a href="../partners/ourpartner.html">All Partners</a>
+                        <div class="divider"></div>
+                        <a href="../partners/cybersecurity/" class="submenu-indent">Cybersecurity</a>
+                        <a href="../partners/datacentre/" class="submenu-indent">Data Centre</a>
+                        <a href="../partners/datanetworking/" class="submenu-indent">Data Networking</a>
+                        <a href="../partners/unifiedcommunication/" class="submenu-indent">Unified Communication</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="https://boards.briohr.com/aceteamnetworks-2atxdx8xbd" target="_blank" rel="noopener noreferrer" class="nav-link">Careers</a>
+                </div>
+                <div class="nav-item">
+                    <a href="../faq.html" class="nav-link">FAQs</a>
+                </div>
+                <div class="nav-item">
+                    <a href="../blogs.html" class="nav-link">Blogs</a>
+                </div>
+            </nav>
+            
+            <a href="../contact.html" class="inquiry-btn">Inquiry</a>
+            
+            <!-- Mobile Navigation -->
+            <nav class="aceteam-nav-mobile">
+                <button class="mobile-menu-btn" onclick="this.parentElement.classList.toggle('open')">☰</button>
+                <div class="mobile-dropdown-menu">
+                    <a href="../aceteam-networks/aceteamnetworks.html" class="submenu-indent">Aceteam Networks</a>
+                    <a href="../aceteam-connect/aceteamconnect.html" class="submenu-indent">Aceteam Connect</a>
+                    <a href="../aceteam-digital/aceteamdigital.html" class="submenu-indent">Aceteam Digital</a>
+                    <div class="divider"></div>
+                    <a href="../about.html">About Us</a>
+                    <a href="../partners/ourpartner.html">Our Partners</a>
+                    <a href="../partners/cybersecurity/" class="submenu-indent">Cybersecurity</a>
+                    <a href="../partners/datacentre/" class="submenu-indent">Data Centre</a>
+                    <a href="../partners/datanetworking/" class="submenu-indent">Data Networking</a>
+                    <a href="../partners/unifiedcommunication/" class="submenu-indent">Unified Communication</a>
+                    <div class="divider"></div>
+                    <a href="https://boards.briohr.com/aceteamnetworks-2atxdx8xbd" target="_blank" rel="noopener noreferrer">Careers</a>
+                    <a href="../faq.html">FAQs</a>
+                    <a href="../blogs.html">Blogs</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <script>
+        // Add scroll effect for header background
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.aceteam-header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero hero-animated">
+            <canvas class="neural-canvas" id="neuralCanvas"></canvas>
+            <div class="container hero-content" style="text-align: center;">
+                <div class="hero-badge">PROTECT · DETECT · RESPOND</div>
+                <h1 class="hero-title">
+                    <span class="highlight">Aceteam</span> <span class="light">Connect</span>
+                </h1>
+                <p class="hero-description">Comprehensive cybersecurity solutions that protect your digital assets, detect threats in real-time, and respond with precision to keep your business secure.</p>
+            </div>
+        </section>
+
+        <script>
+            (function() {
+                const canvas = document.getElementById('neuralCanvas');
+                if (!canvas) return;
+                
+                const ctx = canvas.getContext('2d');
+                let w = canvas.width = canvas.offsetWidth;
+                let h = canvas.height = canvas.offsetHeight;
+                
+                window.addEventListener('resize', () => {
+                    w = canvas.width = canvas.offsetWidth;
+                    h = canvas.height = canvas.offsetHeight;
+                    signalX = 0;
+                    signalY = h / 2;
+                    initNodes();
+                });
+
+                const nodes = [];
+                const isMobile = window.innerWidth < 768;
+                const nodeCount = isMobile ? 18 : 55;
+                const color = 'rgba(66, 165, 245, ';
+                let signalX = 0;
+                let signalY = h / 2;
+                let signalVX = isMobile ? 1 : 2.2;
+                let signalVY = isMobile ? 0.5 : 1.1;
+                const activationRadius = isMobile ? 130 : 270;
+                
+                class Node {
+                    constructor(x, y) {
+                        // Add slight randomization to grid position for organic feel
+                        this.x = x + (Math.random() - 0.5) * 40;
+                        this.y = y + (Math.random() - 0.5) * 40;
+                        this.radius = 3;
+                        this.activation = 0;
+                        this.connectedNodes = [];
+                        this.directConnections = [];
+                        this.lastActivation = 0;
+                    }
+                    
+                    checkSignalProximity(sx, sy) {
+                        const dx = this.x - sx;
+                        const dy = this.y - sy;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (dist < activationRadius) {
+                            const currentTime = Date.now();
+                            // Only activate if enough time has passed (prevent rapid re-activation)
+                            if (currentTime - this.lastActivation > 500) {
+                                this.activation = 1.5;
+                                this.lastActivation = currentTime;
+                                
+                                const starCount = isMobile ? 3 : 5;
+                                this.directConnections = nodes
+                                    .filter(n => n !== this && n.activation > 0)
+                                    .sort((a, b) => {
+                                        const distA = Math.sqrt((sx - a.x)**2 + (sy - a.y)**2);
+                                        const distB = Math.sqrt((sx - b.x)**2 + (sy - b.y)**2);
+                                        return distA - distB;
+                                    })
+                                    .slice(0, starCount);
+                            }
+                            
+                            const meshDist = isMobile ? 100 : 150;
+                            const activationThreshold = isMobile ? 0.5 : 0.5;
+                            this.connectedNodes = nodes.filter(n => {
+                                if (n === this) return false;
+                                const ndx = this.x - n.x;
+                                const ndy = this.y - n.y;
+                                const ndist = Math.sqrt(ndx * ndx + ndy * ndy);
+                                return ndist < meshDist && n.activation > activationThreshold;
+                            });
+                        } else {
+                            // Clear connections when signal is far away
+                            if (this.activation < 0.1) {
+                                this.connectedNodes = [];
+                                this.directConnections = [];
+                            }
+                        }
+                    }
+                    
+                    update() {
+                        if (this.activation > 1) {
+                            this.activation -= 0.08;
+                        } else {
+                            this.activation *= 0.96;
+                        }
+                        
+                        if (this.activation < 0.01) {
+                            this.activation = 0;
+                            this.connectedNodes = [];
+                            this.directConnections = [];
+                        }
+                    }
+                    
+                    draw() {
+                        if (this.activation > 0) {
+                            const flashAmount = Math.max(0, this.activation - 1);
+                            const colorAmount = Math.min(1, this.activation);
+                            
+                            if (flashAmount > 0) {
+                                const whiteGlow = 35 * flashAmount;
+                                const whiteGrad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, whiteGlow);
+                                whiteGrad.addColorStop(0, 'rgba(255, 255, 255, ' + (flashAmount * 0.9) + ')');
+                                whiteGrad.addColorStop(0.4, 'rgba(255, 255, 255, ' + (flashAmount * 0.5) + ')');
+                                whiteGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                                ctx.fillStyle = whiteGrad;
+                                ctx.fillRect(this.x - whiteGlow, this.y - whiteGlow, whiteGlow * 2, whiteGlow * 2);
+                            }
+                            
+                            const glowSize = 25 * colorAmount;
+                            const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, glowSize);
+                            gradient.addColorStop(0, color + (colorAmount * 0.9) + ')');
+                            gradient.addColorStop(0.5, color + (colorAmount * 0.4) + ')');
+                            gradient.addColorStop(1, color + '0)');
+                            ctx.fillStyle = gradient;
+                            ctx.fillRect(this.x - glowSize, this.y - glowSize, glowSize * 2, glowSize * 2);
+                        }
+                        
+                        const baseOpacity = 0.3;
+                        const flashAmount = Math.max(0, this.activation - 1);
+                        const colorAmount = Math.min(1, this.activation);
+                        
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.radius + (flashAmount * 2), 0, Math.PI * 2);
+                        
+                        if (flashAmount > 0.3) {
+                            ctx.fillStyle = 'rgba(255, 255, 255, ' + Math.min(1, flashAmount) + ')';
+                        } else {
+                            ctx.fillStyle = color + (baseOpacity + colorAmount * 0.7) + ')';
+                        }
+                        ctx.fill();
+                        
+                        if (this.activation > 1 && this.directConnections.length > 0) {
+                            const flashAmt = Math.max(0, this.activation - 1);
+                            this.directConnections.forEach((node, index) => {
+                                ctx.beginPath();
+                                ctx.moveTo(this.x, this.y);
+                                ctx.lineTo(node.x, node.y);
+                                ctx.strokeStyle = 'rgba(255, 255, 255, ' + (flashAmt * 0.9) + ')';
+                                ctx.lineWidth = 3.5 * flashAmt;
+                                ctx.stroke();
+                                
+                                ctx.beginPath();
+                                ctx.arc(node.x, node.y, 4 * flashAmt, 0, Math.PI * 2);
+                                ctx.fillStyle = 'rgba(255, 255, 255, ' + (flashAmt * 0.8) + ')';
+                                ctx.fill();
+                            });
+                        }
+                        
+                        this.connectedNodes.forEach(node => {
+                            const avgActivation = (this.activation + node.activation) / 2;
+                            const avgFlash = Math.max(0, avgActivation - 1);
+                            
+                            ctx.beginPath();
+                            ctx.moveTo(this.x, this.y);
+                            ctx.lineTo(node.x, node.y);
+                            
+                            if (avgFlash > 0.2) {
+                                ctx.strokeStyle = 'rgba(255, 255, 255, ' + Math.min(avgFlash * 0.7, 0.8) + ')';
+                                ctx.lineWidth = 2.5 * avgFlash;
+                            } else {
+                                const lineOpacity = Math.min(1, avgActivation);
+                                ctx.strokeStyle = color + (lineOpacity * 0.6) + ')';
+                                ctx.lineWidth = 2 * lineOpacity;
+                            }
+                            ctx.stroke();
+                            
+                            if (avgFlash > 0.3) {
+                                const midX = (this.x + node.x) / 2;
+                                const midY = (this.y + node.y) / 2;
+                                const pulseSize = 10 * avgFlash;
+                                
+                                const pulseGrad = ctx.createRadialGradient(midX, midY, 0, midX, midY, pulseSize);
+                                pulseGrad.addColorStop(0, 'rgba(255, 255, 255, ' + (avgFlash * 0.9) + ')');
+                                pulseGrad.addColorStop(0.6, color + (avgFlash * 0.5) + ')');
+                                pulseGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                                ctx.fillStyle = pulseGrad;
+                                ctx.fillRect(midX - pulseSize, midY - pulseSize, pulseSize * 2, pulseSize * 2);
+                            }
+                        });
+                    }
+                }
+                
+                function initNodes() {
+                    nodes.length = 0;
+                    // Create hexagonal grid pattern
+                    const spacing = isMobile ? 120 : 150;
+                    const cols = Math.ceil(w / spacing) + 1;
+                    const rows = Math.ceil(h / spacing) + 1;
+                    
+                    for (let row = 0; row < rows; row++) {
+                        for (let col = 0; col < cols; col++) {
+                            // Hexagonal offset for alternating rows
+                            const xOffset = (row % 2) * (spacing / 2);
+                            const x = col * spacing + xOffset;
+                            const y = row * spacing;
+                            
+                            if (x >= -50 && x <= w + 50 && y >= -50 && y <= h + 50) {
+                                nodes.push(new Node(x, y));
+                            }
+                        }
+                    }
+                }
+                
+                function drawSignal() {
+                    const angle = Math.atan2(signalVY, signalVX);
+                    
+                    const pulseSize = 25;
+                    const gradient = ctx.createRadialGradient(signalX, signalY, 0, signalX, signalY, pulseSize);
+                    gradient.addColorStop(0, color + '0.8)');
+                    gradient.addColorStop(0.5, color + '0.3)');
+                    gradient.addColorStop(1, color + '0)');
+                    ctx.fillStyle = gradient;
+                    ctx.fillRect(signalX - pulseSize, signalY - pulseSize, pulseSize * 2, pulseSize * 2);
+                    
+                    ctx.save();
+                    ctx.translate(signalX, signalY);
+                    ctx.rotate(angle);
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(12, 0);
+                    ctx.lineTo(-8, -6);
+                    ctx.lineTo(-4, 0);
+                    ctx.lineTo(-8, 6);
+                    ctx.closePath();
+                    
+                    const shipGrad = ctx.createLinearGradient(-8, 0, 12, 0);
+                    shipGrad.addColorStop(0, color + '0.6)');
+                    shipGrad.addColorStop(0.5, 'rgba(255, 255, 255, 0.9)');
+                    shipGrad.addColorStop(1, 'rgba(255, 255, 255, 1)');
+                    ctx.fillStyle = shipGrad;
+                    ctx.fill();
+                    
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+                    ctx.lineWidth = 1.5;
+                    ctx.stroke();
+                    
+                    ctx.beginPath();
+                    ctx.arc(4, 0, 2, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(100, 200, 255, 0.9)';
+                    ctx.fill();
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(-4, -2);
+                    ctx.lineTo(-12, -3);
+                    ctx.moveTo(-4, 2);
+                    ctx.lineTo(-12, 3);
+                    ctx.strokeStyle = color + '0.6)';
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                    
+                    ctx.restore();
+                    
+                    ctx.beginPath();
+                    ctx.arc(signalX, signalY, activationRadius, 0, Math.PI * 2);
+                    ctx.strokeStyle = color + '0.06)';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+                
+                // Text displacement effect
+                const textElements = [
+                    document.getElementById('heroBadge'),
+                    document.getElementById('heroTitle'),
+                    document.getElementById('heroDescription')
+                ];
+
+                function displaceText() {
+                    const displacementRadius = isMobile ? 100 : 150;
+                    const maxDisplacement = isMobile ? 8 : 12;
+                    
+                    textElements.forEach(element => {
+                        if (!element) return;
+                        
+                        const rect = element.getBoundingClientRect();
+                        const elementCenterX = rect.left + rect.width / 2;
+                        const elementCenterY = rect.top + rect.height / 2;
+                        
+                        const canvasRect = canvas.getBoundingClientRect();
+                        const shipScreenX = canvasRect.left + signalX;
+                        const shipScreenY = canvasRect.top + signalY;
+                        
+                        const dx = elementCenterX - shipScreenX;
+                        const dy = elementCenterY - shipScreenY;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < displacementRadius) {
+                            const strength = 1 - (distance / displacementRadius);
+                            const displaceX = (dx / distance) * maxDisplacement * strength;
+                            const displaceY = (dy / distance) * maxDisplacement * strength;
+                            
+                            element.style.transform = `translate(${displaceX}px, ${displaceY}px)`;
+                        } else {
+                            element.style.transform = 'translate(0, 0)';
+                        }
+                    });
+                }
+
+                function updateSignal() {
+                    signalX += signalVX;
+                    signalY += signalVY;
+                    
+                    if (signalX <= 0 || signalX >= w) {
+                        signalVX *= -1;
+                        signalX = Math.max(0, Math.min(w, signalX));
+                    }
+                    if (signalY <= 0 || signalY >= h) {
+                        signalVY *= -1;
+                        signalY = Math.max(0, Math.min(h, signalY));
+                    }
+                }
+                
+                function animate() {
+                    ctx.clearRect(0, 0, w, h);
+                    
+                    updateSignal();
+                    drawSignal();
+                    
+                    nodes.forEach(node => {
+                        node.checkSignalProximity(signalX, signalY);
+                        node.update();
+                        node.draw();
+                    });
+                    
+                    requestAnimationFrame(animate);
+                }
+                
+                initNodes();
+                animate();
+            })();
+        </script>
+
+        <!-- Our Services Section -->
+        <section class="section" style="background: white; padding: 5rem 0;">
+            <div class="container">
+                <h2 class="section-title" style="color: var(--primary-dark); text-align: center; margin-bottom: 4rem;">Our Security Solutions</h2>
+                <div class="grid grid-3" style="gap: 2rem;">
+                    <!-- Managed Cybersecurity Card -->
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">Managed Cybersecurity</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Comprehensive security management with 24/7 monitoring and expert support.</p>
+                        <a href="aceteam-connect/service-cybersecurity-managed.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+
+                    <!-- Threat Intelligence Card -->
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="2">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">Cyber Threat Intelligence</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Real-time threat intelligence to stay ahead of emerging cyber risks.</p>
+                        <a href="aceteam-connect/service-cyber-threat-intelligence.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+
+                    <!-- Advanced Consultation Card -->
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="2">
+                                <path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">Advanced Cyber Consultation</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Strategic security consulting and risk assessment from certified experts.</p>
+                        <a href="aceteam-connect/service-advanced-cyber-consultation.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+
+                    <!-- Next-Gen Firewall Card -->
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">Next-Gen Firewall Solutions</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Advanced firewall protection with deep packet inspection and IPS.</p>
+                        <a href="aceteam-connect/service-next-gen-firewall.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+
+                    <!-- Cloud Security Card -->
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="2">
+                                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">Cloud Access Security</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Secure cloud applications and data with CASB solutions.</p>
+                        <a href="aceteam-connect/service-cloud-access-security.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+
+                    <!-- Network Security Card -->
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">Network Security Management</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Comprehensive network security monitoring and management.</p>
+                        <a href="aceteam-connect/service-network-security-management.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+
+                    <!-- Security Subscription Card -->
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">Security Subscription Services</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Scalable subscription-based security solutions for every budget.</p>
+                        <a href="aceteam-connect/service-security-subscription.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+
+                    <!-- Endpoint Security Card -->
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="2">
+                                <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">Endpoint Security Solutions</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Protect devices with advanced EDR and anti-malware technology.</p>
+                        <a href="aceteam-connect/service-endpoint-security.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+
+                    <!-- Threat Intelligence Platform Card -->
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='0 2px 4px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)';">
+                        <div style="width: 50px; height: 50px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem;">Threat Intelligence Platform</h3>
+                        <p style="color: #6b7280; line-height: 1.6; margin-bottom: 1.5rem;">Unified threat intelligence for proactive defense strategies.</p>
+                        <a href="aceteam-connect/service-threat-intelligence.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333';" onmouseout="this.style.background='#1a1a1a';">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Section -->
+        <section class="section" style="background: white; padding: 5rem 0;">
+            <div class="container">
+                <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+                    <h2 class="section-title" style="font-size: 2.5rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 1rem;">Why Choose Aceteam Connect</h2>
+                    <p class="section-subtitle" style="font-size: 1.125rem; color: #6b7280; max-width: 800px; margin: 0 auto;">Comprehensive cybersecurity solutions backed by expert knowledge and cutting-edge technology.</p>
+                </div>
+                
+                <div class="service-group" style="background: #f8f9fa; border: 1px solid #e5e5e5; border-radius: 12px; padding: 2.5rem; margin-bottom: 2rem;">
+                    <div class="service-category-header" style="display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 2rem;">
+                        <div class="service-icon-large" style="width: 60px; height: 60px; background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <div class="service-category-title" style="flex: 1;">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.5rem;">Multi-Layered Defense</h3>
+                            <p class="service-category-description" style="color: #6b7280; font-size: 1rem; line-height: 1.6;">Comprehensive security architecture with multiple defense layers to protect against evolving threats.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Defense in Depth</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Multiple security layers including firewalls, IPS/IDS, endpoint protection, and threat intelligence.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Threat Detection</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">AI-powered threat detection identifies anomalies and potential security breaches in real-time.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Rapid Response</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Automated incident response and expert security operations center for immediate threat mitigation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-group" style="background: #f8f9fa; border: 1px solid #e5e5e5; border-radius: 12px; padding: 2.5rem; margin-bottom: 2rem;">
+                    <div class="service-category-header" style="display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 2rem;">
+                        <div class="service-icon-large" style="width: 60px; height: 60px; background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                            </svg>
+                        </div>
+                        <div class="service-category-title" style="flex: 1;">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.5rem;">Compliance Ready</h3>
+                            <p class="service-category-description" style="color: #6b7280; font-size: 1rem; line-height: 1.6;">Security solutions designed to meet regulatory requirements and industry standards.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Regulatory Alignment</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Solutions aligned with PDPA, GDPR, ISO 27001, and other compliance frameworks.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Audit Support</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Comprehensive logging and reporting to support compliance audits and assessments.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Policy Enforcement</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Automated policy enforcement ensures consistent security posture across your organization.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-group" style="background: #f8f9fa; border: 1px solid #e5e5e5; border-radius: 12px; padding: 2.5rem;">
+                    <div class="service-category-header" style="display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 2rem;">
+                        <div class="service-icon-large" style="width: 60px; height: 60px; background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#42a5f5" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <div class="service-category-title" style="flex: 1;">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.5rem;">Expert Team</h3>
+                            <p class="service-category-description" style="color: #6b7280; font-size: 1rem; line-height: 1.6;">Certified security professionals with deep expertise across all major security domains.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Certified Professionals</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Team holds CISSP, CEH, CISM, and other industry-recognized security certifications.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">24/7 SOC</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Round-the-clock security operations center monitoring and incident response capabilities.</p>
+                        </div>
+                        <div class="feature-item" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e5e5;">
+                            <h4 class="feature-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">Strategic Guidance</h4>
+                            <p class="feature-description" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Security consultants help develop and implement comprehensive security strategies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Framework Section -->
+        <section class="section" style="background: #f8f9fa; padding: 5rem 0;">
+            <div class="container">
+                <h2 style="font-size: 2rem; font-weight: 700; color: var(--primary-dark); text-align: center; margin-bottom: 1rem;">Our Security Framework</h2>
+                <p style="text-align: center; color: #4a5568; margin-bottom: 4rem; max-width: 700px; margin-left: auto; margin-right: auto;">A holistic approach to cybersecurity covering all critical aspects of digital protection.</p>
+                
+                <div class="grid grid-4" style="gap: 2rem;">
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2rem; text-align: center; border-top: 3px solid #42a5f5;">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">Prevention</h4>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Proactive security measures to block threats before they materialize</p>
+                    </div>
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2rem; text-align: center; border-top: 3px solid #42a5f5;">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">Detection</h4>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Advanced monitoring to identify suspicious activities in real-time</p>
+                    </div>
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2rem; text-align: center; border-top: 3px solid #42a5f5;">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">Response</h4>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Rapid incident response with automated containment procedures</p>
+                    </div>
+                    <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2rem; text-align: center; border-top: 3px solid #42a5f5;">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">Recovery</h4>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Business continuity planning and disaster recovery protocols</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section" style="background: linear-gradient(135deg, #1e4976 0%, #0c2340 100%); padding: 4rem 0;">
+            <div class="container">
+                <div style="position: relative; background: rgba(66,165,245,0.05); border: 1px solid rgba(66,165,245,0.2); border-radius: 12px; overflow: hidden; min-height: 300px; padding: 3rem; display: flex; align-items: center;">
+                    <div style="position: relative; z-index: 2; max-width: 700px; margin: 0 auto; text-align: center;">
+                        <h2 style="font-size: 2.5rem; font-weight: 800; color: white; margin-bottom: 1.5rem; line-height: 1.1;">Secure Your Digital Future Today</h2>
+                        <p style="font-size: 1.05rem; color: rgba(255,255,255,0.85); margin-bottom: 2rem; line-height: 1.7;">Partner with cybersecurity experts who understand the evolving threat landscape and your business needs.</p>
+                        <a href="../contact.html" style="display: inline-block; background: #42a5f5; border: 2px solid #42a5f5; color: white; padding: 0.8rem 2.5rem; text-decoration: none; font-weight: 700; border-radius: 4px; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif;">CONTACT US</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest News/Blog Section -->
+        <section class="section" style="background: white; padding: 5rem 0;">
+            <div class="container">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2rem; font-weight: 700; color: var(--primary-dark);">Latest Security Updates</h2>
+                    <a href="../blog.html" style="background: white; border: 2px solid var(--primary-dark); color: var(--primary-dark); padding: 0.6rem 1.5rem; text-decoration: none; font-weight: 600; border-radius: 4px; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">ALL NEWS</a>
+                </div>
+
+                <div class="grid grid-4" style="gap: 2rem;">
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';" onmouseout="this.style.boxShadow='none';">
+                        <span style="display: inline-block; padding: 0.3rem 0.8rem; background: #1a1a1a; color: white; font-size: 0.75rem; font-weight: 600; border-radius: 4px; margin-bottom: 1rem;">SECURITY</span>
+                        <h3 style="font-size: 1.05rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.4;">Fortinet: Comprehensive Security with ACEiT Asia</h3>
+                        <a href="blog-post-1.html" style="color: #1a1a1a; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.color='#555';" onmouseout="this.style.color='#1a1a1a';">→ LEARN MORE</a>
+                    </div>
+
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';" onmouseout="this.style.boxShadow='none';">
+                        <span style="display: inline-block; padding: 0.3rem 0.8rem; background: #1a1a1a; color: white; font-size: 0.75rem; font-weight: 600; border-radius: 4px; margin-bottom: 1rem;">PROTECTION</span>
+                        <h3 style="font-size: 1.05rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.4;">Zero Trust Security: The Future of Cybersecurity</h3>
+                        <a href="blog-post-2.html" style="color: #1a1a1a; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.color='#555';" onmouseout="this.style.color='#1a1a1a';">→ LEARN MORE</a>
+                    </div>
+
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';" onmouseout="this.style.boxShadow='none';">
+                        <span style="display: inline-block; padding: 0.3rem 0.8rem; background: #1a1a1a; color: white; font-size: 0.75rem; font-weight: 600; border-radius: 4px; margin-bottom: 1rem;">COMPLIANCE</span>
+                        <h3 style="font-size: 1.05rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.4;">Meeting Regulatory Requirements with Advanced Security</h3>
+                        <a href="blog-post-3.html" style="color: #1a1a1a; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.color='#555';" onmouseout="this.style.color='#1a1a1a';">→ LEARN MORE</a>
+                    </div>
+
+                                        <div style="background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';" onmouseout="this.style.boxShadow='none';">
+                        <span style="display: inline-block; padding: 0.3rem 0.8rem; background: #1a1a1a; color: white; font-size: 0.75rem; font-weight: 600; border-radius: 4px; margin-bottom: 1rem;">INNOVATION</span>
+                        <h3 style="font-size: 1.05rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.4;">AI-Powered Threat Detection: Next-Gen Security</h3>
+                        <a href="blog-post-4.html" style="color: #1a1a1a; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.color='#555';" onmouseout="this.style.color='#1a1a1a';">→ LEARN MORE</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/components.js"></script>
+</body>
+</html>
