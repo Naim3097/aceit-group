@@ -189,13 +189,42 @@
         color: white;
     }
     .mobile-dropdown-menu .submenu-indent {
-        padding-left: 2rem;
+        padding-left: 2.5rem;
         font-size: 0.85rem;
     }
     .mobile-dropdown-menu .divider {
         height: 1px;
         background: rgba(255, 255, 255, 0.1);
         margin: 0.5rem 0;
+    }
+    .mobile-dropdown-menu .mobile-parent {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem 1.25rem;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.875rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .mobile-dropdown-menu .mobile-parent:hover {
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+    }
+    .mobile-dropdown-menu .mobile-parent .arrow {
+        transition: transform 0.3s ease;
+        font-size: 0.7rem;
+    }
+    .mobile-dropdown-menu .mobile-parent.open .arrow {
+        transform: rotate(180deg);
+    }
+    .mobile-dropdown-menu .mobile-submenu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    .mobile-dropdown-menu .mobile-submenu.open {
+        max-height: 500px;
     }
     
     @media (max-width: 992px) {
@@ -240,7 +269,7 @@
         <!-- Desktop Navigation -->
         <nav class="global-nav-desktop">
             <div class="nav-item">
-                <a href="#" class="nav-link">ACEiT Group</a>
+                <a href="index.html" class="nav-link">ACEiT Group</a>
                 <div class="dropdown-menu">
                     <a href="aceteam-networks/aceteamnetworks.html" class="submenu-indent">Aceteam Networks</a>
                     <a href="aceteam-connect/aceteamconnect.html" class="submenu-indent">Aceteam Connect</a>
@@ -278,16 +307,27 @@
         <nav class="global-nav-mobile">
             <button class="mobile-menu-btn" onclick="this.parentElement.classList.toggle('open')">☰</button>
             <div class="mobile-dropdown-menu">
-                <a href="aceteam-networks/aceteamnetworks.html" class="submenu-indent">Aceteam Networks</a>
-                <a href="aceteam-connect/aceteamconnect.html" class="submenu-indent">Aceteam Connect</a>
-                <a href="aceteam-digital/aceteamdigital.html" class="submenu-indent">Aceteam Digital</a>
+                <div class="mobile-parent" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
+                    <a href="index.html" style="flex: 1; color: inherit; text-decoration: none;" onclick="event.stopPropagation(); window.location.href='index.html'">ACEiT Group</a>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="mobile-submenu">
+                    <a href="aceteam-networks/aceteamnetworks.html" class="submenu-indent">Aceteam Networks</a>
+                    <a href="aceteam-connect/aceteamconnect.html" class="submenu-indent">Aceteam Connect</a>
+                    <a href="aceteam-digital/aceteamdigital.html" class="submenu-indent">Aceteam Digital</a>
+                </div>
                 <div class="divider"></div>
                 <a href="about.html">About Us</a>
-                <a href="partners/ourpartner.html">Our Partners</a>
-                <a href="partners/cybersecurity/cybersecurity.html" class="submenu-indent">Cybersecurity</a>
-                <a href="partners/datacentre/datacentre.html" class="submenu-indent">Data Centre</a>
-                <a href="partners/datanetworking/datanetworking.html" class="submenu-indent">Data Networking</a>
-                <a href="partners/unifiedcommunication/unifiedcommunication.html" class="submenu-indent">Unified Communication</a>
+                <div class="mobile-parent" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
+                    <a href="partners/ourpartner.html" style="flex: 1; color: inherit; text-decoration: none;" onclick="event.stopPropagation(); window.location.href='partners/ourpartner.html'">Our Partners</a>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="mobile-submenu">
+                    <a href="partners/cybersecurity/cybersecurity.html" class="submenu-indent">Cybersecurity</a>
+                    <a href="partners/datacentre/datacentre.html" class="submenu-indent">Data Centre</a>
+                    <a href="partners/datanetworking/datanetworking.html" class="submenu-indent">Data Networking</a>
+                    <a href="partners/unifiedcommunication/unifiedcommunication.html" class="submenu-indent">Unified Communication</a>
+                </div>
                 <div class="divider"></div>
                 <a href="https://boards.briohr.com/aceteamnetworks-2atxdx8xbd" target="_blank" rel="noopener noreferrer">Careers</a>
                 <a href="faq.html">FAQs</a>
