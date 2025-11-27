@@ -207,7 +207,8 @@
             display: flex;
             flex-direction: column;
             height: 100%;
-            justify-content: space-between;
+            min-height: 0;
+            gap: 0.5rem;
         }
         
         .back-logo {
@@ -234,8 +235,12 @@
             font-size: 0.85rem;
             color: rgba(255, 255, 255, 0.85);
             line-height: 1.5;
-            flex-grow: 1;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            max-height: 5.1em;
         }
         
         .back-specialties {
@@ -263,7 +268,7 @@
             background: rgba(255, 255, 255, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.3);
             color: white;
-            padding: 0.65rem 1.2rem;
+            padding: 0.6rem 1rem;
             text-decoration: none;
             border-radius: 6px;
             font-weight: 600;
@@ -271,6 +276,8 @@
             text-align: center;
             transition: all 0.3s ease;
             align-self: flex-start;
+            margin-top: auto;
+            flex-shrink: 0;
         }
         
         .back-button:hover {
