@@ -9,6 +9,10 @@
     <meta name="keywords" content="digital workplace, unified communications, collaboration solutions, visitor management, AI software, display solutions, ACEteam Digital">
     <link rel="canonical" href="https://aceitgroup.com/aceteam-digital/aceteamdigital.html">
     <link rel="stylesheet" href="globaldesign.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    
     <style>
         /* Custom Transparent Header */
         .aceteam-header {
@@ -381,124 +385,6 @@
             }
         }
     </style>
-    <script>
-        window.toggleMobileMenu = function() {
-            const nav = document.querySelector('.aceteam-nav-mobile');
-            const overlay = document.querySelector('.mobile-menu-overlay');
-            if (nav && overlay) {
-                nav.classList.toggle('open');
-                overlay.classList.toggle('active');
-            }
-        };
-
-        window.closeMobileMenu = function() {
-            const nav = document.querySelector('.aceteam-nav-mobile');
-            const overlay = document.querySelector('.mobile-menu-overlay');
-            if (nav && overlay) {
-                nav.classList.remove('open');
-                overlay.classList.remove('active');
-                document.querySelectorAll('.mobile-parent.open').forEach(parent => parent.classList.remove('open'));
-                document.querySelectorAll('.mobile-submenu.open').forEach(submenu => submenu.classList.remove('open'));
-            }
-        };
-    </script>
-</head>
-<body>
-    <!-- Custom AceTeam Header -->
-    <header class="aceteam-header">
-        <div class="aceteam-header-container">
-            <a href="../index.html" class="aceteam-brand">
-                <img loading="lazy" src="../assets/ACEIT GAMBAR/cropped-LOGO-ACEIT-A.png" alt="ACEiT Logo">
-            </a>
-            
-            <!-- Desktop Navigation -->
-            <nav class="aceteam-nav-desktop">
-                <div class="nav-item">
-                    <a href="../index.html" class="nav-link">ACEiT Group</a>
-                    <div class="dropdown-menu">
-                        <a href="../aceteam-networks/aceteamnetworks.html" class="submenu-indent">Aceteam Networks</a>
-                        <a href="../aceteam-connect/aceteamconnect.html" class="submenu-indent">Aceteam Connect</a>
-                        <a href="../aceteam-digital/aceteamdigital.html" class="submenu-indent">Aceteam Digital</a>
-                    </div>
-                </div>
-                <div class="nav-item">
-                    <a href="../about.html" class="nav-link">About Us</a>
-                </div>
-                <div class="nav-item">
-                    <a href="../partners/ourpartner.html" class="nav-link">Our Partners</a>
-                    <div class="dropdown-menu">
-                        <a href="../partners/ourpartner.html">All Partners</a>
-                        <div class="divider"></div>
-                        <a href="../partners/cybersecurity/cybersecurity.html" class="submenu-indent">Cybersecurity</a>
-                        <a href="../partners/datacentre/datacentre.html" class="submenu-indent">Data Centre</a>
-                        <a href="../partners/datanetworking/datanetworking.html" class="submenu-indent">Data Networking</a>
-                        <a href="../partners/unifiedcommunication/unifiedcommunication.html" class="submenu-indent">Unified Communication</a>
-                    </div>
-                </div>
-                <div class="nav-item">
-                    <a href="https://boards.briohr.com/aceteamnetworks-2atxdx8xbd" target="_blank" rel="noopener noreferrer" class="nav-link">Careers</a>
-                </div>
-                <div class="nav-item">
-                    <a href="../faq.html" class="nav-link">FAQs</a>
-                </div>
-                <div class="nav-item">
-                    <a href="../blogs.html" class="nav-link">Blogs</a>
-                </div>
-            </nav>
-            
-            <a href="../contact.html" class="inquiry-btn">Inquiry</a>
-            
-            <!-- Mobile Navigation -->
-            <nav class="aceteam-nav-mobile">
-                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                    <span class="menu-icon">☰</span>
-                    <span class="close-icon">✕</span>
-                </button>
-                <div class="mobile-dropdown-menu">
-                    <div class="mobile-parent">
-                        <a href="../index.html" style="flex: 1; color: inherit; text-decoration: none;">ACEiT Group</a>
-                        <span class="arrow" onclick="event.stopPropagation(); this.parentElement.classList.toggle('open'); this.parentElement.nextElementSibling.classList.toggle('open')">▼</span>
-                    </div>
-                    <div class="mobile-submenu">
-                        <a href="../aceteam-networks/aceteamnetworks.html" class="submenu-indent">Aceteam Networks</a>
-                        <a href="../aceteam-connect/aceteamconnect.html" class="submenu-indent">Aceteam Connect</a>
-                        <a href="../aceteam-digital/aceteamdigital.html" class="submenu-indent">Aceteam Digital</a>
-                    </div>
-                    <div class="divider"></div>
-                    <a href="../about.html">About Us</a>
-                    <div class="mobile-parent">
-                        <a href="../partners/ourpartner.html" style="flex: 1; color: inherit; text-decoration: none;">Our Partners</a>
-                        <span class="arrow" onclick="event.stopPropagation(); this.parentElement.classList.toggle('open'); this.parentElement.nextElementSibling.classList.toggle('open')">▼</span>
-                    </div>
-                    <div class="mobile-submenu">
-                        <a href="../partners/cybersecurity/cybersecurity.html" class="submenu-indent">Cybersecurity</a>
-                        <a href="../partners/datacentre/datacentre.html" class="submenu-indent">Data Centre</a>
-                        <a href="../partners/datanetworking/datanetworking.html" class="submenu-indent">Data Networking</a>
-                        <a href="../partners/unifiedcommunication/unifiedcommunication.html" class="submenu-indent">Unified Communication</a>
-                    </div>
-                    <div class="divider"></div>
-                    <a href="https://boards.briohr.com/aceteamnetworks-2atxdx8xbd" target="_blank" rel="noopener noreferrer">Careers</a>
-                    <a href="../faq.html">FAQs</a>
-                    <a href="../blogs.html">Blogs</a>
-                    <a href="../contact.html">Contact Us</a>
-                </div>
-            </nav>
-            
-            <div class="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
-        </div>
-    </header>
-    
-    <script>
-        // Add scroll effect for header background
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.aceteam-header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    </script>
 
     <main>
         <!-- Hero Section -->
